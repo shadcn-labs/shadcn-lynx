@@ -1,0 +1,13 @@
+{
+  "name": "@shadcn-lynx/registry",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node dev-server.mjs"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0"
+  }
+}

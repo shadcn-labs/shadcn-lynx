@@ -1,0 +1,31 @@
+{
+  "name": "shadcn-lynx",
+  "version": "0.0.1",
+  "description": "Add shadcn/ui components to your Lynx app.",
+  "license": "MIT",
+  "author": {
+    "name": "shadcn-lynx"
+  },
+  "type": "module",
+  "bin": "./dist/index.js",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "start:dev": "REGISTRY_URL=http://localhost:3000 node dist/index.js"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "tailwind-merge": "^2.5.4",
+    "clsx": "^2.1.1",
+    "class-variance-authority": "^0.7.1"
+  },
+  "peerDependencies": {
+    "@lynx-js/react": ">=0.100.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  }
+}

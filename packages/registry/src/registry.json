@@ -1,0 +1,175 @@
+{
+  "$schema": "https://shadcn-lynx.vercel.app/schema.json",
+  "name": "shadcn-lynx",
+  "homepage": "https://shadcn-lynx.vercel.app",
+  "aliases": {
+    "ui": "@/components/ui",
+    "lib": "@/lib",
+    "components": "@/components",
+    "utils": "@/lib/utils"
+  },
+  "items": [
+    {
+      "name": "types",
+      "type": "registry:lib",
+      "title": "Types",
+      "description": "Shared type definitions for shadcn-lynx components.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [{ "path": "types.ts", "type": "registry:lib" }]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Displays a button or a component that looks like a button.",
+      "dependencies": ["class-variance-authority", "clsx", "tailwind-merge", "@lynx-js/lynx-ui"],
+      "registryDependencies": ["types"],
+      "files": [{ "path": "button.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Displays a form input field or a component that looks like an input field.",
+      "dependencies": ["clsx", "tailwind-merge", "@lynx-js/lynx-ui"],
+      "registryDependencies": ["types"],
+      "files": [{ "path": "input.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Displays a card with header, content, and footer.",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "registryDependencies": ["types"],
+      "files": [{ "path": "card.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Displays a badge or a component that looks like a badge.",
+      "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+      "registryDependencies": ["types"],
+      "files": [{ "path": "badge.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "Renders an accessible label associated with controls.",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "registryDependencies": ["types"],
+      "files": [{ "path": "label.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "Visually or semantically separates content.",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "registryDependencies": ["types"],
+      "files": [{ "path": "separator.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Use to show a placeholder while content is loading.",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "registryDependencies": ["types"],
+      "files": [{ "path": "skeleton.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "Displays a callout for user attention.",
+      "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+      "registryDependencies": ["types"],
+      "files": [{ "path": "alert.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "An image element with a fallback for representing the user.",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "registryDependencies": ["types"],
+      "files": [{ "path": "avatar.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "A control that allows the user to toggle between checked and not checked.",
+      "dependencies": ["clsx", "tailwind-merge", "@lynx-js/lynx-ui"],
+      "registryDependencies": ["types"],
+      "files": [{ "path": "switch.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "A control that allows the user to toggle between checked and not checked.",
+      "dependencies": ["clsx", "tailwind-merge", "@lynx-js/lynx-ui"],
+      "registryDependencies": ["types"],
+      "files": [{ "path": "checkbox.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "A window overlaid on either the primary window or another dialog window.",
+      "dependencies": ["clsx", "tailwind-merge", "@lynx-js/lynx-ui"],
+      "registryDependencies": ["types"],
+      "files": [{ "path": "dialog.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "An input where the user selects a value from within a given range.",
+      "dependencies": ["clsx", "tailwind-merge", "@lynx-js/lynx-ui"],
+      "registryDependencies": ["types"],
+      "files": [{ "path": "slider.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "Extends the Dialog component to display content in a panel that slides in from the edge.",
+      "dependencies": ["clsx", "tailwind-merge", "@lynx-js/lynx-ui"],
+      "registryDependencies": ["types"],
+      "files": [{ "path": "sheet.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Displays rich content in a portal, triggered by a button click.",
+      "dependencies": ["clsx", "tailwind-merge", "@lynx-js/lynx-ui"],
+      "registryDependencies": ["types"],
+      "files": [{ "path": "popover.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "A set of checkable buttons (radio buttons) where only one can be checked at a time.",
+      "dependencies": ["clsx", "tailwind-merge", "@lynx-js/lynx-ui"],
+      "registryDependencies": ["types"],
+      "files": [{ "path": "radio-group.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "form",
+      "type": "registry:ui",
+      "title": "Form",
+      "description": "Build accessible and validated forms with ease.",
+      "dependencies": ["clsx", "tailwind-merge", "@lynx-js/lynx-ui"],
+      "registryDependencies": ["types", "label"],
+      "files": [{ "path": "form.tsx", "type": "registry:ui" }]
+    }
+  ]
+}
