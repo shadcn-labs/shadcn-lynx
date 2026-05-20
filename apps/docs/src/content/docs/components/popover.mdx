@@ -1,0 +1,119 @@
+---
+title: Popover
+description: Displays rich content in a portal, triggered by a button.
+---
+
+# Popover
+
+Displays rich content in a portal, triggered by a button.
+
+## Installation
+
+```bash
+npx shadcn-lynx add popover
+```
+
+## Usage
+
+```typescript
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover'
+
+export function App() {
+  return (
+    <Popover>
+      <PopoverTrigger>
+        <Button>Open Popover</Button>
+      </PopoverTrigger>
+      <PopoverContent>
+        <text>Popover content goes here</text>
+      </PopoverContent>
+    </Popover>
+  )
+}
+```
+
+import { useState } from 'react'
+import { ComponentPreview } from '@/components/component-preview'
+import { PopoverPreview } from '@/components/previews/popover-preview'
+import { ButtonPreview } from '@/components/previews/button-preview'
+
+## Examples
+
+### Default
+
+<ComponentPreview
+  component={() => {
+    const [open, setOpen] = useState(false)
+    return (
+      <view className="relative">
+        <ButtonPreview variant="outline" onClick={() => setOpen(!open)}>
+          Open Popover
+        </ButtonPreview>
+        <PopoverPreview open={open} onOpenChange={setOpen} />
+      </view>
+    )
+  }}
+  code={`<Popover>
+  <PopoverTrigger>
+    <Button>Open Popover</Button>
+  </PopoverTrigger>
+  <PopoverContent>
+    <text>Popover content</text>
+  </PopoverContent>
+</Popover>`}
+/>
+
+### Settings Menu
+
+<ComponentPreview
+  component={() => {
+    const [open, setOpen] = useState(false)
+    return (
+      <view className="relative">
+        <ButtonPreview variant="ghost" onClick={() => setOpen(!open)}>Settings</ButtonPreview>
+        <PopoverPreview open={open} onOpenChange={setOpen} />
+      </view>
+    )
+  }}
+  code={`<Popover>
+  <PopoverTrigger>
+    <Button variant="ghost">Settings</Button>
+  </PopoverTrigger>
+  <PopoverContent>
+    <text>Display</text>
+    <text>Appearance</text>
+    <text>Notifications</text>
+  </PopoverContent>
+</Popover>`}
+/>
+
+## API Reference
+
+### Popover Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| open | `boolean` | - | The controlled open state |
+| defaultOpen | `boolean` | `false` | The default open state |
+| onOpenChange | `(open: boolean) => void` | - | Event handler for open changes |
+| ...props | `PopoverProps` | - | Native popover props from @lynx-js/lynx-ui |
+
+### PopoverTrigger Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| asChild | `boolean` | `false` | Render as child component |
+| ...props | `ViewProps` | - | Native view props |
+
+### PopoverContent Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| align | `start` \| `center` \| `end` | `center` | The alignment of the popover |
+| side | `top` \| `right` \| `bottom` \| `left` | `bottom` | The side to display on |
+| className | `string` | - | Additional CSS classes |
+| ...props | `ViewProps` | - | Native view props |

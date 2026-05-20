@@ -1,0 +1,113 @@
+---
+title: Slider
+description: An input where the user selects a value from within a given range.
+---
+
+# Slider
+
+An input where the user selects a value from within a given range.
+
+## Installation
+
+```bash
+npx shadcn-lynx add slider
+```
+
+## Usage
+
+```typescript
+import { Slider } from '@/components/ui/slider'
+
+export function App() {
+  const [value, setValue] = useState([50])
+  
+  return (
+    <view>
+      <Slider
+        value={value}
+        onValueChange={setValue}
+        max={100}
+        step={1}
+      />
+    </view>
+  )
+}
+```
+
+import { useState } from 'react'
+import { ComponentPreview } from '@/components/component-preview'
+import { SliderPreview } from '@/components/previews/slider-preview'
+import { LabelPreview } from '@/components/previews/label-preview'
+
+## Examples
+
+### Default
+
+<ComponentPreview
+  component={() => {
+    const [value, setValue] = useState([50])
+    return (
+      <view className="flex flex-col gap-4 w-full max-w-sm">
+        <SliderPreview value={value} onValueChange={setValue} />
+        <p className="text-sm text-muted-foreground text-center">{value[0]}%</p>
+      </view>
+    )
+  }}
+  code={`<Slider value={[50]} max={100} step={1} />`}
+/>
+
+### Volume Control
+
+<ComponentPreview
+  component={() => {
+    const [value, setValue] = useState([75])
+    return (
+      <view className="flex flex-col gap-4 w-full max-w-sm">
+        <view className="flex items-center justify-between">
+          <LabelPreview>Volume</LabelPreview>
+          <span className="text-sm text-muted-foreground">{value[0]}%</span>
+        </view>
+        <SliderPreview value={value} onValueChange={setValue} />
+      </view>
+    )
+  }}
+  code={`<view>
+  <Label>Volume</Label>
+  <Slider value={[volume]} onValueChange={setVolume} />
+  <text>{volume}%</text>
+</view>`}
+/>
+
+### Price Range
+
+<ComponentPreview
+  component={() => {
+    const [value, setValue] = useState([250])
+    return (
+      <view className="flex flex-col gap-4 w-full max-w-sm">
+        <view className="flex items-center justify-between">
+          <LabelPreview>Price</LabelPreview>
+          <span className="text-sm font-medium">${value[0]}</span>
+        </view>
+        <SliderPreview value={value} onValueChange={setValue} min={0} max={1000} step={10} />
+      </view>
+    )
+  }}
+  code={`<Slider value={[price]} min={0} max={1000} step={10} />`}
+/>
+
+## API Reference
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| value | `number[]` | - | The controlled value |
+| defaultValue | `number[]` | - | The default value |
+| min | `number` | `0` | The minimum value |
+| max | `number` | `100` | The maximum value |
+| step | `number` | `1` | The step interval |
+| disabled | `boolean` | `false` | Whether the slider is disabled |
+| onValueChange | `(value: number[]) => void` | - | Event handler for value changes |
+| className | `string` | - | Additional CSS classes |
+| ...props | `SliderProps` | - | Native slider props from @lynx-js/lynx-ui |

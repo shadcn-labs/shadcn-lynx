@@ -1,0 +1,103 @@
+---
+title: Skeleton
+description: Use to show a placeholder while content is loading.
+---
+
+# Skeleton
+
+Use to show a placeholder while content is loading.
+
+## Installation
+
+```bash
+npx shadcn-lynx add skeleton
+```
+
+## Usage
+
+```typescript
+import { Skeleton } from '@/components/ui/skeleton'
+
+export function App() {
+  return (
+    <view>
+      <Skeleton style={{ height: 20, width: 200 }} />
+    </view>
+  )
+}
+```
+
+import { ComponentPreview } from '@/components/component-preview'
+import { SkeletonPreview } from '@/components/previews/skeleton-preview'
+
+## Examples
+
+### Default
+
+<ComponentPreview
+  component={() => <SkeletonPreview className="h-5 w-[200px]" />}
+  code={`<Skeleton className="h-5 w-[200px]" />`}
+/>
+
+### Card Loading
+
+<ComponentPreview
+  component={() => (
+    <view className="flex flex-col gap-4 w-full max-w-sm">
+      <view className="flex items-center gap-4">
+        <SkeletonPreview className="h-12 w-12 rounded-full" />
+        <view className="flex flex-col gap-2">
+          <SkeletonPreview className="h-4 w-[150px]" />
+          <SkeletonPreview className="h-4 w-[100px]" />
+        </view>
+      </view>
+      <SkeletonPreview className="h-20 w-full" />
+    </view>
+  )}
+  code={`<Card>
+  <CardHeader>
+    <Skeleton className="h-12 w-12 rounded-full" />
+    <Skeleton className="h-4 w-[150px]" />
+    <Skeleton className="h-4 w-[100px]" />
+  </CardHeader>
+  <CardContent>
+    <Skeleton className="h-20 w-full" />
+  </CardContent>
+</Card>`}
+/>
+
+### List Loading
+
+<ComponentPreview
+  component={() => (
+    <view className="flex flex-col gap-4 w-full max-w-sm">
+      {[1, 2, 3].map((i) => (
+        <view key={i} className="flex items-center gap-4">
+          <SkeletonPreview className="h-12 w-12 rounded-full" />
+          <view className="flex flex-col gap-2 flex-1">
+            <SkeletonPreview className="h-4 w-[60%]" />
+            <SkeletonPreview className="h-4 w-[40%]" />
+          </view>
+        </view>
+      ))}
+    </view>
+  )}
+  code={`{[1, 2, 3].map((i) => (
+  <view key={i} className="flex items-center gap-4">
+    <Skeleton className="h-12 w-12 rounded-full" />
+    <view className="flex flex-col gap-2">
+      <Skeleton className="h-4 w-[60%]" />
+      <Skeleton className="h-4 w-[40%]" />
+    </view>
+  </view>
+))}`}
+/>
+
+## API Reference
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | `string` | - | Additional CSS classes |
+| ...props | `ViewProps` | - | Native view props |

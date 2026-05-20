@@ -1,0 +1,211 @@
+---
+title: Form
+description: Building forms with built-in validation and error handling.
+---
+
+# Form
+
+Building forms with built-in validation and error handling.
+
+## Installation
+
+```bash
+npx shadcn-lynx add form
+```
+
+## Usage
+
+```typescript
+import {
+  Form,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormDescription,
+  FormMessage,
+} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
+
+export function App() {
+  const form = useForm({
+    defaultValues: {
+      email: '',
+    },
+  })
+
+  function onSubmit(data) {
+    console.log(data)
+  }
+
+  return (
+    <Form form={form} onSubmit={onSubmit}>
+      <FormField
+        control={form.control}
+        name="email"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Email</FormLabel>
+            <FormControl>
+              <Input placeholder="Enter your email" {...field} />
+            </FormControl>
+            <FormDescription>
+              We'll never share your email.
+            </FormDescription>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+      <Button type="submit">Submit</Button>
+    </Form>
+  )
+}
+```
+
+import { useState } from 'react'
+import { ComponentPreview } from '@/components/component-preview'
+import { FormPreview } from '@/components/previews/form-preview'
+
+## Examples
+
+### Simple Form
+
+<ComponentPreview
+  component={() => {
+    const [submitted, setSubmitted] = useState(false)
+    return (
+      <view className="flex flex-col gap-4">
+        <FormPreview
+          onSubmit={(data) => {
+            console.log(data)
+            setSubmitted(true)
+            setTimeout(() => setSubmitted(false), 2000)
+          }}
+        />
+        {submitted && (
+          <p className="text-sm text-green-600 dark:text-green-400">Form submitted!</p>
+        )}
+      </view>
+    )
+  }}
+  code={`<Form form={form} onSubmit={onSubmit}>
+  <FormField
+    control={form.control}
+    name="email"
+    render={({ field }) => (
+      <FormItem>
+        <FormLabel>Email</FormLabel>
+        <FormControl>
+          <Input placeholder="Enter your email" {...field} />
+        </FormControl>
+        <FormMessage />
+      </FormItem>
+    )}
+  />
+  <Button type="submit">Submit</Button>
+</Form>`}
+/>
+
+### Login Form
+
+<ComponentPreview
+  component={() => {
+    const [submitted, setSubmitted] = useState(false)
+    return (
+      <view className="flex flex-col gap-4">
+        <FormPreview
+          onSubmit={(data) => {
+            console.log('Login:', data)
+            setSubmitted(true)
+            setTimeout(() => setSubmitted(false), 2000)
+          }}
+        />
+        {submitted && (
+          <p className="text-sm text-green-600 dark:text-green-400">Login submitted!</p>
+        )}
+      </view>
+    )
+  }}
+  code={`<Form form={form} onSubmit={onSubmit}>
+  <FormField
+    control={form.control}
+    name="email"
+    render={({ field }) => (
+      <FormItem>
+        <FormLabel>Email</FormLabel>
+        <FormControl>
+          <Input type="email" placeholder="email@example.com" {...field} />
+        </FormControl>
+        <FormMessage />
+      </FormItem>
+    )}
+  />
+  <FormField
+    control={form.control}
+    name="password"
+    render={({ field }) => (
+      <FormItem>
+        <FormLabel>Password</FormLabel>
+        <FormControl>
+          <Input type="password" {...field} />
+        </FormControl>
+        <FormMessage />
+      </FormItem>
+    )}
+  />
+  <Button type="submit">Login</Button>
+</Form>`}
+/>
+
+## API Reference
+
+### Form Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| form | `FormInstance` | - | The form instance |
+| onSubmit | `(data: any) => void` | - | Submit handler |
+| ...props | `ViewProps` | - | Native view props |
+
+### FormField Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| control | `Control` | - | The form control |
+| name | `string` | - | The field name |
+| render | `RenderFunction` | - | Render function |
+
+### FormItem Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | `string` | - | Additional CSS classes |
+| ...props | `ViewProps` | - | Native view props |
+
+### FormLabel Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | `string` | - | Additional CSS classes |
+| ...props | `TextProps` | - | Native text props |
+
+### FormControl Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| ...props | `ViewProps` | - | Native view props |
+
+### FormDescription Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | `string` | - | Additional CSS classes |
+| ...props | `TextProps` | - | Native text props |
+
+### FormMessage Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | `string` | - | Additional CSS classes |
+| ...props | `TextProps` | - | Native text props |

@@ -1,0 +1,155 @@
+---
+title: Sheet
+description: Extends the Dialog component to display content that complements the main content of the view.
+---
+
+# Sheet
+
+Extends the Dialog component to display content that complements the main content of the view.
+
+## Installation
+
+```bash
+npx shadcn-lynx add sheet
+```
+
+## Usage
+
+```typescript
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet'
+
+export function App() {
+  return (
+    <Sheet>
+      <SheetTrigger>
+        <Button>Open Sheet</Button>
+      </SheetTrigger>
+      <SheetContent side="right">
+        <SheetHeader>
+          <SheetTitle>Edit profile</SheetTitle>
+          <SheetDescription>
+            Make changes to your profile here.
+          </SheetDescription>
+        </SheetHeader>
+        <view>
+          <text>Sheet content</text>
+        </view>
+      </SheetContent>
+    </Sheet>
+  )
+}
+```
+
+import { useState } from 'react'
+import { ComponentPreview } from '@/components/component-preview'
+import { SheetPreview } from '@/components/previews/sheet-preview'
+import { ButtonPreview } from '@/components/previews/button-preview'
+
+## Examples
+
+### Default (Right Side)
+
+<ComponentPreview
+  component={() => {
+    const [open, setOpen] = useState(false)
+    return (
+      <view className="flex flex-col gap-4">
+        <ButtonPreview onClick={() => setOpen(true)}>Open Sheet</ButtonPreview>
+        <SheetPreview open={open} onOpenChange={setOpen} side="right" />
+      </view>
+    )
+  }}
+  code={`<Sheet>
+  <SheetTrigger>
+    <Button>Open Sheet</Button>
+  </SheetTrigger>
+  <SheetContent side="right">
+    <SheetHeader>
+      <SheetTitle>Sheet Title</SheetTitle>
+      <SheetDescription>Description</SheetDescription>
+    </SheetHeader>
+    <text>Content</text>
+  </SheetContent>
+</Sheet>`}
+/>
+
+### Left Side
+
+<ComponentPreview
+  component={() => {
+    const [open, setOpen] = useState(false)
+    return (
+      <view className="flex flex-col gap-4">
+        <ButtonPreview variant="outline" onClick={() => setOpen(true)}>Menu</ButtonPreview>
+        <SheetPreview open={open} onOpenChange={setOpen} side="left" />
+      </view>
+    )
+  }}
+  code={`<SheetContent side="left">
+  <text>Navigation menu</text>
+</SheetContent>`}
+/>
+
+### Bottom Sheet
+
+<ComponentPreview
+  component={() => {
+    const [open, setOpen] = useState(false)
+    return (
+      <view className="flex flex-col gap-4">
+        <ButtonPreview onClick={() => setOpen(true)}>Open Bottom Sheet</ButtonPreview>
+        <SheetPreview open={open} onOpenChange={setOpen} side="bottom" />
+      </view>
+    )
+  }}
+  code={`<SheetContent side="bottom">
+  <text>Bottom sheet content</text>
+</SheetContent>`}
+/>
+
+## API Reference
+
+### Sheet Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| open | `boolean` | - | The controlled open state |
+| defaultOpen | `boolean` | `false` | The default open state |
+| onOpenChange | `(open: boolean) => void` | - | Event handler for open changes |
+| ...props | `SheetProps` | - | Native sheet props from @lynx-js/lynx-ui |
+
+### SheetContent Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| side | `top` \| `right` \| `bottom` \| `left` | `right` | The side to display from |
+| className | `string` | - | Additional CSS classes |
+| ...props | `ViewProps` | - | Native view props |
+
+### SheetHeader Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | `string` | - | Additional CSS classes |
+| ...props | `ViewProps` | - | Native view props |
+
+### SheetTitle Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | `string` | - | Additional CSS classes |
+| ...props | `TextProps` | - | Native text props |
+
+### SheetDescription Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | `string` | - | Additional CSS classes |
+| ...props | `TextProps` | - | Native text props |

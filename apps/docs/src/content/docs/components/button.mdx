@@ -1,0 +1,130 @@
+---
+title: Button
+description: Displays a button or a component that looks like a button.
+---
+
+# Button
+
+Displays a button or a component that looks like a button.
+
+## Installation
+
+```bash
+npx shadcn-lynx add button
+```
+
+## Usage
+
+```typescript
+import { Button } from '@/components/ui/button'
+
+export function App() {
+  return (
+    <view>
+      <Button>Click me</Button>
+    </view>
+  )
+}
+```
+
+import { ComponentPreview } from '@/components/component-preview'
+import { ButtonPreview } from '@/components/previews/button-preview'
+
+## Examples
+
+### Default
+
+<ComponentPreview
+  component={() => <ButtonPreview>Button</ButtonPreview>}
+  code={`<Button>Button</Button>`}
+/>
+
+### Variants
+
+<ComponentPreview
+  component={() => (
+    <view className="flex flex-wrap gap-4">
+      <ButtonPreview variant="default">Default</ButtonPreview>
+      <ButtonPreview variant="destructive">Destructive</ButtonPreview>
+      <ButtonPreview variant="outline">Outline</ButtonPreview>
+      <ButtonPreview variant="secondary">Secondary</ButtonPreview>
+      <ButtonPreview variant="ghost">Ghost</ButtonPreview>
+      <ButtonPreview variant="link">Link</ButtonPreview>
+    </view>
+  )}
+  code={`<Button variant="default">Default</Button>
+<Button variant="destructive">Destructive</Button>
+<Button variant="outline">Outline</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="ghost">Ghost</Button>
+<Button variant="link">Link</Button>`}
+/>
+
+### Sizes
+
+<ComponentPreview
+  component={() => (
+    <view className="flex items-center gap-4">
+      <ButtonPreview size="sm">Small</ButtonPreview>
+      <ButtonPreview size="default">Default</ButtonPreview>
+      <ButtonPreview size="lg">Large</ButtonPreview>
+    </view>
+  )}
+  code={`<Button size="sm">Small</Button>
+<Button size="default">Default</Button>
+<Button size="lg">Large</Button>`}
+/>
+
+### Disabled
+
+<ComponentPreview
+  component={() => (
+    <view className="flex gap-4">
+      <ButtonPreview disabled>Default</ButtonPreview>
+      <ButtonPreview variant="outline" disabled>Outline</ButtonPreview>
+    </view>
+  )}
+  code={`<Button disabled>Default</Button>
+<Button variant="outline" disabled>Outline</Button>`}
+/>
+
+### Icon Button
+
+<ComponentPreview
+  component={() => (
+    <ButtonPreview size="icon" aria-label="Settings">
+      ⚙️
+    </ButtonPreview>
+  )}
+  code={`<Button size="icon">
+  <Settings />
+</Button>`}
+/>
+
+### With Icon
+
+<ComponentPreview
+  component={() => (
+    <ButtonPreview>
+      <span style={{ marginRight: 8 }}>➕</span>
+      Add Item
+    </ButtonPreview>
+  )}
+  code={`<Button>
+  <Plus />
+  Add Item
+</Button>`}
+/>
+
+## API Reference
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| variant | `default` \| `destructive` \| `outline` \| `secondary` \| `ghost` \| `link` | `default` | The visual variant |
+| size | `default` \| `sm` \| `lg` \| `icon` | `default` | The size variant |
+| disabled | `boolean` | `false` | Whether the button is disabled |
+| className | `string` | - | Additional CSS classes |
+| onClick | `() => void` | - | Click handler |
+| ...props | `ButtonProps` | - | Native button props from @lynx-js/lynx-ui |

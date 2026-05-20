@@ -1,0 +1,98 @@
+---
+title: Input
+description: Displays a form input field or a component that looks like an input field.
+---
+
+# Input
+
+Displays a form input field or a component that looks like an input field.
+
+## Installation
+
+```bash
+npx shadcn-lynx add input
+```
+
+## Usage
+
+```typescript
+import { Input } from '@/components/ui/input'
+
+export function App() {
+  return (
+    <view>
+      <Input placeholder="Enter text..." />
+    </view>
+  )
+}
+```
+
+import { ComponentPreview } from '@/components/component-preview'
+import { InputPreview } from '@/components/previews/input-preview'
+import { LabelPreview } from '@/components/previews/label-preview'
+
+## Examples
+
+### Default
+
+<ComponentPreview
+  component={() => <InputPreview placeholder="Enter your email" />}
+  code={`<Input placeholder="Enter your email" />`}
+/>
+
+### Disabled
+
+<ComponentPreview
+  component={() => <InputPreview placeholder="Disabled input" disabled />}
+  code={`<Input placeholder="Disabled input" disabled />`}
+/>
+
+### With Label
+
+<ComponentPreview
+  component={() => (
+    <view className="flex flex-col gap-2 w-full max-w-sm">
+      <LabelPreview htmlFor="email">Email</LabelPreview>
+      <InputPreview id="email" type="email" placeholder="Enter your email" />
+    </view>
+  )}
+  code={`<Label htmlFor="email">Email</Label>
+<Input id="email" type="email" placeholder="Enter your email" />`}
+/>
+
+### With Form
+
+<ComponentPreview
+  component={() => (
+    <view className="flex flex-col gap-4 w-full max-w-sm">
+      <view className="flex flex-col gap-2">
+        <LabelPreview htmlFor="name">Name</LabelPreview>
+        <InputPreview id="name" placeholder="John Doe" />
+      </view>
+      <view className="flex flex-col gap-2">
+        <LabelPreview htmlFor="email">Email</LabelPreview>
+        <InputPreview id="email" type="email" placeholder="john@example.com" />
+      </view>
+    </view>
+  )}
+  code={`<Label htmlFor="name">Name</Label>
+<Input id="name" placeholder="John Doe" />
+
+<Label htmlFor="email">Email</Label>
+<Input id="email" type="email" placeholder="john@example.com" />`}
+/>
+
+## API Reference
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| type | `text` \| `password` \| `email` \| `number` \| `tel` | `text` | Input type |
+| placeholder | `string` | - | Placeholder text |
+| disabled | `boolean` | `false` | Whether the input is disabled |
+| value | `string` | - | Controlled value |
+| defaultValue | `string` | - | Default value |
+| onChange | `(value: string) => void` | - | Change handler |
+| className | `string` | - | Additional CSS classes |
+| ...props | `InputProps` | - | Native input props from @lynx-js/lynx-ui |

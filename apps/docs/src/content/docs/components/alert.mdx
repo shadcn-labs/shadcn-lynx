@@ -1,0 +1,136 @@
+---
+title: Alert
+description: Displays a callout for user attention.
+---
+
+# Alert
+
+Displays a callout for user attention.
+
+## Installation
+
+```bash
+npx shadcn-lynx add alert
+```
+
+## Usage
+
+```typescript
+import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert'
+
+export function App() {
+  return (
+    <Alert>
+      <AlertTitle>Heads up!</AlertTitle>
+      <AlertDescription>
+        You can add components to your project using the CLI.
+      </AlertDescription>
+    </Alert>
+  )
+}
+```
+
+import { ComponentPreview } from '@/components/component-preview'
+import { AlertPreview, AlertTitlePreview, AlertDescriptionPreview } from '@/components/previews/alert-preview'
+
+## Examples
+
+### Default
+
+<ComponentPreview
+  component={() => (
+    <AlertPreview>
+      <AlertTitlePreview>Note</AlertTitlePreview>
+      <AlertDescriptionPreview>
+        You can add components to your project using the CLI.
+      </AlertDescriptionPreview>
+    </AlertPreview>
+  )}
+  code={`<Alert>
+  <AlertTitle>Note</AlertTitle>
+  <AlertDescription>
+    You can add components to your project using the CLI.
+  </AlertDescription>
+</Alert>`}
+/>
+
+### Destructive
+
+<ComponentPreview
+  component={() => (
+    <AlertPreview variant="destructive">
+      <AlertTitlePreview>Error</AlertTitlePreview>
+      <AlertDescriptionPreview>
+        Your session has expired. Please log in again.
+      </AlertDescriptionPreview>
+    </AlertPreview>
+  )}
+  code={`<Alert variant="destructive">
+  <AlertTitle>Error</AlertTitle>
+  <AlertDescription>
+    Your session has expired. Please log in again.
+  </AlertDescription>
+</Alert>`}
+/>
+
+### Success
+
+<ComponentPreview
+  component={() => (
+    <AlertPreview>
+      <AlertTitlePreview>Success!</AlertTitlePreview>
+      <AlertDescriptionPreview>
+        Your changes have been saved successfully.
+      </AlertDescriptionPreview>
+    </AlertPreview>
+  )}
+  code={`<Alert>
+  <AlertTitle>Success!</AlertTitle>
+  <AlertDescription>
+    Your changes have been saved successfully.
+  </AlertDescription>
+</Alert>`}
+/>
+
+### Warning
+
+<ComponentPreview
+  component={() => (
+    <AlertPreview>
+      <AlertTitlePreview>Warning</AlertTitlePreview>
+      <AlertDescriptionPreview>
+        Please review your information before continuing.
+      </AlertDescriptionPreview>
+    </AlertPreview>
+  )}
+  code={`<Alert>
+  <AlertTitle>Warning</AlertTitle>
+  <AlertDescription>
+    Please review your information before continuing.
+  </AlertDescription>
+</Alert>`}
+/>
+
+## API Reference
+
+### Alert Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| variant | `default` \| `destructive` | `default` | The visual variant |
+| className | `string` | - | Additional CSS classes |
+| ...props | `ViewProps` | - | Native view props |
+
+### AlertTitle Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | `string` | - | Additional CSS classes |
+| ...props | `TextProps` | - | Native text props |
+
+### AlertDescription Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | `string` | - | Additional CSS classes |
+| ...props | `TextProps` | - | Native text props |

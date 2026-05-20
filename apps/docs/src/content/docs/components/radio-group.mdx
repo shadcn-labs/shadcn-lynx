@@ -1,0 +1,149 @@
+---
+title: Radio Group
+description: A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.
+---
+
+# Radio Group
+
+A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.
+
+## Installation
+
+```bash
+npx shadcn-lynx add radio-group
+```
+
+## Usage
+
+```typescript
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import { Label } from '@/components/ui/label'
+
+export function App() {
+  const [value, setValue] = useState('option1')
+  
+  return (
+    <RadioGroup value={value} onValueChange={setValue}>
+      <view style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+        <RadioGroupItem value="option1" id="option1" />
+        <Label htmlFor="option1">Option 1</Label>
+      </view>
+      <view style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+        <RadioGroupItem value="option2" id="option2" />
+        <Label htmlFor="option2">Option 2</Label>
+      </view>
+    </RadioGroup>
+  )
+}
+```
+
+import { useState } from 'react'
+import { ComponentPreview } from '@/components/component-preview'
+import { RadioGroupPreview } from '@/components/previews/radio-group-preview'
+import { LabelPreview } from '@/components/previews/label-preview'
+
+## Examples
+
+### Default
+
+<ComponentPreview
+  component={() => {
+    const [value, setValue] = useState('option1')
+    return (
+      <RadioGroupPreview
+        value={value}
+        onValueChange={setValue}
+        options={[
+          { value: 'option1', label: 'Option 1' },
+          { value: 'option2', label: 'Option 2' },
+          { value: 'option3', label: 'Option 3' },
+        ]}
+      />
+    )
+  }}
+  code={`<RadioGroup value={value} onValueChange={setValue}>
+  <RadioGroupItem value="option1" />
+  <Label>Option 1</Label>
+  <RadioGroupItem value="option2" />
+  <Label>Option 2</Label>
+</RadioGroup>`}
+/>
+
+### Payment Method
+
+<ComponentPreview
+  component={() => {
+    const [value, setValue] = useState('card')
+    return (
+      <RadioGroupPreview
+        value={value}
+        onValueChange={setValue}
+        options={[
+          { value: 'card', label: 'Credit Card' },
+          { value: 'paypal', label: 'PayPal' },
+          { value: 'apple', label: 'Apple Pay' },
+        ]}
+      />
+    )
+  }}
+  code={`<RadioGroup defaultValue="card">
+  <RadioGroupItem value="card" />
+  <Label>Credit Card</Label>
+  <RadioGroupItem value="paypal" />
+  <Label>PayPal</Label>
+  <RadioGroupItem value="apple" />
+  <Label>Apple Pay</Label>
+</RadioGroup>`}
+/>
+
+### Survey Question
+
+<ComponentPreview
+  component={() => {
+    const [value, setValue] = useState('')
+    return (
+      <view className="flex flex-col gap-4">
+        <LabelPreview className="text-base">How satisfied are you?</LabelPreview>
+        <RadioGroupPreview
+          value={value}
+          onValueChange={setValue}
+          options={[
+            { value: 'satisfied', label: 'Satisfied' },
+            { value: 'neutral', label: 'Neutral' },
+            { value: 'unsatisfied', label: 'Unsatisfied' },
+          ]}
+        />
+      </view>
+    )
+  }}
+  code={`<RadioGroup>
+  <RadioGroupItem value="satisfied" />
+  <Label>Satisfied</Label>
+  <RadioGroupItem value="neutral" />
+  <Label>Neutral</Label>
+  <RadioGroupItem value="unsatisfied" />
+  <Label>Unsatisfied</Label>
+</RadioGroup>`}
+/>
+
+## API Reference
+
+### RadioGroup Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| value | `string` | - | The controlled value |
+| defaultValue | `string` | - | The default value |
+| disabled | `boolean` | `false` | Whether the group is disabled |
+| onValueChange | `(value: string) => void` | - | Event handler for value changes |
+| className | `string` | - | Additional CSS classes |
+| ...props | `RadioGroupProps` | - | Native radio group props from @lynx-js/lynx-ui |
+
+### RadioGroupItem Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| value | `string` | - | The value of the radio button |
+| disabled | `boolean` | `false` | Whether the item is disabled |
+| className | `string` | - | Additional CSS classes |
+| ...props | `RadioGroupItemProps` | - | Native radio item props from @lynx-js/lynx-ui |

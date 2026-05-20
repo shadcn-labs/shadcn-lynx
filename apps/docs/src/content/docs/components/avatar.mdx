@@ -1,0 +1,150 @@
+---
+title: Avatar
+description: An image element with a fallback for representing the user.
+---
+
+# Avatar
+
+An image element with a fallback for representing the user.
+
+## Installation
+
+```bash
+npx shadcn-lynx add avatar
+```
+
+## Usage
+
+```typescript
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
+
+export function App() {
+  return (
+    <Avatar>
+      <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+      <AvatarFallback>CN</AvatarFallback>
+    </Avatar>
+  )
+}
+```
+
+import { ComponentPreview } from '@/components/component-preview'
+import { AvatarPreview, AvatarImagePreview, AvatarFallbackPreview } from '@/components/previews/avatar-preview'
+
+## Examples
+
+### Default
+
+<ComponentPreview
+  component={() => (
+    <AvatarPreview>
+      <AvatarImagePreview src="https://github.com/shadcn.png" alt="@shadcn" />
+      <AvatarFallbackPreview>CN</AvatarFallbackPreview>
+    </AvatarPreview>
+  )}
+  code={`<Avatar>
+  <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+  <AvatarFallback>CN</AvatarFallback>
+</Avatar>`}
+/>
+
+### Sizes
+
+<ComponentPreview
+  component={() => (
+    <view className="flex items-center gap-4">
+      <AvatarPreview size="sm">
+        <AvatarImagePreview src="https://github.com/shadcn.png" alt="@shadcn" />
+        <AvatarFallbackPreview>CN</AvatarFallbackPreview>
+      </AvatarPreview>
+      <AvatarPreview size="default">
+        <AvatarImagePreview src="https://github.com/shadcn.png" alt="@shadcn" />
+        <AvatarFallbackPreview>CN</AvatarFallbackPreview>
+      </AvatarPreview>
+      <AvatarPreview size="lg">
+        <AvatarImagePreview src="https://github.com/shadcn.png" alt="@shadcn" />
+        <AvatarFallbackPreview>CN</AvatarFallbackPreview>
+      </AvatarPreview>
+    </view>
+  )}
+  code={`<Avatar size="sm">
+  <AvatarImage src="..." />
+  <AvatarFallback>CN</AvatarFallback>
+</Avatar>
+
+<Avatar size="default">
+  <AvatarImage src="..." />
+  <AvatarFallback>CN</AvatarFallback>
+</Avatar>
+
+<Avatar size="lg">
+  <AvatarImage src="..." />
+  <AvatarFallback>CN</AvatarFallback>
+</Avatar>`}
+/>
+
+### With Fallback Only
+
+<ComponentPreview
+  component={() => (
+    <AvatarPreview>
+      <AvatarFallbackPreview>JD</AvatarFallbackPreview>
+    </AvatarPreview>
+  )}
+  code={`<Avatar>
+  <AvatarFallback>JD</AvatarFallback>
+</Avatar>`}
+/>
+
+### User List
+
+<ComponentPreview
+  component={() => (
+    <view className="flex -space-x-2">
+      <AvatarPreview className="border-2 border-background">
+        <AvatarFallbackPreview style={{ backgroundColor: '#ef4444' }}>A</AvatarFallbackPreview>
+      </AvatarPreview>
+      <AvatarPreview className="border-2 border-background">
+        <AvatarFallbackPreview style={{ backgroundColor: '#3b82f6' }}>B</AvatarFallbackPreview>
+      </AvatarPreview>
+      <AvatarPreview className="border-2 border-background">
+        <AvatarFallbackPreview style={{ backgroundColor: '#10b981' }}>C</AvatarFallbackPreview>
+      </AvatarPreview>
+      <AvatarPreview className="border-2 border-background">
+        <AvatarFallbackPreview style={{ backgroundColor: '#f59e0b' }}>+3</AvatarFallbackPreview>
+      </AvatarPreview>
+    </view>
+  )}
+  code={`<view className="flex -space-x-2">
+  <Avatar className="border-2 border-background">
+    <AvatarFallback style={{ backgroundColor: '#ef4444' }}>A</AvatarFallback>
+  </Avatar>
+  {/* More avatars */}
+</view>`}
+/>
+
+## API Reference
+
+### Avatar Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| size | `sm` \| `default` \| `lg` | `default` | The size of the avatar |
+| className | `string` | - | Additional CSS classes |
+| ...props | `ViewProps` | - | Native view props |
+
+### AvatarImage Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| src | `string` | - | Image source URL |
+| alt | `string` | - | Alt text for the image |
+| className | `string` | - | Additional CSS classes |
+| ...props | `ImageProps` | - | Native image props |
+
+### AvatarFallback Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | `string` | - | Additional CSS classes |
+| ...props | `ViewProps` | - | Native view props |

@@ -1,0 +1,119 @@
+---
+title: Switch
+description: A control that allows the user to toggle between checked and not checked.
+---
+
+# Switch
+
+A control that allows the user to toggle between checked and not checked.
+
+## Installation
+
+```bash
+npx shadcn-lynx add switch
+```
+
+## Usage
+
+```typescript
+import { Switch } from '@/components/ui/switch'
+
+export function App() {
+  const [checked, setChecked] = useState(false)
+  
+  return (
+    <view>
+      <Switch checked={checked} onCheckedChange={setChecked} />
+    </view>
+  )
+}
+```
+
+import { useState } from 'react'
+import { ComponentPreview } from '@/components/component-preview'
+import { SwitchPreview } from '@/components/previews/switch-preview'
+import { LabelPreview } from '@/components/previews/label-preview'
+
+## Examples
+
+### Default
+
+<ComponentPreview
+  component={() => <SwitchPreview />}
+  code={`<Switch />`}
+/>
+
+### With Label
+
+<ComponentPreview
+  component={() => (
+    <view className="flex items-center gap-2">
+      <SwitchPreview id="airplane-mode" />
+      <LabelPreview htmlFor="airplane-mode">Airplane Mode</LabelPreview>
+    </view>
+  )}
+  code={`<Switch id="airplane-mode" />
+<Label htmlFor="airplane-mode">Airplane Mode</Label>`}
+/>
+
+### Settings List
+
+<ComponentPreview
+  component={() => {
+    const [notifications, setNotifications] = useState(true);
+    const [darkMode, setDarkMode] = useState(false);
+    const [autoSave, setAutoSave] = useState(true);
+    
+    return (
+      <view className="flex flex-col gap-4 w-full max-w-sm">
+        <view className="flex items-center justify-between p-3 border border-border rounded-lg">
+          <LabelPreview>Notifications</LabelPreview>
+          <SwitchPreview checked={notifications} onCheckedChange={setNotifications} />
+        </view>
+        <view className="flex items-center justify-between p-3 border border-border rounded-lg">
+          <LabelPreview>Dark Mode</LabelPreview>
+          <SwitchPreview checked={darkMode} onCheckedChange={setDarkMode} />
+        </view>
+        <view className="flex items-center justify-between p-3 border border-border rounded-lg">
+          <LabelPreview>Auto Save</LabelPreview>
+          <SwitchPreview checked={autoSave} onCheckedChange={setAutoSave} />
+        </view>
+      </view>
+    );
+  }}
+  code={`<view>
+  <view className="flex items-center justify-between">
+    <Label>Notifications</Label>
+    <Switch checked={notifications} onCheckedChange={setNotifications} />
+  </view>
+  <view className="flex items-center justify-between">
+    <Label>Dark Mode</Label>
+    <Switch checked={darkMode} onCheckedChange={setDarkMode} />
+  </view>
+</view>`}
+/>
+
+### Disabled
+
+<ComponentPreview
+  component={() => (
+    <view className="flex items-center gap-2">
+      <SwitchPreview disabled />
+      <LabelPreview className="opacity-50">Disabled Switch</LabelPreview>
+    </view>
+  )}
+  code={`<Switch disabled />`}
+/>
+
+## API Reference
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| checked | `boolean` | - | The controlled checked state |
+| defaultChecked | `boolean` | `false` | The default checked state |
+| disabled | `boolean` | `false` | Whether the switch is disabled |
+| onCheckedChange | `(checked: boolean) => void` | - | Event handler for checked changes |
+| className | `string` | - | Additional CSS classes |
+| ...props | `SwitchProps` | - | Native switch props from @lynx-js/lynx-ui |

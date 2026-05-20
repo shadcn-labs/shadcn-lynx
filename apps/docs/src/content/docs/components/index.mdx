@@ -1,0 +1,79 @@
+---
+title: Components
+description: Browse all available shadcn-lynx components.
+---
+
+# Components
+
+Browse all available components from shadcn-lynx.
+
+## Primitives
+
+Basic UI elements built from native Lynx elements:
+
+- [Card](/components/card) - Container component
+- [Badge](/components/badge) - Status indicators
+- [Label](/components/label) - Form labels
+- [Separator](/components/separator) - Visual dividers
+- [Skeleton](/components/skeleton) - Loading placeholders
+- [Alert](/components/alert) - Messages and notifications
+- [Avatar](/components/avatar) - User images
+
+## Form Components
+
+Interactive form elements from `@lynx-js/lynx-ui`:
+
+- [Button](/components/button) - Clickable buttons
+- [Input](/components/input) - Text inputs
+- [Switch](/components/switch) - Toggle switches
+- [Checkbox](/components/checkbox) - Checkboxes
+- [Radio Group](/components/radio-group) - Radio button groups
+- [Slider](/components/slider) - Range sliders
+- [Form](/components/form) - Form wrapper
+
+## Overlay Components
+
+Floating and modal components:
+
+- [Dialog](/components/dialog) - Modal dialogs
+- [Sheet](/components/sheet) - Side panels
+- [Popover](/components/popover) - Popover containers
+
+## Component Pattern
+
+All shadcn-lynx components follow this pattern:
+
+```typescript
+import { BaseComponent } from '@lynx-js/lynx-ui'
+import { cn } from '@/lib/utils'
+import { cva, type VariantProps } from 'class-variance-authority'
+
+const componentVariants = cva('base-classes', {
+  variants: {
+    variant: { /* ... */ },
+    size: { /* ... */ },
+  },
+  defaultVariants: {
+    variant: 'default',
+    size: 'default',
+  },
+})
+
+export function Component({ className, variant, size, ...props }) {
+  return (
+    <BaseComponent
+      className={cn(componentVariants({ variant, size, className }))}
+      {...props}
+    />
+  )
+}
+```
+
+## Adding Components
+
+Use the CLI to add components:
+
+```bash
+npx shadcn-lynx add button
+npx shadcn-lynx add card input label
+```

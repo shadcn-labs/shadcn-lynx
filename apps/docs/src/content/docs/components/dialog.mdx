@@ -1,0 +1,170 @@
+---
+title: Dialog
+description: A window overlaid on either the primary window or another dialog window.
+---
+
+# Dialog
+
+A window overlaid on either the primary window or another dialog window.
+
+## Installation
+
+```bash
+npx shadcn-lynx add dialog
+```
+
+## Usage
+
+```typescript
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog'
+
+export function App() {
+  return (
+    <Dialog>
+      <DialogTrigger>
+        <Button>Edit Profile</Button>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Edit profile</DialogTitle>
+          <DialogDescription>
+            Make changes to your profile here.
+          </DialogDescription>
+        </DialogHeader>
+        <view>
+          <text>Profile content</text>
+        </view>
+        <DialogFooter>
+          <Button>Save changes</Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  )
+}
+```
+
+import { useState } from 'react'
+import { ComponentPreview } from '@/components/component-preview'
+import { DialogPreview } from '@/components/previews/dialog-preview'
+import { ButtonPreview } from '@/components/previews/button-preview'
+
+## Examples
+
+### Default
+
+<ComponentPreview
+  component={() => {
+    const [open, setOpen] = useState(false)
+    return (
+      <view className="flex flex-col gap-4">
+        <ButtonPreview onClick={() => setOpen(true)}>Open Dialog</ButtonPreview>
+        <DialogPreview open={open} onOpenChange={setOpen} />
+      </view>
+    )
+  }}
+  code={`<Dialog>
+  <DialogTrigger>
+    <Button>Open Dialog</Button>
+  </DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Dialog Title</DialogTitle>
+      <DialogDescription>Dialog description</DialogDescription>
+    </DialogHeader>
+    <text>Content</text>
+    <DialogFooter>
+      <Button>Action</Button>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>`}
+/>
+
+### Confirmation Dialog
+
+<ComponentPreview
+  component={() => {
+    const [open, setOpen] = useState(false)
+    return (
+      <view className="flex flex-col gap-4">
+        <ButtonPreview variant="destructive" onClick={() => setOpen(true)}>Delete Account</ButtonPreview>
+        <DialogPreview open={open} onOpenChange={setOpen} />
+      </view>
+    )
+  }}
+  code={`<Dialog>
+  <DialogTrigger>
+    <Button variant="destructive">Delete Account</Button>
+  </DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Are you sure?</DialogTitle>
+      <DialogDescription>This action cannot be undone.</DialogDescription>
+    </DialogHeader>
+    <DialogFooter>
+      <Button variant="outline">Cancel</Button>
+      <Button variant="destructive">Delete</Button>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>`}
+/>
+
+## API Reference
+
+### Dialog Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| open | `boolean` | - | The controlled open state |
+| defaultOpen | `boolean` | `false` | The default open state |
+| onOpenChange | `(open: boolean) => void` | - | Event handler for open changes |
+| ...props | `DialogProps` | - | Native dialog props from @lynx-js/lynx-ui |
+
+### DialogTrigger Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| asChild | `boolean` | `false` | Render as child component |
+| ...props | `ViewProps` | - | Native view props |
+
+### DialogContent Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | `string` | - | Additional CSS classes |
+| ...props | `ViewProps` | - | Native view props |
+
+### DialogHeader Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | `string` | - | Additional CSS classes |
+| ...props | `ViewProps` | - | Native view props |
+
+### DialogFooter Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | `string` | - | Additional CSS classes |
+| ...props | `ViewProps` | - | Native view props |
+
+### DialogTitle Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | `string` | - | Additional CSS classes |
+| ...props | `TextProps` | - | Native text props |
+
+### DialogDescription Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | `string` | - | Additional CSS classes |
+| ...props | `TextProps` | - | Native text props |
