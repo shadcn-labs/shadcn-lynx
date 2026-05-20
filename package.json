@@ -1,0 +1,23 @@
+{
+  "name": "shadcn-lynx-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:lynx": "pnpm --filter lynx-app dev",
+    "dev:docs": "pnpm --filter docs dev",
+    "build:lynx": "pnpm --filter lynx-app build",
+    "build:docs": "pnpm --filter docs build",
+    "build": "pnpm --filter lynx-app build && pnpm --filter docs build",
+    "preview:lynx": "pnpm --filter lynx-app preview",
+    "preview:docs": "pnpm --filter docs preview",
+    "check": "biome check --write",
+    "format": "biome format --write",
+    "test": "pnpm --filter lynx-app test"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.14"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

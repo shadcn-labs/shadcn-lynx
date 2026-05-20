@@ -1,0 +1,14 @@
+import './App.css';
+import '@lynx-js/web-core/client';
+import type { LynxViewElement as LynxView } from '@lynx-js/web-core/client';
+
+const App = () => {
+  return (
+    <lynx-view
+      style={{ height: '100vh', width: '100vw' }}
+      url="/main.web.bundle"
+    ></lynx-view>
+  );
+};
+
+export default App;
