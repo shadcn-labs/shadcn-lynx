@@ -1,8 +1,8 @@
-import type { TextProps } from '@/lib/types'
-import { cn } from '@/lib/utils'
+import type { TextProps } from '@/lib/types';
+import { cn } from '@/lib/utils';
 
 export interface LabelProps extends TextProps {
-  children?: React.ReactNode
+  children?: React.ReactNode;
 }
 
 export function Label({ className, children, ...props }: LabelProps) {
@@ -10,11 +10,11 @@ export function Label({ className, children, ...props }: LabelProps) {
     <text
       className={cn(
         'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
-        className
+        className,
       )}
       {...props}
     >
       {children}
     </text>
-  )
+  );
 }

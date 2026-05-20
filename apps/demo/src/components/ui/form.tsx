@@ -1,20 +1,27 @@
-import {
-  FormRoot as BaseFormRoot,
-  FormField as BaseFormField,
-  FormSubmitButton as BaseFormSubmitButton,
-} from '@lynx-js/lynx-ui'
 import type {
-  FormRootProps,
   FormSubmitButtonProps as BaseFormSubmitButtonProps,
-} from '@lynx-js/lynx-ui'
-import { cn } from '@/lib/utils'
-import type { ViewProps, TextProps } from '@/lib/types'
+  FormRootProps,
+} from '@lynx-js/lynx-ui';
+import {
+  FormField as BaseFormField,
+  FormRoot as BaseFormRoot,
+  FormSubmitButton as BaseFormSubmitButton,
+} from '@lynx-js/lynx-ui';
+import type { TextProps, ViewProps } from '@/lib/types';
+import { cn } from '@/lib/utils';
 
 export interface FormProps extends FormRootProps {
-  className?: string
+  className?: string;
 }
 
-export function FormRoot({ className, children, initialValues, onSubmit, onChanged, ...props }: FormProps) {
+export function FormRoot({
+  className,
+  children,
+  initialValues,
+  onSubmit,
+  onChanged,
+  ...props
+}: FormProps) {
   return (
     <BaseFormRoot
       initialValues={initialValues}
@@ -22,25 +29,27 @@ export function FormRoot({ className, children, initialValues, onSubmit, onChang
       onChanged={onChanged}
       {...props}
     >
-      <view className={cn('space-y-6', className)}>
-        {children}
-      </view>
+      <view className={cn('space-y-6', className)}>{children}</view>
     </BaseFormRoot>
-  )
+  );
 }
 
-export type { FormFieldProps } from '@lynx-js/lynx-ui'
-import type { FormFieldProps } from '@lynx-js/lynx-ui'
+export type { FormFieldProps } from '@lynx-js/lynx-ui';
+
+import type { FormFieldProps } from '@lynx-js/lynx-ui';
 
 export function FormField(props: FormFieldProps) {
-  return (
-    <BaseFormField {...props} />
-  )
+  return <BaseFormField {...props} />;
 }
 
 export interface FormSubmitButtonProps extends BaseFormSubmitButtonProps {}
 
-export function FormSubmitButton({ className, children, onSubmit, ...props }: FormSubmitButtonProps) {
+export function FormSubmitButton({
+  className,
+  children,
+  onSubmit,
+  ...props
+}: FormSubmitButtonProps) {
   return (
     <BaseFormSubmitButton
       className={cn('w-full', className)}
@@ -49,7 +58,7 @@ export function FormSubmitButton({ className, children, onSubmit, ...props }: Fo
     >
       {children}
     </BaseFormSubmitButton>
-  )
+  );
 }
 
 export interface FormItemProps extends ViewProps {}
@@ -59,35 +68,40 @@ export function FormItem({ className, children, ...props }: FormItemProps) {
     <view className={cn('space-y-2', className)} {...props}>
       {children}
     </view>
-  )
+  );
 }
 
 export interface FormLabelProps extends TextProps {}
 
 export function FormLabel({ className, children, ...props }: FormLabelProps) {
   return (
-    <text
-      className={cn('text-sm font-medium', className)}
-      {...props}
-    >
+    <text className={cn('text-sm font-medium', className)} {...props}>
       {children}
     </text>
-  )
+  );
 }
 
 export interface FormControlProps extends ViewProps {}
 
-export function FormControl({ className, children, ...props }: FormControlProps) {
+export function FormControl({
+  className,
+  children,
+  ...props
+}: FormControlProps) {
   return (
     <view className={className} {...props}>
       {children}
     </view>
-  )
+  );
 }
 
 export interface FormMessageProps extends TextProps {}
 
-export function FormMessage({ className, children, ...props }: FormMessageProps) {
+export function FormMessage({
+  className,
+  children,
+  ...props
+}: FormMessageProps) {
   return (
     <text
       className={cn('text-sm font-medium text-destructive', className)}
@@ -95,5 +109,5 @@ export function FormMessage({ className, children, ...props }: FormMessageProps)
     >
       {children}
     </text>
-  )
+  );
 }
