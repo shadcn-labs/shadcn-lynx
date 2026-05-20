@@ -16,119 +16,59 @@ npx shadcn-lynx add radio-group
 ## Usage
 
 ```typescript
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { Label } from '@/components/ui/label'
+import { RadioGroupRoot, RadioItem } 
 
 export function App() {
-  const [value, setValue] = useState('option1')
-  
   return (
-    <RadioGroup value={value} onValueChange={setValue}>
-      <view style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-        <RadioGroupItem value="option1" id="option1" />
-        <Label htmlFor="option1">Option 1</Label>
-      </view>
-      <view style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-        <RadioGroupItem value="option2" id="option2" />
-        <Label htmlFor="option2">Option 2</Label>
-      </view>
-    </RadioGroup>
+    <RadioGroupRoot defaultValue="option1">
+      <RadioItem value="option1" label="Option 1" />
+      <RadioItem value="option2" label="Option 2" />
+      <RadioItem value="option3" label="Option 3" />
+    </RadioGroupRoot>
   )
 }
 ```
 
-import { useState } from 'react'
 import { ComponentPreview } from '@/components/component-preview'
-import { RadioGroupPreview } from '@/components/previews/radio-group-preview'
-import { LabelPreview } from '@/components/previews/label-preview'
+import { RadioGroupDefaultDemo, RadioGroupDisabledDemo, RadioGroupControlledDemo } from '@/examples/radio-group-demo'
 
 ## Examples
 
 ### Default
 
 <ComponentPreview
-  component={() => {
-    const [value, setValue] = useState('option1')
-    return (
-      <RadioGroupPreview
-        value={value}
-        onValueChange={setValue}
-        options={[
-          { value: 'option1', label: 'Option 1' },
-          { value: 'option2', label: 'Option 2' },
-          { value: 'option3', label: 'Option 3' },
-        ]}
-      />
-    )
-  }}
-  code={`<RadioGroup value={value} onValueChange={setValue}>
-  <RadioGroupItem value="option1" />
-  <Label>Option 1</Label>
-  <RadioGroupItem value="option2" />
-  <Label>Option 2</Label>
-</RadioGroup>`}
+  component={RadioGroupDefaultDemo}
+  code={`<RadioGroupRoot defaultValue="option1">
+  <RadioItem value="option1" label="Option 1" />
+  <RadioItem value="option2" label="Option 2" />
+  <RadioItem value="option3" label="Option 3" />
+</RadioGroupRoot>`}
 />
 
-### Payment Method
+### Disabled
 
 <ComponentPreview
-  component={() => {
-    const [value, setValue] = useState('card')
-    return (
-      <RadioGroupPreview
-        value={value}
-        onValueChange={setValue}
-        options={[
-          { value: 'card', label: 'Credit Card' },
-          { value: 'paypal', label: 'PayPal' },
-          { value: 'apple', label: 'Apple Pay' },
-        ]}
-      />
-    )
-  }}
-  code={`<RadioGroup defaultValue="card">
-  <RadioGroupItem value="card" />
-  <Label>Credit Card</Label>
-  <RadioGroupItem value="paypal" />
-  <Label>PayPal</Label>
-  <RadioGroupItem value="apple" />
-  <Label>Apple Pay</Label>
-</RadioGroup>`}
+  component={RadioGroupDisabledDemo}
+  code={`<RadioGroupRoot defaultValue="option1" disabled>
+  <RadioItem value="option1" label="Option 1" />
+  <RadioItem value="option2" label="Option 2" />
+</RadioGroupRoot>`}
 />
 
-### Survey Question
+### Controlled
 
 <ComponentPreview
-  component={() => {
-    const [value, setValue] = useState('')
-    return (
-      <view className="flex flex-col gap-4">
-        <LabelPreview className="text-base">How satisfied are you?</LabelPreview>
-        <RadioGroupPreview
-          value={value}
-          onValueChange={setValue}
-          options={[
-            { value: 'satisfied', label: 'Satisfied' },
-            { value: 'neutral', label: 'Neutral' },
-            { value: 'unsatisfied', label: 'Unsatisfied' },
-          ]}
-        />
-      </view>
-    )
-  }}
-  code={`<RadioGroup>
-  <RadioGroupItem value="satisfied" />
-  <Label>Satisfied</Label>
-  <RadioGroupItem value="neutral" />
-  <Label>Neutral</Label>
-  <RadioGroupItem value="unsatisfied" />
-  <Label>Unsatisfied</Label>
-</RadioGroup>`}
+  component={RadioGroupControlledDemo}
+  code={`<RadioGroupRoot value="option2">
+  <RadioItem value="option1" label="Option 1" />
+  <RadioItem value="option2" label="Option 2" />
+  <RadioItem value="option3" label="Option 3" />
+</RadioGroupRoot>`}
 />
 
 ## API Reference
 
-### RadioGroup Props
+### RadioGroupRoot Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -137,13 +77,14 @@ import { LabelPreview } from '@/components/previews/label-preview'
 | disabled | `boolean` | `false` | Whether the group is disabled |
 | onValueChange | `(value: string) => void` | - | Event handler for value changes |
 | className | `string` | - | Additional CSS classes |
-| ...props | `RadioGroupProps` | - | Native radio group props from @lynx-js/lynx-ui |
+| ...props | `RadioGroupRootProps` | - | Native radio group props from @lynx-js/lynx-ui |
 
-### RadioGroupItem Props
+### RadioItem Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | value | `string` | - | The value of the radio button |
 | disabled | `boolean` | `false` | Whether the item is disabled |
+| label | `string` | - | Label text |
 | className | `string` | - | Additional CSS classes |
-| ...props | `RadioGroupItemProps` | - | Native radio item props from @lynx-js/lynx-ui |
+| ...props | `RadioProps` | - | Native radio item props from @lynx-js/lynx-ui |

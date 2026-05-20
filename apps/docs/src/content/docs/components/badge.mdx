@@ -16,7 +16,7 @@ npx shadcn-lynx add badge
 ## Usage
 
 ```typescript
-import { Badge } from '@/components/ui/badge'
+import { Badge } 
 
 export function App() {
   return (
@@ -28,64 +28,25 @@ export function App() {
 ```
 
 import { ComponentPreview } from '@/components/component-preview'
-import { BadgePreview } from '@/components/previews/badge-preview'
+import { BadgeDefaultDemo, BadgeVariantsDemo } from '@/examples/badge-demo'
 
 ## Examples
 
 ### Default
 
 <ComponentPreview
-  component={() => <BadgePreview>Badge</BadgePreview>}
-  code={`<Badge>Badge</Badge>`}
+  component={BadgeDefaultDemo}
+  code={`<Badge>Default</Badge>`}
 />
 
 ### Variants
 
 <ComponentPreview
-  component={() => (
-    <view className="flex flex-wrap gap-4">
-      <BadgePreview variant="default">Default</BadgePreview>
-      <BadgePreview variant="secondary">Secondary</BadgePreview>
-      <BadgePreview variant="outline">Outline</BadgePreview>
-      <BadgePreview variant="destructive">Destructive</BadgePreview>
-    </view>
-  )}
-  code={`<Badge variant="default">Default</Badge>
+  component={BadgeVariantsDemo}
+  code={`<Badge>Default</Badge>
 <Badge variant="secondary">Secondary</Badge>
-<Badge variant="outline">Outline</Badge>
-<Badge variant="destructive">Destructive</Badge>`}
-/>
-
-### Status Indicators
-
-<ComponentPreview
-  component={() => (
-    <view className="flex flex-wrap gap-4">
-      <BadgePreview variant="default">Active</BadgePreview>
-      <BadgePreview variant="secondary">Pending</BadgePreview>
-      <BadgePreview variant="destructive">Inactive</BadgePreview>
-    </view>
-  )}
-  code={`<Badge variant="default">Active</Badge>
-<Badge variant="secondary">Pending</Badge>
-<Badge variant="destructive">Inactive</Badge>`}
-/>
-
-### Tags
-
-<ComponentPreview
-  component={() => (
-    <view className="flex flex-wrap gap-2">
-      <BadgePreview>React</BadgePreview>
-      <BadgePreview>Lynx</BadgePreview>
-      <BadgePreview>TypeScript</BadgePreview>
-      <BadgePreview>Tailwind</BadgePreview>
-    </view>
-  )}
-  code={`<Badge>React</Badge>
-<Badge>Lynx</Badge>
-<Badge>TypeScript</Badge>
-<Badge>Tailwind</Badge>`}
+<Badge variant="destructive">Destructive</Badge>
+<Badge variant="outline">Outline</Badge>`}
 />
 
 ## API Reference

@@ -16,7 +16,7 @@ npx shadcn-lynx add button
 ## Usage
 
 ```typescript
-import { Button } from '@/components/ui/button'
+
 
 export function App() {
   return (
@@ -28,30 +28,21 @@ export function App() {
 ```
 
 import { ComponentPreview } from '@/components/component-preview'
-import { ButtonPreview } from '@/components/previews/button-preview'
+import { ButtonDefaultDemo, ButtonVariantsDemo, ButtonSizesDemo, ButtonDisabledDemo } from '@/examples/button-demo'
 
 ## Examples
 
 ### Default
 
 <ComponentPreview
-  component={() => <ButtonPreview>Button</ButtonPreview>}
-  code={`<Button>Button</Button>`}
+  component={ButtonDefaultDemo}
+  code={`<Button>Default Button</Button>`}
 />
 
 ### Variants
 
 <ComponentPreview
-  component={() => (
-    <view className="flex flex-wrap gap-4">
-      <ButtonPreview variant="default">Default</ButtonPreview>
-      <ButtonPreview variant="destructive">Destructive</ButtonPreview>
-      <ButtonPreview variant="outline">Outline</ButtonPreview>
-      <ButtonPreview variant="secondary">Secondary</ButtonPreview>
-      <ButtonPreview variant="ghost">Ghost</ButtonPreview>
-      <ButtonPreview variant="link">Link</ButtonPreview>
-    </view>
-  )}
+  component={ButtonVariantsDemo}
   code={`<Button variant="default">Default</Button>
 <Button variant="destructive">Destructive</Button>
 <Button variant="outline">Outline</Button>
@@ -63,13 +54,7 @@ import { ButtonPreview } from '@/components/previews/button-preview'
 ### Sizes
 
 <ComponentPreview
-  component={() => (
-    <view className="flex items-center gap-4">
-      <ButtonPreview size="sm">Small</ButtonPreview>
-      <ButtonPreview size="default">Default</ButtonPreview>
-      <ButtonPreview size="lg">Large</ButtonPreview>
-    </view>
-  )}
+  component={ButtonSizesDemo}
   code={`<Button size="sm">Small</Button>
 <Button size="default">Default</Button>
 <Button size="lg">Large</Button>`}
@@ -78,42 +63,8 @@ import { ButtonPreview } from '@/components/previews/button-preview'
 ### Disabled
 
 <ComponentPreview
-  component={() => (
-    <view className="flex gap-4">
-      <ButtonPreview disabled>Default</ButtonPreview>
-      <ButtonPreview variant="outline" disabled>Outline</ButtonPreview>
-    </view>
-  )}
-  code={`<Button disabled>Default</Button>
-<Button variant="outline" disabled>Outline</Button>`}
-/>
-
-### Icon Button
-
-<ComponentPreview
-  component={() => (
-    <ButtonPreview size="icon" aria-label="Settings">
-      ⚙️
-    </ButtonPreview>
-  )}
-  code={`<Button size="icon">
-  <Settings />
-</Button>`}
-/>
-
-### With Icon
-
-<ComponentPreview
-  component={() => (
-    <ButtonPreview>
-      <span style={{ marginRight: 8 }}>➕</span>
-      Add Item
-    </ButtonPreview>
-  )}
-  code={`<Button>
-  <Plus />
-  Add Item
-</Button>`}
+  component={ButtonDisabledDemo}
+  code={`<Button disabled>Disabled</Button>`}
 />
 
 ## API Reference

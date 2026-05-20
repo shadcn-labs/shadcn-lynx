@@ -16,7 +16,7 @@ npx shadcn-lynx add separator
 ## Usage
 
 ```typescript
-import { Separator } from '@/components/ui/separator'
+import { Separator } 
 
 export function App() {
   return (
@@ -30,69 +30,29 @@ export function App() {
 ```
 
 import { ComponentPreview } from '@/components/component-preview'
-import { SeparatorPreview } from '@/components/previews/separator-preview'
+import { SeparatorHorizontalDemo, SeparatorVerticalDemo } from '@/examples/separator-demo'
 
 ## Examples
 
 ### Horizontal
 
 <ComponentPreview
-  component={() => (
-    <view className="flex flex-col gap-4 w-full max-w-sm">
-      <p className="text-sm">Content above</p>
-      <SeparatorPreview />
-      <p className="text-sm">Content below</p>
-    </view>
-  )}
-  code={`<Separator orientation="horizontal" />`}
+  component={SeparatorHorizontalDemo}
+  code={`<view>
+  <text>Top content</text>
+  <Separator />
+  <text>Bottom content</text>
+</view>`}
 />
 
 ### Vertical
 
 <ComponentPreview
-  component={() => (
-    <view className="flex items-center gap-4 h-20">
-      <p className="text-sm">Left</p>
-      <SeparatorPreview orientation="vertical" className="h-full" />
-      <p className="text-sm">Right</p>
-    </view>
-  )}
-  code={`<Separator orientation="vertical" />`}
-/>
-
-### In a List
-
-<ComponentPreview
-  component={() => (
-    <view className="flex flex-col gap-4 w-full max-w-sm">
-      <p className="text-sm font-medium">Item 1</p>
-      <SeparatorPreview />
-      <p className="text-sm font-medium">Item 2</p>
-      <SeparatorPreview />
-      <p className="text-sm font-medium">Item 3</p>
-    </view>
-  )}
-  code={`<text>Item 1</text>
-<Separator />
-<text>Item 2</text>
-<Separator />
-<text>Item 3</text>`}
-/>
-
-### With Text
-
-<ComponentPreview
-  component={() => (
-    <view className="flex items-center gap-4 w-full max-w-sm">
-      <SeparatorPreview className="flex-1" />
-      <span className="text-sm text-muted-foreground">OR</span>
-      <SeparatorPreview className="flex-1" />
-    </view>
-  )}
-  code={`<view style={{ flexDirection: 'row', alignItems: 'center' }}>
-  <Separator style={{ flex: 1 }} />
-  <text>OR</text>
-  <Separator style={{ flex: 1 }} />
+  component={SeparatorVerticalDemo}
+  code={`<view className="flex items-center gap-4">
+  <text>Left</text>
+  <Separator orientation="vertical" />
+  <text>Right</text>
 </view>`}
 />
 
@@ -103,6 +63,5 @@ import { SeparatorPreview } from '@/components/previews/separator-preview'
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | orientation | `horizontal` \| `vertical` | `horizontal` | The orientation of the separator |
-| decorative | `boolean` | `false` | Whether the separator is decorative |
 | className | `string` | - | Additional CSS classes |
 | ...props | `ViewProps` | - | Native view props |

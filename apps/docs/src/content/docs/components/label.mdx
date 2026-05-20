@@ -16,7 +16,7 @@ npx shadcn-lynx add label
 ## Usage
 
 ```typescript
-import { Label } from '@/components/ui/label'
+
 
 export function App() {
   return (
@@ -28,48 +28,26 @@ export function App() {
 ```
 
 import { ComponentPreview } from '@/components/component-preview'
-import { LabelPreview } from '@/components/previews/label-preview'
-import { InputPreview } from '@/components/previews/input-preview'
+import { LabelDefaultDemo, LabelWithInputDemo } from '@/examples/label-demo'
+
 
 ## Examples
 
 ### Default
 
 <ComponentPreview
-  component={() => <LabelPreview>Label</LabelPreview>}
-  code={`<Label>Label</Label>`}
+  component={LabelDefaultDemo}
+  code={`<Label>Default Label</Label>`}
 />
 
 ### With Input
 
 <ComponentPreview
-  component={() => (
-    <view className="flex flex-col gap-2 w-full max-w-sm">
-      <LabelPreview htmlFor="email">Email</LabelPreview>
-      <InputPreview id="email" type="email" placeholder="Enter your email" />
-    </view>
-  )}
-  code={`<Label htmlFor="email">Email</Label>
-<Input id="email" type="email" placeholder="Enter your email" />`}
-/>
-
-### Required Field
-
-<ComponentPreview
-  component={() => (
-    <view className="flex flex-col gap-2 w-full max-w-sm">
-      <LabelPreview htmlFor="name" required>Name</LabelPreview>
-      <InputPreview id="name" placeholder="John Doe" />
-    </view>
-  )}
-  code={`<Label required>Name</Label>`}
-/>
-
-### Disabled
-
-<ComponentPreview
-  component={() => <LabelPreview className="opacity-50">Disabled label</LabelPreview>}
-  code={`<Label disabled>Disabled label</Label>`}
+  component={LabelWithInputDemo}
+  code={`<view className="flex flex-col gap-2">
+  <Label>Email</Label>
+  <Input placeholder="user@example.com" />
+</view>`}
 />
 
 ## API Reference
@@ -78,7 +56,5 @@ import { InputPreview } from '@/components/previews/input-preview'
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| required | `boolean` | `false` | Whether the field is required |
-| disabled | `boolean` | `false` | Whether the label is disabled |
 | className | `string` | - | Additional CSS classes |
 | ...props | `TextProps` | - | Native text props |

@@ -16,7 +16,7 @@ npx shadcn-lynx add alert
 ## Usage
 
 ```typescript
-import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert'
+import { Alert, AlertTitle, AlertDescription } 
 
 export function App() {
   return (
@@ -31,23 +31,16 @@ export function App() {
 ```
 
 import { ComponentPreview } from '@/components/component-preview'
-import { AlertPreview, AlertTitlePreview, AlertDescriptionPreview } from '@/components/previews/alert-preview'
+import { AlertDefaultDemo, AlertDestructiveDemo } from '@/examples/alert-demo'
 
 ## Examples
 
 ### Default
 
 <ComponentPreview
-  component={() => (
-    <AlertPreview>
-      <AlertTitlePreview>Note</AlertTitlePreview>
-      <AlertDescriptionPreview>
-        You can add components to your project using the CLI.
-      </AlertDescriptionPreview>
-    </AlertPreview>
-  )}
+  component={AlertDefaultDemo}
   code={`<Alert>
-  <AlertTitle>Note</AlertTitle>
+  <AlertTitle>Heads up!</AlertTitle>
   <AlertDescription>
     You can add components to your project using the CLI.
   </AlertDescription>
@@ -57,56 +50,11 @@ import { AlertPreview, AlertTitlePreview, AlertDescriptionPreview } from '@/comp
 ### Destructive
 
 <ComponentPreview
-  component={() => (
-    <AlertPreview variant="destructive">
-      <AlertTitlePreview>Error</AlertTitlePreview>
-      <AlertDescriptionPreview>
-        Your session has expired. Please log in again.
-      </AlertDescriptionPreview>
-    </AlertPreview>
-  )}
+  component={AlertDestructiveDemo}
   code={`<Alert variant="destructive">
   <AlertTitle>Error</AlertTitle>
   <AlertDescription>
-    Your session has expired. Please log in again.
-  </AlertDescription>
-</Alert>`}
-/>
-
-### Success
-
-<ComponentPreview
-  component={() => (
-    <AlertPreview>
-      <AlertTitlePreview>Success!</AlertTitlePreview>
-      <AlertDescriptionPreview>
-        Your changes have been saved successfully.
-      </AlertDescriptionPreview>
-    </AlertPreview>
-  )}
-  code={`<Alert>
-  <AlertTitle>Success!</AlertTitle>
-  <AlertDescription>
-    Your changes have been saved successfully.
-  </AlertDescription>
-</Alert>`}
-/>
-
-### Warning
-
-<ComponentPreview
-  component={() => (
-    <AlertPreview>
-      <AlertTitlePreview>Warning</AlertTitlePreview>
-      <AlertDescriptionPreview>
-        Please review your information before continuing.
-      </AlertDescriptionPreview>
-    </AlertPreview>
-  )}
-  code={`<Alert>
-  <AlertTitle>Warning</AlertTitle>
-  <AlertDescription>
-    Please review your information before continuing.
+    Something went wrong. Please try again.
   </AlertDescription>
 </Alert>`}
 />

@@ -17,164 +17,111 @@ npx shadcn-lynx add form
 
 ```typescript
 import {
-  Form,
+  FormRoot,
   FormField,
   FormItem,
   FormLabel,
   FormControl,
-  FormDescription,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
+  FormSubmitButton,
+} 
+
 
 export function App() {
-  const form = useForm({
-    defaultValues: {
-      email: '',
-    },
-  })
-
-  function onSubmit(data) {
-    console.log(data)
-  }
-
   return (
-    <Form form={form} onSubmit={onSubmit}>
-      <FormField
-        control={form.control}
-        name="email"
-        render={({ field }) => (
-          <FormItem>
-            <FormLabel>Email</FormLabel>
-            <FormControl>
-              <Input placeholder="Enter your email" {...field} />
-            </FormControl>
-            <FormDescription>
-              We'll never share your email.
-            </FormDescription>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
-      <Button type="submit">Submit</Button>
-    </Form>
+    <FormRoot
+      initialValues={{ email: '' }}
+      onSubmit={(values) => console.log(values)}
+    >
+      <FormField name="email">
+        <FormItem>
+          <FormLabel>Email</FormLabel>
+          <FormControl>
+            <Input placeholder="Enter your email" />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
+      </FormField>
+      <FormSubmitButton>Submit</FormSubmitButton>
+    </FormRoot>
   )
 }
 ```
 
-import { useState } from 'react'
 import { ComponentPreview } from '@/components/component-preview'
-import { FormPreview } from '@/components/previews/form-preview'
+import { FormDefaultDemo, FormWithValidationDemo } from '@/examples/form-demo'
 
 ## Examples
 
-### Simple Form
+### Default
 
 <ComponentPreview
-  component={() => {
-    const [submitted, setSubmitted] = useState(false)
-    return (
-      <view className="flex flex-col gap-4">
-        <FormPreview
-          onSubmit={(data) => {
-            console.log(data)
-            setSubmitted(true)
-            setTimeout(() => setSubmitted(false), 2000)
-          }}
-        />
-        {submitted && (
-          <p className="text-sm text-green-600 dark:text-green-400">Form submitted!</p>
-        )}
-      </view>
-    )
-  }}
-  code={`<Form form={form} onSubmit={onSubmit}>
-  <FormField
-    control={form.control}
-    name="email"
-    render={({ field }) => (
-      <FormItem>
-        <FormLabel>Email</FormLabel>
-        <FormControl>
-          <Input placeholder="Enter your email" {...field} />
-        </FormControl>
-        <FormMessage />
-      </FormItem>
-    )}
-  />
-  <Button type="submit">Submit</Button>
-</Form>`}
+  component={FormDefaultDemo}
+  code={`<FormRoot
+  initialValues={{ email: '' }}
+  onSubmit={(values) => console.log(values)}
+>
+  <FormField name="email">
+    <FormItem>
+      <FormLabel>Email</FormLabel>
+      <FormControl>
+        <Input type="email" placeholder="Enter your email" />
+      </FormControl>
+      <FormMessage />
+    </FormItem>
+  </FormField>
+  <FormSubmitButton>Submit</FormSubmitButton>
+</FormRoot>`}
 />
 
-### Login Form
+### With Multiple Fields
 
 <ComponentPreview
-  component={() => {
-    const [submitted, setSubmitted] = useState(false)
-    return (
-      <view className="flex flex-col gap-4">
-        <FormPreview
-          onSubmit={(data) => {
-            console.log('Login:', data)
-            setSubmitted(true)
-            setTimeout(() => setSubmitted(false), 2000)
-          }}
-        />
-        {submitted && (
-          <p className="text-sm text-green-600 dark:text-green-400">Login submitted!</p>
-        )}
-      </view>
-    )
-  }}
-  code={`<Form form={form} onSubmit={onSubmit}>
-  <FormField
-    control={form.control}
-    name="email"
-    render={({ field }) => (
-      <FormItem>
-        <FormLabel>Email</FormLabel>
-        <FormControl>
-          <Input type="email" placeholder="email@example.com" {...field} />
-        </FormControl>
-        <FormMessage />
-      </FormItem>
-    )}
-  />
-  <FormField
-    control={form.control}
-    name="password"
-    render={({ field }) => (
-      <FormItem>
-        <FormLabel>Password</FormLabel>
-        <FormControl>
-          <Input type="password" {...field} />
-        </FormControl>
-        <FormMessage />
-      </FormItem>
-    )}
-  />
-  <Button type="submit">Login</Button>
-</Form>`}
+  component={FormWithValidationDemo}
+  code={`<FormRoot
+  initialValues={{ username: '', email: '' }}
+  onSubmit={(values) => console.log(values)}
+>
+  <FormField name="username">
+    <FormItem>
+      <FormLabel>Username</FormLabel>
+      <FormControl>
+        <Input placeholder="Enter username" />
+      </FormControl>
+      <FormMessage />
+    </FormItem>
+  </FormField>
+  <FormField name="email">
+    <FormItem>
+      <FormLabel>Email</FormLabel>
+      <FormControl>
+        <Input type="email" placeholder="Enter email" />
+      </FormControl>
+      <FormMessage />
+    </FormItem>
+  </FormField>
+  <FormSubmitButton>Submit</FormSubmitButton>
+</FormRoot>`}
 />
 
 ## API Reference
 
-### Form Props
+### FormRoot Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| form | `FormInstance` | - | The form instance |
+| initialValues | `object` | - | Initial form values |
 | onSubmit | `(data: any) => void` | - | Submit handler |
-| ...props | `ViewProps` | - | Native view props |
+| onChanged | `(values: any) => void` | - | Change handler |
+| className | `string` | - | Additional CSS classes |
+| ...props | `FormRootProps` | - | Native form props from @lynx-js/lynx-ui |
 
 ### FormField Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| control | `Control` | - | The form control |
 | name | `string` | - | The field name |
-| render | `RenderFunction` | - | Render function |
+| ...props | `FormFieldProps` | - | Native field props |
 
 ### FormItem Props
 
@@ -194,14 +141,8 @@ import { FormPreview } from '@/components/previews/form-preview'
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| ...props | `ViewProps` | - | Native view props |
-
-### FormDescription Props
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
 | className | `string` | - | Additional CSS classes |
-| ...props | `TextProps` | - | Native text props |
+| ...props | `ViewProps` | - | Native view props |
 
 ### FormMessage Props
 
@@ -209,3 +150,11 @@ import { FormPreview } from '@/components/previews/form-preview'
 |------|------|---------|-------------|
 | className | `string` | - | Additional CSS classes |
 | ...props | `TextProps` | - | Native text props |
+
+### FormSubmitButton Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | `string` | - | Additional CSS classes |
+| onSubmit | `() => void` | - | Submit handler |
+| ...props | `FormSubmitButtonProps` | - | Native button props |

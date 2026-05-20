@@ -17,21 +17,22 @@ npx shadcn-lynx add dialog
 
 ```typescript
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
+  DialogRoot,
   DialogTrigger,
-} from '@/components/ui/dialog'
+  DialogClose,
+  DialogBackdrop,
+  DialogContent,
+  DialogHeader,
+  DialogFooter,
+  DialogTitle,
+  DialogDescription,
+} 
 
 export function App() {
   return (
-    <Dialog>
-      <DialogTrigger>
-        <Button>Edit Profile</Button>
-      </DialogTrigger>
+    <DialogRoot>
+      <DialogTrigger>Edit Profile</DialogTrigger>
+      <DialogBackdrop />
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Edit profile</DialogTitle>
@@ -39,107 +40,95 @@ export function App() {
             Make changes to your profile here.
           </DialogDescription>
         </DialogHeader>
-        <view>
-          <text>Profile content</text>
-        </view>
+        <text>Profile content</text>
         <DialogFooter>
-          <Button>Save changes</Button>
+          <DialogClose>Cancel</DialogClose>
+          <DialogClose>Save changes</DialogClose>
         </DialogFooter>
       </DialogContent>
-    </Dialog>
+    </DialogRoot>
   )
 }
 ```
 
-import { useState } from 'react'
 import { ComponentPreview } from '@/components/component-preview'
-import { DialogPreview } from '@/components/previews/dialog-preview'
-import { ButtonPreview } from '@/components/previews/button-preview'
+import { DialogDefaultDemo, DialogControlledDemo } from '@/examples/dialog-demo'
 
 ## Examples
 
 ### Default
 
 <ComponentPreview
-  component={() => {
-    const [open, setOpen] = useState(false)
-    return (
-      <view className="flex flex-col gap-4">
-        <ButtonPreview onClick={() => setOpen(true)}>Open Dialog</ButtonPreview>
-        <DialogPreview open={open} onOpenChange={setOpen} />
-      </view>
-    )
-  }}
-  code={`<Dialog>
-  <DialogTrigger>
-    <Button>Open Dialog</Button>
-  </DialogTrigger>
+  component={DialogDefaultDemo}
+  code={`<DialogRoot>
+  <DialogTrigger>Open Dialog</DialogTrigger>
+  <DialogBackdrop />
   <DialogContent>
     <DialogHeader>
-      <DialogTitle>Dialog Title</DialogTitle>
-      <DialogDescription>Dialog description</DialogDescription>
+      <DialogTitle>Edit profile</DialogTitle>
+      <DialogDescription>
+        Make changes to your profile here.
+      </DialogDescription>
     </DialogHeader>
-    <text>Content</text>
+    <text>Profile content goes here</text>
     <DialogFooter>
-      <Button>Action</Button>
+      <DialogClose>Cancel</DialogClose>
+      <DialogClose>Save changes</DialogClose>
     </DialogFooter>
   </DialogContent>
-</Dialog>`}
+</DialogRoot>`}
 />
 
-### Confirmation Dialog
+### Controlled
 
 <ComponentPreview
-  component={() => {
-    const [open, setOpen] = useState(false)
-    return (
-      <view className="flex flex-col gap-4">
-        <ButtonPreview variant="destructive" onClick={() => setOpen(true)}>Delete Account</ButtonPreview>
-        <DialogPreview open={open} onOpenChange={setOpen} />
-      </view>
-    )
-  }}
-  code={`<Dialog>
-  <DialogTrigger>
-    <Button variant="destructive">Delete Account</Button>
-  </DialogTrigger>
+  component={DialogControlledDemo}
+  code={`<DialogRoot defaultShow>
+  <DialogTrigger>Open Dialog</DialogTrigger>
+  <DialogBackdrop />
   <DialogContent>
     <DialogHeader>
-      <DialogTitle>Are you sure?</DialogTitle>
-      <DialogDescription>This action cannot be undone.</DialogDescription>
+      <DialogTitle>Controlled Dialog</DialogTitle>
+      <DialogDescription>
+        This dialog is open by default.
+      </DialogDescription>
     </DialogHeader>
+    <text>Content here</text>
     <DialogFooter>
-      <Button variant="outline">Cancel</Button>
-      <Button variant="destructive">Delete</Button>
+      <DialogClose>Close</DialogClose>
     </DialogFooter>
   </DialogContent>
-</Dialog>`}
+</DialogRoot>`}
 />
 
 ## API Reference
 
-### Dialog Props
+### DialogRoot Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| open | `boolean` | - | The controlled open state |
-| defaultOpen | `boolean` | `false` | The default open state |
-| onOpenChange | `(open: boolean) => void` | - | Event handler for open changes |
-| ...props | `DialogProps` | - | Native dialog props from @lynx-js/lynx-ui |
+| show | `boolean` | - | The controlled open state |
+| defaultShow | `boolean` | `false` | The default open state |
+| onShowChange | `(open: boolean) => void` | - | Event handler for open changes |
+| onOpen | `() => void` | - | Open event handler |
+| onClose | `() => void` | - | Close event handler |
+| forceMount | `boolean` | `false` | Force mount content |
+| ...props | `DialogRootProps` | - | Native dialog props from @lynx-js/lynx-ui |
 
 ### DialogTrigger Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| asChild | `boolean` | `false` | Render as child component |
-| ...props | `ViewProps` | - | Native view props |
+| className | `string` | - | Additional CSS classes |
+| disabled | `boolean` | `false` | Whether the trigger is disabled |
+| ...props | `DialogTriggerProps` | - | Native trigger props |
 
 ### DialogContent Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | className | `string` | - | Additional CSS classes |
-| ...props | `ViewProps` | - | Native view props |
+| ...props | `DialogContentProps` | - | Native content props |
 
 ### DialogHeader Props
 

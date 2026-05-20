@@ -16,89 +16,70 @@ npx shadcn-lynx add slider
 ## Usage
 
 ```typescript
-import { Slider } from '@/components/ui/slider'
+import {
+  SliderRoot,
+  SliderTrack,
+  SliderRange,
+  SliderThumb,
+} 
 
 export function App() {
-  const [value, setValue] = useState([50])
-  
   return (
-    <view>
-      <Slider
-        value={value}
-        onValueChange={setValue}
-        max={100}
-        step={1}
-      />
-    </view>
+    <SliderRoot defaultValue={[50]} max={100} step={1}>
+      <SliderTrack>
+        <SliderRange />
+      </SliderTrack>
+      <SliderThumb />
+    </SliderRoot>
   )
 }
 ```
 
-import { useState } from 'react'
 import { ComponentPreview } from '@/components/component-preview'
-import { SliderPreview } from '@/components/previews/slider-preview'
-import { LabelPreview } from '@/components/previews/label-preview'
+import { SliderDefaultDemo, SliderRangeDemo, SliderDisabledDemo } from '@/examples/slider-demo'
 
 ## Examples
 
 ### Default
 
 <ComponentPreview
-  component={() => {
-    const [value, setValue] = useState([50])
-    return (
-      <view className="flex flex-col gap-4 w-full max-w-sm">
-        <SliderPreview value={value} onValueChange={setValue} />
-        <p className="text-sm text-muted-foreground text-center">{value[0]}%</p>
-      </view>
-    )
-  }}
-  code={`<Slider value={[50]} max={100} step={1} />`}
+  component={SliderDefaultDemo}
+  code={`<SliderRoot defaultValue={[50]} max={100} step={1}>
+  <SliderTrack>
+    <SliderRange />
+  </SliderTrack>
+  <SliderThumb />
+</SliderRoot>`}
 />
 
-### Volume Control
+### Range
 
 <ComponentPreview
-  component={() => {
-    const [value, setValue] = useState([75])
-    return (
-      <view className="flex flex-col gap-4 w-full max-w-sm">
-        <view className="flex items-center justify-between">
-          <LabelPreview>Volume</LabelPreview>
-          <span className="text-sm text-muted-foreground">{value[0]}%</span>
-        </view>
-        <SliderPreview value={value} onValueChange={setValue} />
-      </view>
-    )
-  }}
-  code={`<view>
-  <Label>Volume</Label>
-  <Slider value={[volume]} onValueChange={setVolume} />
-  <text>{volume}%</text>
-</view>`}
+  component={SliderRangeDemo}
+  code={`<SliderRoot defaultValue={[25, 75]} max={100} step={1}>
+  <SliderTrack>
+    <SliderRange />
+  </SliderTrack>
+  <SliderThumb />
+  <SliderThumb />
+</SliderRoot>`}
 />
 
-### Price Range
+### Disabled
 
 <ComponentPreview
-  component={() => {
-    const [value, setValue] = useState([250])
-    return (
-      <view className="flex flex-col gap-4 w-full max-w-sm">
-        <view className="flex items-center justify-between">
-          <LabelPreview>Price</LabelPreview>
-          <span className="text-sm font-medium">${value[0]}</span>
-        </view>
-        <SliderPreview value={value} onValueChange={setValue} min={0} max={1000} step={10} />
-      </view>
-    )
-  }}
-  code={`<Slider value={[price]} min={0} max={1000} step={10} />`}
+  component={SliderDisabledDemo}
+  code={`<SliderRoot defaultValue={[50]} max={100} step={1} disabled>
+  <SliderTrack>
+    <SliderRange />
+  </SliderTrack>
+  <SliderThumb />
+</SliderRoot>`}
 />
 
 ## API Reference
 
-### Props
+### SliderRoot Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -108,6 +89,25 @@ import { LabelPreview } from '@/components/previews/label-preview'
 | max | `number` | `100` | The maximum value |
 | step | `number` | `1` | The step interval |
 | disabled | `boolean` | `false` | Whether the slider is disabled |
-| onValueChange | `(value: number[]) => void` | - | Event handler for value changes |
+| ...props | `SliderRootProps` | - | Native slider props from @lynx-js/lynx-ui |
+
+### SliderTrack Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
 | className | `string` | - | Additional CSS classes |
-| ...props | `SliderProps` | - | Native slider props from @lynx-js/lynx-ui |
+| ...props | `ViewProps` | - | Native view props |
+
+### SliderRange Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | `string` | - | Additional CSS classes |
+| ...props | `ViewProps` | - | Native view props |
+
+### SliderThumb Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | `string` | - | Additional CSS classes |
+| ...props | `ViewProps` | - | Native view props |

@@ -23,7 +23,7 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
-} from '@/components/ui/card'
+} 
 
 export function App() {
   return (
@@ -44,82 +44,44 @@ export function App() {
 ```
 
 import { ComponentPreview } from '@/components/component-preview'
-import { CardPreview, CardHeaderPreview, CardTitlePreview, CardDescriptionPreview, CardContentPreview, CardFooterPreview } from '@/components/previews/card-preview'
-import { ButtonPreview } from '@/components/previews/button-preview'
+import { CardDefaultDemo, CardWithButtonDemo } from '@/examples/card-demo'
+
 
 ## Examples
 
-### Simple Card
+### Default
 
 <ComponentPreview
-  component={() => (
-    <CardPreview className="w-full max-w-sm">
-      <CardHeaderPreview>
-        <CardTitlePreview>Card Title</CardTitlePreview>
-        <CardDescriptionPreview>This is a simple card description</CardDescriptionPreview>
-      </CardHeaderPreview>
-      <CardContentPreview>
-        <p className="text-sm">Card content goes here. You can add any content you like.</p>
-      </CardContentPreview>
-      <CardFooterPreview>
-        <ButtonPreview>Action</ButtonPreview>
-      </CardFooterPreview>
-    </CardPreview>
-  )}
+  component={CardDefaultDemo}
   code={`<Card>
   <CardHeader>
     <CardTitle>Card Title</CardTitle>
-    <CardDescription>This is a simple card description</CardDescription>
+    <CardDescription>Card description goes here.</CardDescription>
   </CardHeader>
   <CardContent>
-    <text>Card content goes here</text>
+    <text>Card content goes here.</text>
   </CardContent>
   <CardFooter>
-    <Button>Action</Button>
+    <text>Card footer</text>
   </CardFooter>
 </Card>`}
 />
 
-### Notifications Card
+### With Button
 
 <ComponentPreview
-  component={() => (
-    <CardPreview className="w-full max-w-sm">
-      <CardHeaderPreview>
-        <CardTitlePreview>Notifications</CardTitlePreview>
-        <CardDescriptionPreview>You have 3 unread messages</CardDescriptionPreview>
-      </CardHeaderPreview>
-      <CardContentPreview className="space-y-4">
-        <view className="flex items-center justify-between p-3 border border-border rounded-lg">
-          <view>
-            <p className="text-sm font-medium">New message</p>
-            <p className="text-xs text-muted-foreground">2 minutes ago</p>
-          </view>
-          <ButtonPreview size="sm" variant="outline">View</ButtonPreview>
-        </view>
-        <view className="flex items-center justify-between p-3 border border-border rounded-lg">
-          <view>
-            <p className="text-sm font-medium">System update</p>
-            <p className="text-xs text-muted-foreground">1 hour ago</p>
-          </view>
-          <ButtonPreview size="sm" variant="outline">View</ButtonPreview>
-        </view>
-      </CardContentPreview>
-      <CardFooterPreview>
-        <ButtonPreview variant="outline" className="w-full">Mark all as read</ButtonPreview>
-      </CardFooterPreview>
-    </CardPreview>
-  )}
+  component={CardWithButtonDemo}
   code={`<Card>
   <CardHeader>
-    <CardTitle>Notifications</CardTitle>
-    <CardDescription>You have 3 unread messages</CardDescription>
+    <CardTitle>Create project</CardTitle>
+    <CardDescription>Deploy your new project in one-click.</CardDescription>
   </CardHeader>
   <CardContent>
-    {/* Notification items */}
+    <text>Project configuration options here.</text>
   </CardContent>
   <CardFooter>
-    <Button variant="outline">Mark all as read</Button>
+    <Button variant="outline">Cancel</Button>
+    <Button>Deploy</Button>
   </CardFooter>
 </Card>`}
 />

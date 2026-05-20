@@ -16,99 +16,50 @@ npx shadcn-lynx add checkbox
 ## Usage
 
 ```typescript
-import { Checkbox } from '@/components/ui/checkbox'
+import { Checkbox } 
 
 export function App() {
-  const [checked, setChecked] = useState(false)
-  
   return (
     <view>
-      <Checkbox checked={checked} onCheckedChange={setChecked} />
+      <Checkbox label="Accept terms and conditions" />
     </view>
   )
 }
 ```
 
-import { useState } from 'react'
 import { ComponentPreview } from '@/components/component-preview'
-import { CheckboxPreview } from '@/components/previews/checkbox-preview'
-import { LabelPreview } from '@/components/previews/label-preview'
+import { CheckboxDefaultDemo, CheckboxCheckedDemo, CheckboxDisabledDemo, CheckboxWithFormDemo } from '@/examples/checkbox-demo'
 
 ## Examples
 
 ### Default
 
 <ComponentPreview
-  component={() => <CheckboxPreview />}
-  code={`<Checkbox />`}
+  component={CheckboxDefaultDemo}
+  code={`<Checkbox label="Accept terms and conditions" />`}
 />
 
-### With Label
+### Checked
 
 <ComponentPreview
-  component={() => (
-    <view className="flex items-center gap-2">
-      <CheckboxPreview id="terms" />
-      <LabelPreview htmlFor="terms">Accept terms and conditions</LabelPreview>
-    </view>
-  )}
-  code={`<Checkbox id="terms" />
-<Label htmlFor="terms">Accept terms and conditions</Label>`}
-/>
-
-### Todo List
-
-<ComponentPreview
-  component={() => {
-    const [todos, setTodos] = useState([
-      { id: 1, text: 'Buy groceries', completed: false },
-      { id: 2, text: 'Walk the dog', completed: true },
-      { id: 3, text: 'Do laundry', completed: false },
-    ]);
-    
-    const toggleTodo = (id) => {
-      setTodos(todos.map(todo =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      ));
-    };
-    
-    return (
-      <view className="flex flex-col gap-3 w-full max-w-sm">
-        {todos.map((todo) => (
-          <view key={todo.id} className="flex items-center gap-2">
-            <CheckboxPreview
-              checked={todo.completed}
-              onCheckedChange={() => toggleTodo(todo.id)}
-            />
-            <LabelPreview className={todo.completed ? 'line-through opacity-50' : ''}>
-              {todo.text}
-            </LabelPreview>
-          </view>
-        ))}
-      </view>
-    );
-  }}
-  code={`{todos.map((todo) => (
-  <view key={todo.id} className="flex items-center gap-2">
-    <Checkbox
-      checked={todo.completed}
-      onCheckedChange={() => toggleTodo(todo.id)}
-    />
-    <Label>{todo.text}</Label>
-  </view>
-))}`}
+  component={CheckboxCheckedDemo}
+  code={`<Checkbox checked label="Checked checkbox" />`}
 />
 
 ### Disabled
 
 <ComponentPreview
-  component={() => (
-    <view className="flex items-center gap-2">
-      <CheckboxPreview disabled />
-      <LabelPreview className="opacity-50">Disabled checkbox</LabelPreview>
-    </view>
-  )}
-  code={`<Checkbox disabled />`}
+  component={CheckboxDisabledDemo}
+  code={`<Checkbox disabled label="Disabled checkbox" />`}
+/>
+
+### With Form
+
+<ComponentPreview
+  component={CheckboxWithFormDemo}
+  code={`<Checkbox label="Email notifications" />
+<Checkbox label="SMS notifications" />
+<Checkbox label="Push notifications" />`}
 />
 
 ## API Reference
@@ -120,6 +71,8 @@ import { LabelPreview } from '@/components/previews/label-preview'
 | checked | `boolean` | - | The controlled checked state |
 | defaultChecked | `boolean` | `false` | The default checked state |
 | disabled | `boolean` | `false` | Whether the checkbox is disabled |
-| onCheckedChange | `(checked: boolean) => void` | - | Event handler for checked changes |
+| indeterminate | `boolean` | `false` | The indeterminate state |
+| onChange | `(checked: boolean) => void` | - | Event handler for checked changes |
+| label | `string` | - | Label text |
 | className | `string` | - | Additional CSS classes |
 | ...props | `CheckboxProps` | - | Native checkbox props from @lynx-js/lynx-ui |

@@ -17,103 +17,100 @@ npx shadcn-lynx add popover
 
 ```typescript
 import {
-  Popover,
-  PopoverContent,
+  PopoverRoot,
   PopoverTrigger,
-} from '@/components/ui/popover'
+  PopoverContent,
+  PopoverPositioner,
+} 
 
 export function App() {
   return (
-    <Popover>
-      <PopoverTrigger>
-        <Button>Open Popover</Button>
-      </PopoverTrigger>
-      <PopoverContent>
-        <text>Popover content goes here</text>
-      </PopoverContent>
-    </Popover>
+    <PopoverRoot>
+      <PopoverTrigger>Open Popover</PopoverTrigger>
+      <PopoverPositioner>
+        <PopoverContent>
+          <text>Popover content goes here</text>
+        </PopoverContent>
+      </PopoverPositioner>
+    </PopoverRoot>
   )
 }
 ```
 
-import { useState } from 'react'
 import { ComponentPreview } from '@/components/component-preview'
-import { PopoverPreview } from '@/components/previews/popover-preview'
-import { ButtonPreview } from '@/components/previews/button-preview'
+import { PopoverDefaultDemo, PopoverWithPlacementDemo } from '@/examples/popover-demo'
 
 ## Examples
 
 ### Default
 
 <ComponentPreview
-  component={() => {
-    const [open, setOpen] = useState(false)
-    return (
-      <view className="relative">
-        <ButtonPreview variant="outline" onClick={() => setOpen(!open)}>
-          Open Popover
-        </ButtonPreview>
-        <PopoverPreview open={open} onOpenChange={setOpen} />
+  component={PopoverDefaultDemo}
+  code={`<PopoverRoot>
+  <PopoverTrigger>Open Popover</PopoverTrigger>
+  <PopoverBackdrop />
+  <PopoverPositioner>
+    <PopoverContent>
+      <PopoverArrow />
+      <text className="text-sm font-medium">Settings</text>
+      <view className="flex flex-col gap-1">
+        <text className="text-sm">Display</text>
+        <text className="text-sm">Appearance</text>
+        <text className="text-sm">Notifications</text>
       </view>
-    )
-  }}
-  code={`<Popover>
-  <PopoverTrigger>
-    <Button>Open Popover</Button>
-  </PopoverTrigger>
-  <PopoverContent>
-    <text>Popover content</text>
-  </PopoverContent>
-</Popover>`}
+    </PopoverContent>
+  </PopoverPositioner>
+</PopoverRoot>`}
 />
 
-### Settings Menu
+### With Placement
 
 <ComponentPreview
-  component={() => {
-    const [open, setOpen] = useState(false)
-    return (
-      <view className="relative">
-        <ButtonPreview variant="ghost" onClick={() => setOpen(!open)}>Settings</ButtonPreview>
-        <PopoverPreview open={open} onOpenChange={setOpen} />
-      </view>
-    )
-  }}
-  code={`<Popover>
-  <PopoverTrigger>
-    <Button variant="ghost">Settings</Button>
-  </PopoverTrigger>
-  <PopoverContent>
-    <text>Display</text>
-    <text>Appearance</text>
-    <text>Notifications</text>
-  </PopoverContent>
-</Popover>`}
+  component={PopoverWithPlacementDemo}
+  code={`<PopoverRoot>
+  <PopoverTrigger>Top Popover</PopoverTrigger>
+  <PopoverPositioner placement="top">
+    <PopoverContent>
+      <PopoverArrow />
+      <text>This popover appears on top</text>
+    </PopoverContent>
+  </PopoverPositioner>
+</PopoverRoot>`}
 />
 
 ## API Reference
 
-### Popover Props
+### PopoverRoot Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| open | `boolean` | - | The controlled open state |
-| defaultOpen | `boolean` | `false` | The default open state |
-| onOpenChange | `(open: boolean) => void` | - | Event handler for open changes |
-| ...props | `PopoverProps` | - | Native popover props from @lynx-js/lynx-ui |
+| show | `boolean` | - | The controlled open state |
+| defaultShow | `boolean` | `false` | The default open state |
+| onVisibleChange | `(visible: boolean) => void` | - | Event handler for open changes |
+| onOpen | `() => void` | - | Open event handler |
+| onClose | `() => void` | - | Close event handler |
+| forceMount | `boolean` | `false` | Force mount content |
+| ...props | `PopoverRootProps` | - | Native popover props from @lynx-js/lynx-ui |
 
 ### PopoverTrigger Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| asChild | `boolean` | `false` | Render as child component |
-| ...props | `ViewProps` | - | Native view props |
+| className | `string` | - | Additional CSS classes |
+| disabled | `boolean` | `false` | Whether the trigger is disabled |
+| ...props | `PopoverTriggerProps` | - | Native trigger props |
 
 ### PopoverContent Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| align | `start` \| `center` \| `end` | `center` | The alignment of the popover |
-| side | `top` \| `right` \| `bottom` \| `left` | `bottom` | The side to display on |
 | className | `string` | - | Additional CSS classes |
-| ...props | `ViewProps` | - | Native view props |
+| ...props | `PopoverContentProps` | - | Native content props |
+
+### PopoverPositioner Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | `string` | - | Additional CSS classes |
+| placement | `string` | - | The placement of the popover |
+| ...props | `PopoverPositionerProps` | - | Native positioner props |

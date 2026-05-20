@@ -16,7 +16,7 @@ npx shadcn-lynx add avatar
 ## Usage
 
 ```typescript
-import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
+import { Avatar, AvatarImage, AvatarFallback } 
 
 export function App() {
   return (
@@ -29,97 +29,43 @@ export function App() {
 ```
 
 import { ComponentPreview } from '@/components/component-preview'
-import { AvatarPreview, AvatarImagePreview, AvatarFallbackPreview } from '@/components/previews/avatar-preview'
+import { AvatarDefaultDemo, AvatarFallbackDemo, AvatarSizesDemo } from '@/examples/avatar-demo'
 
 ## Examples
 
 ### Default
 
 <ComponentPreview
-  component={() => (
-    <AvatarPreview>
-      <AvatarImagePreview src="https://github.com/shadcn.png" alt="@shadcn" />
-      <AvatarFallbackPreview>CN</AvatarFallbackPreview>
-    </AvatarPreview>
-  )}
+  component={AvatarDefaultDemo}
   code={`<Avatar>
   <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
   <AvatarFallback>CN</AvatarFallback>
 </Avatar>`}
 />
 
-### Sizes
+### Fallback Only
 
 <ComponentPreview
-  component={() => (
-    <view className="flex items-center gap-4">
-      <AvatarPreview size="sm">
-        <AvatarImagePreview src="https://github.com/shadcn.png" alt="@shadcn" />
-        <AvatarFallbackPreview>CN</AvatarFallbackPreview>
-      </AvatarPreview>
-      <AvatarPreview size="default">
-        <AvatarImagePreview src="https://github.com/shadcn.png" alt="@shadcn" />
-        <AvatarFallbackPreview>CN</AvatarFallbackPreview>
-      </AvatarPreview>
-      <AvatarPreview size="lg">
-        <AvatarImagePreview src="https://github.com/shadcn.png" alt="@shadcn" />
-        <AvatarFallbackPreview>CN</AvatarFallbackPreview>
-      </AvatarPreview>
-    </view>
-  )}
-  code={`<Avatar size="sm">
-  <AvatarImage src="..." />
-  <AvatarFallback>CN</AvatarFallback>
-</Avatar>
-
-<Avatar size="default">
-  <AvatarImage src="..." />
-  <AvatarFallback>CN</AvatarFallback>
-</Avatar>
-
-<Avatar size="lg">
-  <AvatarImage src="..." />
-  <AvatarFallback>CN</AvatarFallback>
-</Avatar>`}
-/>
-
-### With Fallback Only
-
-<ComponentPreview
-  component={() => (
-    <AvatarPreview>
-      <AvatarFallbackPreview>JD</AvatarFallbackPreview>
-    </AvatarPreview>
-  )}
+  component={AvatarFallbackDemo}
   code={`<Avatar>
   <AvatarFallback>JD</AvatarFallback>
 </Avatar>`}
 />
 
-### User List
+### Sizes
 
 <ComponentPreview
-  component={() => (
-    <view className="flex -space-x-2">
-      <AvatarPreview className="border-2 border-background">
-        <AvatarFallbackPreview style={{ backgroundColor: '#ef4444' }}>A</AvatarFallbackPreview>
-      </AvatarPreview>
-      <AvatarPreview className="border-2 border-background">
-        <AvatarFallbackPreview style={{ backgroundColor: '#3b82f6' }}>B</AvatarFallbackPreview>
-      </AvatarPreview>
-      <AvatarPreview className="border-2 border-background">
-        <AvatarFallbackPreview style={{ backgroundColor: '#10b981' }}>C</AvatarFallbackPreview>
-      </AvatarPreview>
-      <AvatarPreview className="border-2 border-background">
-        <AvatarFallbackPreview style={{ backgroundColor: '#f59e0b' }}>+3</AvatarFallbackPreview>
-      </AvatarPreview>
-    </view>
-  )}
-  code={`<view className="flex -space-x-2">
-  <Avatar className="border-2 border-background">
-    <AvatarFallback style={{ backgroundColor: '#ef4444' }}>A</AvatarFallback>
+  component={AvatarSizesDemo}
+  code={`<view className="flex items-center gap-4">
+  <Avatar className="h-8 w-8">
+    <AvatarFallback>SM</AvatarFallback>
   </Avatar>
-  {/* More avatars */}
+  <Avatar className="h-10 w-10">
+    <AvatarFallback>MD</AvatarFallback>
+  </Avatar>
+  <Avatar className="h-12 w-12">
+    <AvatarFallback>LG</AvatarFallback>
+  </Avatar>
 </view>`}
 />
 
@@ -129,7 +75,6 @@ import { AvatarPreview, AvatarImagePreview, AvatarFallbackPreview } from '@/comp
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| size | `sm` \| `default` \| `lg` | `default` | The size of the avatar |
 | className | `string` | - | Additional CSS classes |
 | ...props | `ViewProps` | - | Native view props |
 
