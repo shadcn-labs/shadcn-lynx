@@ -1,5 +1,5 @@
 {
-  "name": "lynx-app",
+  "name": "demo",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
@@ -9,7 +9,11 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@lynx-js/react": "^0.121.0"
+    "@lynx-js/lynx-ui": "^3.133.0",
+    "@lynx-js/react": "^0.121.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.6.1"
   },
   "devDependencies": {
     "@lynx-js/preact-devtools": "^5.0.1",

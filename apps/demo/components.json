@@ -1,0 +1,15 @@
+{
+  "$schema": "https://shadcn-lynx.vercel.app/schema.json",
+  "style": "default",
+  "tailwind": {
+    "css": "src/global.css",
+    "config": "tailwind.config.ts"
+  },
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils",
+    "ui": "@/components/ui",
+    "lib": "@/lib"
+  },
+  "registry": "https://shadcn-lynx.vercel.app/registry"
+}

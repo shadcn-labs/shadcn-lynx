@@ -11,7 +11,7 @@ export default defineConfig({
   server: {
     publicDir: [
       {
-        name: path.join(__dirname, '../../', 'packages/lynx-app/dist'),
+        name: path.join(__dirname, '../../', 'apps/demo/dist'),
       },
     ],
   },
