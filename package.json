@@ -15,10 +15,19 @@
     "preview:docs": "pnpm --filter docs preview",
     "check": "biome check --write",
     "format": "biome format --write",
-    "test": "pnpm --filter demo test"
+    "test": "pnpm --filter demo test",
+    "typecheck": "tsc --build"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.14"
+    "@biomejs/biome": "2.4.14",
+    "@lynx-js/lynx-ui": "^3.133.0",
+    "@lynx-js/react": "^0.121.0",
+    "@lynx-js/types": "3.7.0",
+    "@types/node": "^22.19.19",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.6.0",
+    "typescript": "^6.0.3"
   },
   "engines": {
     "node": ">=18"
