@@ -1,14 +1,18 @@
+import type {
+  RadioGroupRootProps as BaseRadioGroupRootProps,
+  RadioProps as BaseRadioProps,
+} from '@lynx-js/lynx-ui';
 import {
-  RadioGroupRoot as BaseRadioGroupRoot,
   Radio as BaseRadio,
+  RadioGroupRoot as BaseRadioGroupRoot,
   RadioIndicator as BaseRadioIndicator,
-} from '@lynx-js/lynx-ui'
-import type { RadioGroupRootProps as BaseRadioGroupRootProps, RadioProps as BaseRadioProps } from '@lynx-js/lynx-ui'
-import { cn } from '@/lib/utils'
-import type { ViewProps, TextProps } from '@/lib/types'
+} from '@lynx-js/lynx-ui';
+import type { ReactNode } from '@lynx-js/react';
+import { cn } from '@/lib/utils';
 
 export interface RadioGroupProps extends BaseRadioGroupRootProps {
-  className?: string
+  className?: string;
+  children?: ReactNode;
 }
 
 export function RadioGroupRoot({
@@ -28,15 +32,13 @@ export function RadioGroupRoot({
       onValueChange={onValueChange}
       {...props}
     >
-      <view className={cn('grid gap-2', className)}>
-        {children}
-      </view>
+      <view className={cn('grid gap-2', className)}>{children}</view>
     </BaseRadioGroupRoot>
-  )
+  );
 }
 
 export interface RadioItemProps extends BaseRadioProps {
-  label?: string
+  label?: string;
 }
 
 export function RadioItem({
@@ -53,24 +55,20 @@ export function RadioItem({
       <BaseRadio
         className={cn(
           'aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
-          className
+          className,
         )}
         value={value}
         disabled={disabled}
         radioProps={radioProps}
         {...props}
       >
-        <BaseRadioIndicator
-          className={cn('flex items-center justify-center')}
-        >
+        <BaseRadioIndicator className={cn('flex items-center justify-center')}>
           <view className="h-2.5 w-2.5 rounded-full bg-current" />
         </BaseRadioIndicator>
       </BaseRadio>
       {label ? (
-        <text className={cn('text-sm font-medium leading-none')}>
-          {label}
-        </text>
+        <text className={cn('text-sm font-medium leading-none')}>{label}</text>
       ) : null}
     </view>
-  )
+  );
 }

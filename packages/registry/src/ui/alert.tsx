@@ -1,36 +1,33 @@
-import { cva, type VariantProps } from 'class-variance-authority'
-import type { ViewProps, TextProps } from '@/lib/types'
-import { cn } from '@/lib/utils'
+import type { ReactNode } from '@lynx-js/react';
+import { cva, type VariantProps } from 'class-variance-authority';
+import type { TextProps, ViewProps } from '@/lib/types';
+import { cn } from '@/lib/utils';
 
-const alertVariants = cva(
-  'relative w-full rounded-lg border p-4',
-  {
-    variants: {
-      variant: {
-        default: 'bg-background text-foreground',
-        destructive:
-          'border-destructive/50 text-destructive dark:border-destructive',
-      },
+const alertVariants = cva('relative w-full rounded-lg border p-4', {
+  variants: {
+    variant: {
+      default: 'bg-background text-foreground',
+      destructive:
+        'border-destructive/50 text-destructive dark:border-destructive',
     },
-    defaultVariants: {
-      variant: 'default',
-    },
-  }
-)
+  },
+  defaultVariants: {
+    variant: 'default',
+  },
+});
 
-export interface AlertProps extends ViewProps, VariantProps<typeof alertVariants> {
-  children?: React.ReactNode
+export interface AlertProps
+  extends ViewProps,
+    VariantProps<typeof alertVariants> {
+  children?: ReactNode;
 }
 
 export function Alert({ className, variant, children, ...props }: AlertProps) {
   return (
-    <view
-      className={cn(alertVariants({ variant }), className)}
-      {...props}
-    >
+    <view className={cn(alertVariants({ variant }), className)} {...props}>
       {children}
     </view>
-  )
+  );
 }
 
 export interface AlertTitleProps extends TextProps {}
@@ -43,18 +40,19 @@ export function AlertTitle({ className, children, ...props }: AlertTitleProps) {
     >
       {children}
     </text>
-  )
+  );
 }
 
 export interface AlertDescriptionProps extends TextProps {}
 
-export function AlertDescription({ className, children, ...props }: AlertDescriptionProps) {
+export function AlertDescription({
+  className,
+  children,
+  ...props
+}: AlertDescriptionProps) {
   return (
-    <text
-      className={cn('text-sm [&_p]:leading-relaxed', className)}
-      {...props}
-    >
+    <text className={cn('text-sm [&_p]:leading-relaxed', className)} {...props}>
       {children}
     </text>
-  )
+  );
 }

@@ -1,7 +1,8 @@
-import { Button as BaseButton } from '@lynx-js/lynx-ui'
-import { cn } from '@/lib/utils'
-import { cva, type VariantProps } from 'class-variance-authority'
-import type { ViewProps } from '@/lib/types'
+import { Button as BaseButton } from '@lynx-js/lynx-ui';
+import type { ReactNode } from '@lynx-js/react';
+import { cva, type VariantProps } from 'class-variance-authority';
+import type { ViewProps } from '@/lib/types';
+import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
   'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background',
@@ -29,16 +30,18 @@ const buttonVariants = cva(
       variant: 'default',
       size: 'default',
     },
-  }
-)
+  },
+);
 
 export interface ButtonProps
   extends Omit<ViewProps, 'children'>,
     VariantProps<typeof buttonVariants> {
-  children?: React.ReactNode | ((props: { active: boolean; disabled: boolean }) => React.ReactNode)
-  disabled?: boolean
-  onClick?: () => void
-  buttonProps?: Record<string, unknown>
+  children?:
+    | ReactNode
+    | ((props: { active: boolean; disabled: boolean }) => ReactNode);
+  disabled?: boolean;
+  onClick?: () => void;
+  buttonProps?: Record<string, unknown>;
 }
 
 export function Button({
@@ -61,7 +64,7 @@ export function Button({
     >
       {children}
     </BaseButton>
-  )
+  );
 }
 
-export { buttonVariants }
+export { buttonVariants };

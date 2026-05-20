@@ -1,9 +1,9 @@
-import type { ViewProps } from '@/lib/types'
-import { cn } from '@/lib/utils'
+import type { ViewProps } from '@/lib/types';
+import { cn } from '@/lib/utils';
 
 export interface SeparatorProps extends ViewProps {
-  orientation?: 'horizontal' | 'vertical'
-  decorative?: boolean
+  orientation?: 'horizontal' | 'vertical';
+  decorative?: boolean;
 }
 
 export function Separator({
@@ -17,9 +17,9 @@ export function Separator({
       className={cn(
         'shrink-0 bg-border',
         orientation === 'horizontal' ? 'h-[1px] w-full' : 'h-full w-[1px]',
-        className
+        className,
       )}
       {...props}
     />
-  )
+  );
 }

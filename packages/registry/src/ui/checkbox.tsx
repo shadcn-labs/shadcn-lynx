@@ -1,20 +1,28 @@
+import type { CheckboxProps as BaseCheckboxProps } from '@lynx-js/lynx-ui';
 import {
   Checkbox as BaseCheckbox,
   CheckboxIndicator as BaseCheckboxIndicator,
-} from '@lynx-js/lynx-ui'
-import type { CheckboxProps as BaseCheckboxProps } from '@lynx-js/lynx-ui'
-import { cn } from '@/lib/utils'
-import type { ViewProps, TextProps } from '@/lib/types'
+} from '@lynx-js/lynx-ui';
+import type { ReactNode } from '@lynx-js/react';
+import type { ViewProps } from '@/lib/types';
+import { cn } from '@/lib/utils';
 
 export interface CheckboxProps extends Omit<ViewProps, 'children'> {
-  checked?: boolean
-  defaultChecked?: boolean
-  disabled?: boolean
-  indeterminate?: boolean
-  onChange?: (checked: boolean) => void
-  label?: string
-  children?: React.ReactNode | ((props: { checked: boolean; indeterminate: boolean; active: boolean; disabled: boolean }) => React.ReactNode)
-  checkboxProps?: BaseCheckboxProps['checkboxProps']
+  checked?: boolean;
+  defaultChecked?: boolean;
+  disabled?: boolean;
+  indeterminate?: boolean;
+  onChange?: (checked: boolean) => void;
+  label?: string;
+  children?:
+    | ReactNode
+    | ((props: {
+        checked: boolean;
+        indeterminate: boolean;
+        active: boolean;
+        disabled: boolean;
+      }) => ReactNode);
+  checkboxProps?: BaseCheckboxProps['checkboxProps'];
 }
 
 export function Checkbox({
@@ -33,7 +41,7 @@ export function Checkbox({
       <BaseCheckbox
         className={cn(
           'peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ui-checked:bg-primary ui-checked:text-primary-foreground',
-          className
+          className,
         )}
         checked={checked}
         defaultChecked={defaultChecked}
@@ -44,7 +52,9 @@ export function Checkbox({
         {...props}
       >
         <BaseCheckboxIndicator className="flex h-full w-full items-center justify-center">
-          <text className="text-[10px] font-medium leading-none text-primary-foreground">✓</text>
+          <text className="text-[10px] font-medium leading-none text-primary-foreground">
+            ✓
+          </text>
         </BaseCheckboxIndicator>
       </BaseCheckbox>
       {label ? (
@@ -57,5 +67,5 @@ export function Checkbox({
         </text>
       ) : null}
     </view>
-  )
+  );
 }

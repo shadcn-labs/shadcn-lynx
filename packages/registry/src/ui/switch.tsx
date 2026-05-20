@@ -1,19 +1,26 @@
+import type { SwitchProps as BaseSwitchProps } from '@lynx-js/lynx-ui';
 import {
   Switch as BaseSwitch,
   SwitchThumb as BaseSwitchThumb,
   SwitchTrack as BaseSwitchTrack,
-} from '@lynx-js/lynx-ui'
-import type { SwitchProps as BaseSwitchProps } from '@lynx-js/lynx-ui'
-import { cn } from '@/lib/utils'
-import type { ViewProps } from '@/lib/types'
+} from '@lynx-js/lynx-ui';
+import type { ReactNode } from '@lynx-js/react';
+import type { ViewProps } from '@/lib/types';
+import { cn } from '@/lib/utils';
 
 export interface SwitchProps extends Omit<ViewProps, 'children'> {
-  checked?: boolean
-  defaultChecked?: boolean
-  disabled?: boolean
-  onChange?: (checked: boolean) => void
-  children?: React.ReactNode | ((props: { checked: boolean; active: boolean; disabled: boolean }) => React.ReactNode)
-  switchProps?: BaseSwitchProps['switchProps']
+  checked?: boolean;
+  defaultChecked?: boolean;
+  disabled?: boolean;
+  onChange?: (checked: boolean) => void;
+  children?:
+    | ReactNode
+    | ((props: {
+        checked: boolean;
+        active: boolean;
+        disabled: boolean;
+      }) => ReactNode);
+  switchProps?: BaseSwitchProps['switchProps'];
 }
 
 export function Switch({
@@ -30,7 +37,7 @@ export function Switch({
     <BaseSwitch
       className={cn(
         'inline-flex h-[24px] w-[44px] shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input',
-        className
+        className,
       )}
       checked={checked}
       defaultChecked={defaultChecked}
@@ -42,16 +49,16 @@ export function Switch({
       <BaseSwitchTrack
         className={cn(
           'flex h-full w-full items-center rounded-full transition-colors',
-          'ui-checked:bg-primary ui-unchecked:bg-input'
+          'ui-checked:bg-primary ui-unchecked:bg-input',
         )}
       >
         <BaseSwitchThumb
           className={cn(
             'pointer-events-none block h-5 w-5 rounded-full bg-background shadow-lg ring-0 transition-transform',
-            'ui-checked:translate-x-5 ui-unchecked:translate-x-0'
+            'ui-checked:translate-x-5 ui-unchecked:translate-x-0',
           )}
         />
       </BaseSwitchTrack>
     </BaseSwitch>
-  )
+  );
 }

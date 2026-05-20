@@ -1,23 +1,17 @@
+import type { SliderRootProps } from '@lynx-js/lynx-ui';
 import {
-  SliderRoot as BaseSliderRoot,
-  SliderTrack as BaseSliderTrack,
   SliderIndicator as BaseSliderIndicator,
+  SliderRoot as BaseSliderRoot,
   SliderThumb as BaseSliderThumb,
-} from '@lynx-js/lynx-ui'
-import type {
-  SliderRootProps,
-  SliderTrackProps,
-  SliderIndicatorProps,
-  SliderThumbProps,
-} from '@lynx-js/lynx-ui'
-import { cn } from '@/lib/utils'
-import type { ViewProps } from '@/lib/types'
+  SliderTrack as BaseSliderTrack,
+} from '@lynx-js/lynx-ui';
+import { cn } from '@/lib/utils';
 
 export interface SliderProps extends Omit<SliderRootProps, 'className'> {
-  className?: string
-  trackClassName?: string
-  indicatorClassName?: string
-  thumbClassName?: string
+  className?: string;
+  trackClassName?: string;
+  indicatorClassName?: string;
+  thumbClassName?: string;
 }
 
 export function Slider({
@@ -39,7 +33,7 @@ export function Slider({
     <BaseSliderRoot
       className={cn(
         'relative flex w-full touch-none select-none items-center',
-        className
+        className,
       )}
       value={value}
       defaultValue={defaultValue}
@@ -53,7 +47,7 @@ export function Slider({
       <BaseSliderTrack
         className={cn(
           'relative h-2 w-full grow overflow-hidden rounded-full bg-secondary',
-          trackClassName
+          trackClassName,
         )}
       >
         <BaseSliderIndicator
@@ -62,10 +56,10 @@ export function Slider({
         <BaseSliderThumb
           className={cn(
             'block h-5 w-5 rounded-full border-2 border-primary bg-background ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
-            thumbClassName
+            thumbClassName,
           )}
         />
       </BaseSliderTrack>
     </BaseSliderRoot>
-  )
+  );
 }
