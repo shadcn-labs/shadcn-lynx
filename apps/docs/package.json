@@ -9,6 +9,8 @@
     "preview": "rsbuild preview"
   },
   "dependencies": {
+    "@lynx-js/lynx-ui": "^3.133.0",
+    "@lynx-js/react": "^0.121.0",
     "@mdx-js/react": "^3.1.0",
     "@mdx-js/rollup": "^3.1.0",
     "class-variance-authority": "^0.7.1",

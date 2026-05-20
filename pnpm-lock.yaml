@@ -90,6 +90,12 @@ importers:
 
   apps/docs:
     dependencies:
+      '@lynx-js/lynx-ui':
+        specifier: ^3.133.0
+        version: 3.133.0(@lynx-js/react@0.121.0(@lynx-js/types@3.7.0)(@types/react@19.2.15))(@lynx-js/types@3.7.0)(@types/react@19.2.15)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+      '@lynx-js/react':
+        specifier: ^0.121.0
+        version: 0.121.0(@lynx-js/types@3.7.0)(@types/react@19.2.15)
       '@mdx-js/react':
         specifier: ^3.1.0
         version: 3.1.1(@types/react@19.2.15)(react@19.2.6)
