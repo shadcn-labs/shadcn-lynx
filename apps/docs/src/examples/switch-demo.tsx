@@ -1,23 +1,16 @@
 import { cn } from '@/lib/utils';
 
-export interface SwitchPreviewProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
-  checked?: boolean;
-  defaultChecked?: boolean;
-  onCheckedChange?: (checked: boolean) => void;
-}
-
-export function SwitchPreview({
+export function Switch({
   className,
   checked,
   defaultChecked,
-  onCheckedChange,
-  ...props
-}: SwitchPreviewProps) {
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onCheckedChange?.(e.target.checked);
-  };
-
+  disabled,
+}: {
+  className?: string;
+  checked?: boolean;
+  defaultChecked?: boolean;
+  disabled?: boolean;
+}) {
   return (
     <label className="inline-flex items-center cursor-pointer">
       <input
@@ -25,8 +18,7 @@ export function SwitchPreview({
         className="sr-only peer"
         checked={checked}
         defaultChecked={defaultChecked}
-        onChange={handleChange}
-        {...props}
+        disabled={disabled}
       />
       <div
         className={cn(
@@ -35,5 +27,26 @@ export function SwitchPreview({
         )}
       />
     </label>
+  );
+}
+
+export function SwitchDefaultDemo() {
+  return <Switch />;
+}
+
+export function SwitchCheckedDemo() {
+  return <Switch checked />;
+}
+
+export function SwitchDisabledDemo() {
+  return <Switch disabled />;
+}
+
+export function SwitchWithLabelDemo() {
+  return (
+    <div className="flex items-center gap-2">
+      <Switch />
+      <span className="text-sm font-medium">Airplane Mode</span>
+    </div>
   );
 }
