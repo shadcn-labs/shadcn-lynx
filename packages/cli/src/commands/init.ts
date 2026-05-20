@@ -1,34 +1,38 @@
-import { writeFileSync, existsSync, mkdirSync } from 'node:fs'
-import { resolve, dirname } from 'node:path'
-import { DEFAULT_CONFIG, readConfigFile, type RawConfig } from '../utils/config.js'
+import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
+import {
+  DEFAULT_CONFIG,
+  type RawConfig,
+  readConfigFile,
+} from '../utils/config.js';
 
-const COMPONENTS_JSON = 'components.json'
+const COMPONENTS_JSON = 'components.json';
 
 export async function init(opts: { yes?: boolean }) {
-  const cwd = process.cwd()
-  const existing = readConfigFile(cwd)
+  const cwd = process.cwd();
+  const existing = readConfigFile(cwd);
 
   if (existing && !opts.yes) {
-    console.log('A components.json file already exists.')
-    console.log('Run with --yes to overwrite.')
-    return
+    console.log('A components.json file already exists.');
+    console.log('Run with --yes to overwrite.');
+    return;
   }
 
   const config: RawConfig = {
     ...DEFAULT_CONFIG,
     ...existing,
-  }
+  };
 
-  const configPath = resolve(cwd, COMPONENTS_JSON)
-  writeFileSync(configPath, JSON.stringify(config, null, 2) + '\n', 'utf-8')
+  const configPath = resolve(cwd, COMPONENTS_JSON);
+  writeFileSync(configPath, `${JSON.stringify(config, null, 2)}\n`, 'utf-8');
 
-  console.log('')
-  console.log('✔ Created components.json')
+  console.log('');
+  console.log('✔ Created components.json');
 
   // Create the utils file
-  const utilsPath = resolve(cwd, 'src/lib/utils.ts')
+  const utilsPath = resolve(cwd, 'src/lib/utils.ts');
   if (!existsSync(dirname(utilsPath))) {
-    mkdirSync(dirname(utilsPath), { recursive: true })
+    mkdirSync(dirname(utilsPath), { recursive: true });
   }
 
   const utilsContent = `import { type ClassValue, clsx } from 'clsx'
@@ -37,16 +41,16 @@ import { twMerge } from 'tailwind-merge'
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
-`
+`;
   if (!existsSync(utilsPath)) {
-    writeFileSync(utilsPath, utilsContent, 'utf-8')
-    console.log('✔ Created src/lib/utils.ts')
+    writeFileSync(utilsPath, utilsContent, 'utf-8');
+    console.log('✔ Created src/lib/utils.ts');
   }
 
   // Create the global CSS file
-  const cssPath = resolve(cwd, config.tailwind?.css ?? 'src/global.css')
+  const cssPath = resolve(cwd, config.tailwind?.css ?? 'src/global.css');
   if (!existsSync(dirname(cssPath))) {
-    mkdirSync(dirname(cssPath), { recursive: true })
+    mkdirSync(dirname(cssPath), { recursive: true });
   }
 
   if (!existsSync(cssPath)) {
@@ -106,20 +110,20 @@ export function cn(...inputs: ClassValue[]) {
     border-color: hsl(var(--border));
   }
 }
-`
-    writeFileSync(cssPath, cssContent, 'utf-8')
-    console.log(`✔ Created ${config.tailwind?.css ?? 'src/global.css'}`)
+`;
+    writeFileSync(cssPath, cssContent, 'utf-8');
+    console.log(`✔ Created ${config.tailwind?.css ?? 'src/global.css'}`);
   }
 
   // Create the UI directory
-  const uiPath = resolve(cwd, 'src/components/ui')
+  const uiPath = resolve(cwd, 'src/components/ui');
   if (!existsSync(uiPath)) {
-    mkdirSync(uiPath, { recursive: true })
-    console.log('✔ Created src/components/ui/')
+    mkdirSync(uiPath, { recursive: true });
+    console.log('✔ Created src/components/ui/');
   }
 
-  console.log('')
-  console.log('Success! Project initialization complete.')
-  console.log('')
-  console.log('Run `npx shadcn-lynx add button` to add your first component.')
+  console.log('');
+  console.log('Success! Project initialization complete.');
+  console.log('');
+  console.log('Run `npx shadcn-lynx add button` to add your first component.');
 }
