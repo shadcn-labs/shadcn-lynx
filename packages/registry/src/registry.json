@@ -23,7 +23,12 @@
       "type": "registry:ui",
       "title": "Button",
       "description": "Displays a button or a component that looks like a button.",
-      "dependencies": ["class-variance-authority", "clsx", "tailwind-merge", "@lynx-js/lynx-ui"],
+      "dependencies": [
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge",
+        "@lynx-js/lynx-ui"
+      ],
       "registryDependencies": ["types"],
       "files": [{ "path": "button.tsx", "type": "registry:ui" }]
     },
