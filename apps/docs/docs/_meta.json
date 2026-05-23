@@ -1,0 +1,49 @@
+[
+  {
+    "type": "section",
+    "label": "Sections",
+    "items": [
+      "introduction",
+      "components/index",
+      "installation",
+      "theming",
+      "cli",
+      "rtl",
+      "skills/index",
+      "mcp-server/index",
+      "registry/index",
+      "forms/index",
+      "changelog"
+    ]
+  },
+  {
+    "type": "dir-section-header",
+    "name": "components",
+    "label": "Components"
+  },
+  {
+    "type": "dir-section-header",
+    "name": "get-started",
+    "label": "Get Started"
+  },
+  {
+    "type": "dir-section-header",
+    "name": "forms",
+    "label": "Forms"
+  },
+  {
+    "type": "dir-section-header",
+    "name": "registry",
+    "label": "Registry"
+  },
+  {
+    "type": "dir-section-header",
+    "name": "skills",
+    "label": "Skills"
+  },
+  {
+    "type": "dir-section-header",
+    "name": "mcp-server",
+    "label": "MCP Server"
+  }
+]

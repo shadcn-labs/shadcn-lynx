@@ -1,0 +1,22 @@
+---
+title: Monorepo
+description: Use shadcn-lynx inside a pnpm workspace or monorepo.
+---
+
+# Monorepo
+
+In a workspace, run the CLI from the app package that owns the Lynx source tree.
+
+```bash
+pnpm --filter mobile-app exec shadcn-lynx add button
+```
+
+## Local registry development
+
+This repository is itself a pnpm workspace. The registry lives in `packages/registry`, the CLI lives in `packages/cli`, and the demo app lives in `apps/demo`.
+
+```bash
+pnpm run build:registry
+pnpm run build:cli
+```
+

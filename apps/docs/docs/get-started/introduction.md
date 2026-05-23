@@ -1,0 +1,24 @@
+---
+title: Introduction
+description: Learn what shadcn-lynx is and how it fits into the Lynx ecosystem.
+---
+
+# Introduction
+
+shadcn-lynx is a shadcn/ui-style registry for Lynx applications. The CLI copies component source into your app, so the component becomes your code instead of a locked dependency.
+
+The registry is designed for ReactLynx projects built with Rspeedy. Interactive components wrap headless `lynx-ui` primitives, while structural components use Lynx elements such as `view`, `text`, and `image`.
+
+## How it works
+
+1. Start from a ReactLynx app.
+2. Run the shadcn-lynx CLI to configure aliases and utilities.
+3. Add components from the registry.
+4. Edit the copied files when your product needs different behavior or styling.
+
+## Lynx mental model
+
+Lynx uses a web-like syntax, but it is not the browser DOM. Text belongs in `text`, layout nodes use `view`, scrollable content should use `scroll-view`, and event handlers use Lynx event names such as `bindtap`.
+
+ReactLynx also has a dual-thread runtime. Most component rendering and state updates happen on the background thread, while Main Thread Script can be used for high-frequency gestures and immediate visual feedback.
+

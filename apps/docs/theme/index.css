@@ -1,0 +1,31 @@
+:root {
+  --rp-c-brand: #111827;
+  --rp-c-brand-dark: #030712;
+  --rp-c-brand-light: #374151;
+  --rp-c-brand-lighter: #4b5563;
+  --rp-c-brand-tint: rgba(17, 24, 39, 0.12);
+  --rp-home-hero-name-background: linear-gradient(
+    120deg,
+    #111827,
+    #0891b2 42%,
+    #65a30d
+  );
+  --rp-home-mask-background-image: none;
+}
+
+.dark {
+  --rp-c-brand: #f8fafc;
+  --rp-c-brand-dark: #e5e7eb;
+  --rp-c-brand-light: #cbd5e1;
+  --rp-c-brand-tint: rgba(248, 250, 252, 0.14);
+}
+
+.rspress-doc h2 {
+  margin-top: 2rem;
+}
+
+.rspress-doc table code,
+.rspress-doc li code,
+.rspress-doc p code {
+  white-space: nowrap;
+}

@@ -1,0 +1,20 @@
+---
+title: Theming
+description: Theme shadcn-lynx components with Tailwind-style tokens.
+---
+
+# Theming
+
+shadcn-lynx components use Tailwind-style tokens such as `background`, `foreground`, `primary`, `muted`, `border`, and `destructive`.
+
+```css
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --primary: 222.2 47.4% 11.2%;
+  --primary-foreground: 210 40% 98%;
+}
+```
+
+Use your app styling layer to map those tokens into the class system used by ReactLynx.
+

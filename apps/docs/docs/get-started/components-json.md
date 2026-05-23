@@ -1,0 +1,24 @@
+---
+title: components.json
+description: Configure aliases and registry settings for shadcn-lynx.
+---
+
+# components.json
+
+The `components.json` file tells the CLI where to place copied files and how to resolve project aliases.
+
+```json
+{
+  "aliases": {
+    "ui": "@/components/ui",
+    "lib": "@/lib",
+    "components": "@/components",
+    "utils": "@/lib/utils"
+  }
+}
+```
+
+## Why it matters
+
+Registry files import utilities with aliases such as `@/lib/utils`. Keep these aliases aligned with your Rspeedy and TypeScript configuration.
+
