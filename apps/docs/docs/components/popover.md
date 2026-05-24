@@ -1,50 +1,43 @@
 ---
 title: Popover
-description: Displays rich content in a portal, triggered by a button click.
+description: A popover overlay.
 ---
+
+import { ComponentPreview } from '@theme';
 
 # Popover
 
-Displays rich content triggered by a control.
+A popover overlay.
 
 ```bash
 npx shadcn-lynx add popover
 ```
 
+## Examples
+
+<ComponentPreview component="popover" variant="default" />
+
+<ComponentPreview component="popover" variant="with-form" />
+
 ## Usage
 
 ```tsx
 import {
-  PopoverContent,
   PopoverRoot,
   PopoverTrigger,
+  PopoverContent,
+  PopoverPositioner,
+  PopoverBackdrop,
 } from '@/components/ui/popover';
-
-export function Example() {
-  return (
-    <PopoverRoot>
-      <PopoverTrigger>Open</PopoverTrigger>
-      <PopoverContent>
-        <text>Popover content</text>
-      </PopoverContent>
-    </PopoverRoot>
-  );
-}
 ```
 
-Popover wraps the popover primitives from `@lynx-js/lynx-ui`.
+## API
 
-## Exports
-
-`PopoverRoot`, `PopoverTrigger`, `PopoverContent`, `PopoverPositioner`, `PopoverBackdrop`, and `PopoverArrow`.
-
-## Root props
-
-| Prop | Type |
+| Component | Props |
 | --- | --- |
-| `show` | `boolean` |
-| `defaultShow` | `boolean` |
-| `onVisibleChange` | `(visible: boolean) => void` |
-| `onOpen` | `() => void` |
-| `onClose` | `() => void` |
-| `forceMount` | `boolean` |
+| `PopoverRoot` | `{ show?, defaultShow?, onVisibleChange?, onOpen?, onClose?, forceMount?, children }` |
+| `PopoverTrigger` | `{ className?, children?, disabled?, onClick? }` |
+| `PopoverContent` | `{ className?, children? }` |
+| `PopoverPositioner` | `{ className?, children?, placement? }` |
+| `PopoverBackdrop` | `{ className?, onClick? }` |
+| `PopoverArrow` | `{ className?, size?, color?, offset? }` |

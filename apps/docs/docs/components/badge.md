@@ -1,24 +1,32 @@
 ---
 title: Badge
-description: Displays a badge or a component that looks like a badge.
+description: A badge indicator.
 ---
+
+import { ComponentPreview } from '@theme';
 
 # Badge
 
-Displays a badge or a component that looks like a badge.
+A badge indicator.
 
 ```bash
 npx shadcn-lynx add badge
 ```
 
+## Examples
+
+<ComponentPreview component="badge" variant="default" />
+
+<ComponentPreview component="badge" variant="secondary" />
+
+<ComponentPreview component="badge" variant="destructive" />
+
+<ComponentPreview component="badge" variant="outline" />
+
 ## Usage
 
 ```tsx
 import { Badge } from '@/components/ui/badge';
-
-export function Example() {
-  return <Badge variant="secondary">Preview</Badge>;
-}
 ```
 
 ## API
@@ -26,6 +34,3 @@ export function Example() {
 | Prop | Type | Default |
 | --- | --- | --- |
 | `variant` | `'default' \| 'secondary' \| 'destructive' \| 'outline'` | `'default'` |
-| `className` | `string` | - |
-
-Badge uses native Lynx elements and exports `badgeVariants`.

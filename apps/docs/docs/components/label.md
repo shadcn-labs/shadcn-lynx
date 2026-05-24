@@ -1,30 +1,28 @@
 ---
 title: Label
-description: Renders an accessible label associated with controls.
+description: A form label component.
 ---
+
+import { ComponentPreview } from '@theme';
 
 # Label
 
-Renders a label for nearby form controls.
+A form label component.
 
 ```bash
 npx shadcn-lynx add label
 ```
 
+## Examples
+
+<ComponentPreview component="label" variant="default" />
+
 ## Usage
 
 ```tsx
-import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-
-export function Example() {
-  return (
-    <view>
-      <Label>Email</Label>
-      <Input placeholder="you@example.com" />
-    </view>
-  );
-}
 ```
 
-Label renders a Lynx `text` element and accepts shared text props such as `className`, `style`, `children`, and `id`.
+## API
+
+`Label` accepts `TextProps`.

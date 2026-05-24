@@ -1,30 +1,28 @@
 ---
 title: Separator
-description: Visually or semantically separates content.
+description: A horizontal or vertical separator.
 ---
+
+import { ComponentPreview } from '@theme';
 
 # Separator
 
-Visually separates content.
+A horizontal or vertical separator.
 
 ```bash
 npx shadcn-lynx add separator
 ```
 
+## Examples
+
+<ComponentPreview component="separator" variant="horizontal" />
+
+<ComponentPreview component="separator" variant="vertical" />
+
 ## Usage
 
 ```tsx
 import { Separator } from '@/components/ui/separator';
-
-export function Example() {
-  return (
-    <view>
-      <text>Account</text>
-      <Separator />
-      <text>Billing</text>
-    </view>
-  );
-}
 ```
 
 ## API
@@ -33,4 +31,3 @@ export function Example() {
 | --- | --- | --- |
 | `orientation` | `'horizontal' \| 'vertical'` | `'horizontal'` |
 | `decorative` | `boolean` | `true` |
-| `className` | `string` | - |

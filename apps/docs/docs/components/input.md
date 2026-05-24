@@ -1,51 +1,50 @@
 ---
 title: Input
-description: Displays a form input field or a component that looks like an input field.
+description: A text input field.
 ---
+
+import { ComponentPreview } from '@theme';
 
 # Input
 
-Displays a form input field or a component that looks like an input field.
+A text input field.
 
 ```bash
 npx shadcn-lynx add input
 ```
 
+## Examples
+
+<ComponentPreview component="input" variant="default" />
+
+<ComponentPreview component="input" variant="with-placeholder" />
+
+<ComponentPreview component="input" variant="disabled" />
+
+<ComponentPreview component="input" variant="password" />
+
 ## Usage
 
 ```tsx
 import { Input } from '@/components/ui/input';
+import { useState } from '@lynx-js/react';
 
 export function Example() {
-  return <Input placeholder="Email" />;
+  const [value, setValue] = useState('');
+  return <Input value={value} onChange={setValue} placeholder="Type..." />;
 }
 ```
 
 ## API
 
-Input wraps the `Input` and `TextArea` primitives from `@lynx-js/lynx-ui`.
-
-| Prop | Type |
-| --- | --- |
-| `className` | `string` |
-| `value` | primitive input value props |
-| `defaultValue` | primitive input default value props |
-| `placeholder` | `string` |
-| `disabled` | `boolean` |
-| `type` | `'text' \| 'password' \| 'email' \| 'number' \| 'tel' \| 'digit'` |
-| `onChange` | `(value: string) => void` |
-| `onFocus` | `() => void` |
-| `onBlur` | `() => void` |
-| `inputProps` | `Record<string, unknown>` |
-
-## Textarea
-
-```tsx
-import { Textarea } from '@/components/ui/input';
-
-export function MessageInput() {
-  return <Textarea rows={4} placeholder="Message" />;
-}
-```
-
-Textarea exposes the same value, default value, placeholder, disabled, focus, and blur props, plus `rows` and `textareaProps`.
+| Prop | Type | Default |
+| --- | --- | --- |
+| `value` | `string` | - |
+| `defaultValue` | `string` | - |
+| `placeholder` | `string` | - |
+| `disabled` | `boolean` | `false` |
+| `type` | `'text' \| 'password' \| 'email' \| 'number' \| 'tel' \| 'digit'` | `'text'` |
+| `onChange` | `(value: string) => void` | - |
+| `onFocus` | `() => void` | - |
+| `onBlur` | `() => void` | - |
+| `inputProps` | `Record<string, unknown>` | - |

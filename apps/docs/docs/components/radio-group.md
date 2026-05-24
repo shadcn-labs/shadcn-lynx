@@ -1,15 +1,21 @@
 ---
 title: Radio Group
-description: A set of checkable buttons where only one can be checked at a time.
+description: A set of radio buttons.
 ---
+
+import { ComponentPreview } from '@theme';
 
 # Radio Group
 
-A set of checkable buttons where only one can be checked at a time.
+A set of radio buttons.
 
 ```bash
 npx shadcn-lynx add radio-group
 ```
+
+## Examples
+
+<ComponentPreview component="radio-group" variant="default" />
 
 ## Usage
 
@@ -18,10 +24,9 @@ import { RadioGroupRoot, RadioItem } from '@/components/ui/radio-group';
 
 export function Example() {
   return (
-    <RadioGroupRoot defaultValue="comfortable">
-      <RadioItem value="default" label="Default" />
-      <RadioItem value="comfortable" label="Comfortable" />
-      <RadioItem value="compact" label="Compact" />
+    <RadioGroupRoot>
+      <RadioItem value="option-1" label="Option 1" />
+      <RadioItem value="option-2" label="Option 2" />
     </RadioGroupRoot>
   );
 }
@@ -29,15 +34,7 @@ export function Example() {
 
 ## API
 
-Radio Group wraps primitives from `@lynx-js/lynx-ui`.
-
-| Prop | Type |
+| Component | Props |
 | --- | --- |
-| `value` | `string` |
-| `defaultValue` | `string` |
-| `onValueChange` | `(value: string) => void` |
-| `disabled` | `boolean` |
-
-## Exports
-
-`RadioGroupRoot` and `RadioItem`.
+| `RadioGroupRoot` | Extends `BaseRadioGroupRootProps` |
+| `RadioItem` | `{ value: string; label?: string }` + `BaseRadioProps` |

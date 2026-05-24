@@ -1,30 +1,21 @@
 [
-  {
-    "type": "section",
-    "label": "Sections",
-    "items": [
-      "introduction",
-      "components/index",
-      "installation",
-      "theming",
-      "cli",
-      "rtl",
-      "skills/index",
-      "mcp-server/index",
-      "registry/index",
-      "forms/index",
-      "changelog"
-    ]
-  },
+  "01.introduction",
+  "02.installation",
+  "03.components-json",
+  "08.package-imports",
+  "04.theming",
+  "05.dark-mode",
+  "06.cli",
+  "07.javascript",
+  "09.figma",
+  "10.changelog",
+  "11.legacy",
+  "12.monorepo",
+  "rtl",
   {
     "type": "dir-section-header",
     "name": "components",
     "label": "Components"
-  },
-  {
-    "type": "dir-section-header",
-    "name": "get-started",
-    "label": "Get Started"
   },
   {
     "type": "dir-section-header",
@@ -36,14 +27,6 @@
     "name": "registry",
     "label": "Registry"
   },
-  {
-    "type": "dir-section-header",
-    "name": "skills",
-    "label": "Skills"
-  },
-  {
-    "type": "dir-section-header",
-    "name": "mcp-server",
-    "label": "MCP Server"
-  }
+  "mcp",
+  "skills"
 ]

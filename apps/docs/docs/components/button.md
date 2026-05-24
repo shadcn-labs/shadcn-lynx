@@ -3,6 +3,8 @@ title: Button
 description: Displays a button or a component that looks like a button.
 ---
 
+import { ComponentPreview } from '@theme';
+
 # Button
 
 Displays a button or a component that looks like a button.
@@ -10,6 +12,26 @@ Displays a button or a component that looks like a button.
 ```bash
 npx shadcn-lynx add button
 ```
+
+## Examples
+
+<ComponentPreview component="button" variant="default" />
+
+### Variants
+
+<ComponentPreview component="button" variant="secondary" />
+
+<ComponentPreview component="button" variant="outline" />
+
+<ComponentPreview component="button" variant="ghost" />
+
+<ComponentPreview component="button" variant="destructive" />
+
+<ComponentPreview component="button" variant="link" />
+
+### Sizes
+
+<ComponentPreview component="button" variant="sizes" />
 
 ## Usage
 

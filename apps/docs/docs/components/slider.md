@@ -1,41 +1,46 @@
 ---
 title: Slider
-description: An input where the user selects a value from within a range.
+description: A range slider input.
 ---
+
+import { ComponentPreview } from '@theme';
 
 # Slider
 
-An input where the user selects a value from within a range.
+A range slider input.
 
 ```bash
 npx shadcn-lynx add slider
 ```
 
+## Examples
+
+<ComponentPreview component="slider" variant="default" />
+
+<ComponentPreview component="slider" variant="range" />
+
+<ComponentPreview component="slider" variant="disabled" />
+
 ## Usage
 
 ```tsx
 import { Slider } from '@/components/ui/slider';
+import { useState } from '@lynx-js/react';
 
 export function Example() {
-  return <Slider defaultValue={50} min={0} max={100} />;
+  const [value, setValue] = useState(50);
+  return <Slider value={value} onValueChange={setValue} />;
 }
 ```
 
 ## API
 
-Slider wraps `SliderRoot`, `SliderTrack`, `SliderIndicator`, and `SliderThumb` from `@lynx-js/lynx-ui`.
-
-| Prop | Type |
-| --- | --- |
-| `value` | primitive slider value |
-| `defaultValue` | primitive slider default value |
-| `min` | `number` |
-| `max` | `number` |
-| `step` | `number` |
-| `disabled` | `boolean` |
-| `onValueChange` | primitive value callback |
-| `onDragging` | primitive dragging callback |
-| `onValueCommit` | primitive commit callback |
-| `trackClassName` | `string` |
-| `indicatorClassName` | `string` |
-| `thumbClassName` | `string` |
+| Prop | Type | Default |
+| --- | --- | --- |
+| `value` | `number \| number[]` | - |
+| `defaultValue` | `number \| number[]` | - |
+| `step` | `number` | `1` |
+| `disabled` | `boolean` | `false` |
+| `onValueChange` | `(value: number \| number[]) => void` | - |
+| `onDragging` | `(dragging: boolean) => void` | - |
+| `onValueCommit` | `(value: number \| number[]) => void` | - |

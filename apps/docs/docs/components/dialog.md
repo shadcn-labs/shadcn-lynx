@@ -1,57 +1,49 @@
 ---
 title: Dialog
-description: A window overlaid on either the primary window or another dialog window.
+description: A modal dialog overlay.
 ---
+
+import { ComponentPreview } from '@theme';
 
 # Dialog
 
-A window overlaid on the current screen.
+A modal dialog overlay.
 
 ```bash
 npx shadcn-lynx add dialog
 ```
 
+## Examples
+
+<ComponentPreview component="dialog" variant="default" />
+
+<ComponentPreview component="dialog" variant="with-form" />
+
 ## Usage
 
 ```tsx
 import {
-  DialogBackdrop,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
   DialogRoot,
-  DialogTitle,
   DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogClose,
+  DialogBackdrop,
 } from '@/components/ui/dialog';
-
-export function Example() {
-  return (
-    <DialogRoot>
-      <DialogTrigger>Open</DialogTrigger>
-      <DialogBackdrop />
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>Delete item?</DialogTitle>
-          <DialogDescription>This action cannot be undone.</DialogDescription>
-        </DialogHeader>
-        <DialogFooter>
-          <DialogClose>Cancel</DialogClose>
-        </DialogFooter>
-      </DialogContent>
-    </DialogRoot>
-  );
-}
 ```
 
-## Root props
+## API
 
-| Prop | Type |
+| Component | Props |
 | --- | --- |
-| `show` | `boolean` |
-| `defaultShow` | `boolean` |
-| `onShowChange` | `(open: boolean) => void` |
-| `onOpen` | `() => void` |
-| `onClose` | `() => void` |
-| `forceMount` | `boolean` |
+| `DialogRoot` | `{ show?, defaultShow?, onShowChange?, onOpen?, onClose?, forceMount?, children }` |
+| `DialogTrigger` | `{ className?, children?, disabled? }` |
+| `DialogClose` | `{ className?, children?, disabled? }` |
+| `DialogBackdrop` | `{ className?, clickToClose?, onClick? }` |
+| `DialogContent` | `{ className?, children? }` |
+| `DialogHeader` | `ViewProps` |
+| `DialogFooter` | `ViewProps` |
+| `DialogTitle` | `TextProps` |
+| `DialogDescription` | `TextProps` |

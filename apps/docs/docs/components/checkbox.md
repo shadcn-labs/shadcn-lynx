@@ -1,15 +1,27 @@
 ---
 title: Checkbox
-description: A control that allows the user to toggle between checked and unchecked.
+description: A checkbox input control.
 ---
+
+import { ComponentPreview } from '@theme';
 
 # Checkbox
 
-A control that allows the user to toggle between checked and unchecked.
+A checkbox input control.
 
 ```bash
 npx shadcn-lynx add checkbox
 ```
+
+## Examples
+
+<ComponentPreview component="checkbox" variant="default" />
+
+<ComponentPreview component="checkbox" variant="checked" />
+
+<ComponentPreview component="checkbox" variant="disabled" />
+
+<ComponentPreview component="checkbox" variant="with-label" />
 
 ## Usage
 
@@ -17,21 +29,18 @@ npx shadcn-lynx add checkbox
 import { Checkbox } from '@/components/ui/checkbox';
 
 export function Example() {
-  return <Checkbox defaultChecked onChange={(checked) => console.log(checked)} />;
+  return <Checkbox label="Accept terms" />;
 }
 ```
 
 ## API
 
-Checkbox wraps the `Checkbox` primitives from `@lynx-js/lynx-ui`.
-
-| Prop | Type |
-| --- | --- |
-| `checked` | `boolean` |
-| `defaultChecked` | `boolean` |
-| `disabled` | `boolean` |
-| `indeterminate` | `boolean` |
-| `label` | `string` |
-| `onChange` | `(checked: boolean) => void` |
-| `checkboxProps` | `BaseCheckboxProps['checkboxProps']` |
-| `className` | `string` |
+| Prop | Type | Default |
+| --- | --- | --- |
+| `checked` | `boolean` | - |
+| `defaultChecked` | `boolean` | `false` |
+| `disabled` | `boolean` | `false` |
+| `indeterminate` | `boolean` | `false` |
+| `onChange` | `(checked: boolean) => void` | - |
+| `label` | `string` | - |
+| `checkboxProps` | `Record<string, unknown>` | - |

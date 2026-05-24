@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "declaration": false,
+    "declarationMap": false,
+    "strict": true,
+    "jsx": "preserve",
+    "jsxImportSource": "@lynx-js/react",
+    "moduleResolution": "bundler",
+    "target": "ESNext",
+    "module": "ESNext",
+    "allowImportingTsExtensions": true,
+    "skipLibCheck": true,
+    "baseUrl": "."
+  }
+}

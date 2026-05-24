@@ -1,0 +1,22 @@
+[
+  {
+    "text": "Docs",
+    "link": "/01.introduction",
+    "activeMatch": "/"
+  },
+  {
+    "text": "Components",
+    "link": "/components/",
+    "activeMatch": "/components/"
+  },
+  {
+    "text": "Registry",
+    "link": "/registry/",
+    "activeMatch": "/registry/"
+  },
+  {
+    "text": "Forms",
+    "link": "/forms/",
+    "activeMatch": "/forms/"
+  }
+]

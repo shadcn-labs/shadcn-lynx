@@ -1,8 +1,23 @@
 import * as path from 'node:path';
+import { pluginSass } from '@rsbuild/plugin-sass';
 import { defineConfig } from '@rspress/core';
 
 export default defineConfig({
   root: path.join(__dirname, 'docs'),
+  base: '/docs',
+  builderConfig: {
+    plugins: [pluginSass()],
+    tools: {
+      rspack: {
+        resolve: {
+          fallback: {
+            fs: false,
+            path: false,
+          },
+        },
+      },
+    },
+  },
   title: 'shadcn-lynx',
   description:
     'Open-code components for ReactLynx, styled with Tailwind CSS and powered by lynx-ui primitives.',
@@ -15,28 +30,6 @@ export default defineConfig({
   themeConfig: {
     enableContentAnimation: true,
     search: true,
-    nav: [
-      {
-        text: 'Docs',
-        link: '/get-started/introduction',
-        activeMatch: '/get-started/',
-      },
-      {
-        text: 'Components',
-        link: '/components/',
-        activeMatch: '/components/',
-      },
-      {
-        text: 'Registry',
-        link: '/registry/',
-        activeMatch: '/registry/',
-      },
-      {
-        text: 'Forms',
-        link: '/forms/',
-        activeMatch: '/forms/',
-      },
-    ],
     socialLinks: [
       {
         icon: 'github',

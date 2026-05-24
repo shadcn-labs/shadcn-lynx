@@ -1,33 +1,34 @@
 ---
 title: Avatar
-description: An image element with a fallback for representing the user.
+description: A user avatar with image and fallback.
 ---
+
+import { ComponentPreview } from '@theme';
 
 # Avatar
 
-Displays a user image with fallback content.
+A user avatar with image and fallback.
 
 ```bash
 npx shadcn-lynx add avatar
 ```
 
+## Examples
+
+<ComponentPreview component="avatar" variant="default" />
+
+<ComponentPreview component="avatar" variant="with-fallback" />
+
 ## Usage
 
 ```tsx
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-
-export function Example() {
-  return (
-    <Avatar>
-      <AvatarImage src="https://example.com/avatar.png" />
-      <AvatarFallback>SL</AvatarFallback>
-    </Avatar>
-  );
-}
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 ```
 
-## Exports
+## API
 
-`Avatar`, `AvatarImage`, and `AvatarFallback`.
-
-Avatar uses Lynx `view`, `image`, and `text` elements.
+| Component | Props |
+| --- | --- |
+| `Avatar` | `ViewProps` |
+| `AvatarImage` | `{ src: string; className?: string }` |
+| `AvatarFallback` | `ViewProps` |

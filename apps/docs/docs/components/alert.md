@@ -1,33 +1,34 @@
 ---
 title: Alert
-description: Displays a callout for user attention.
+description: A contextual alert message.
 ---
+
+import { ComponentPreview } from '@theme';
 
 # Alert
 
-Displays a callout for user attention.
+A contextual alert message.
 
 ```bash
 npx shadcn-lynx add alert
 ```
 
+## Examples
+
+<ComponentPreview component="alert" variant="default" />
+
+<ComponentPreview component="alert" variant="destructive" />
+
 ## Usage
 
 ```tsx
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-
-export function Example() {
-  return (
-    <Alert>
-      <AlertTitle>Heads up</AlertTitle>
-      <AlertDescription>Your registry is ready.</AlertDescription>
-    </Alert>
-  );
-}
+import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 ```
 
-## Exports
+## API
 
-`Alert`, `AlertTitle`, `AlertDescription`, and `alertVariants`.
+| Prop | Type | Default |
+| --- | --- | --- |
+| `variant` | `'default' \| 'destructive'` | `'default'` |
 
-Alert uses native Lynx elements.
+`Alert` accepts `ViewProps`, `AlertTitle` and `AlertDescription` accept `TextProps`.

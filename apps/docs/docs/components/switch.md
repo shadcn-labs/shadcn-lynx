@@ -1,34 +1,49 @@
 ---
 title: Switch
-description: A control that allows the user to toggle between checked and unchecked.
+description: A toggle switch control.
 ---
+
+import { ComponentPreview } from '@theme';
 
 # Switch
 
-A control that allows the user to toggle between checked and unchecked.
+A toggle switch control.
 
 ```bash
 npx shadcn-lynx add switch
 ```
 
+## Examples
+
+<ComponentPreview component="switch" variant="default" />
+
+<ComponentPreview component="switch" variant="checked" />
+
+<ComponentPreview component="switch" variant="disabled" />
+
 ## Usage
 
 ```tsx
-import { Switch } from '@/components/ui/switch';
+import { Switch, SwitchTrack, SwitchThumb } from '@/components/ui/switch';
+import { useState } from '@lynx-js/react';
 
 export function Example() {
-  return <Switch defaultChecked onChange={(checked) => console.log(checked)} />;
+  const [checked, setChecked] = useState(false);
+  return (
+    <Switch checked={checked} onChange={setChecked}>
+      <SwitchTrack />
+      <SwitchThumb />
+    </Switch>
+  );
 }
 ```
 
 ## API
 
-| Prop | Type |
-| --- | --- |
-| `checked` | `boolean` |
-| `defaultChecked` | `boolean` |
-| `disabled` | `boolean` |
-| `onChange` | `(checked: boolean) => void` |
-| `switchProps` | `BaseSwitchProps['switchProps']` |
-
-Switch wraps `Switch`, `SwitchTrack`, and `SwitchThumb` from `@lynx-js/lynx-ui`.
+| Prop | Type | Default |
+| --- | --- | --- |
+| `checked` | `boolean` | - |
+| `defaultChecked` | `boolean` | `false` |
+| `disabled` | `boolean` | `false` |
+| `onChange` | `(checked: boolean) => void` | - |
+| `switchProps` | `Record<string, unknown>` | - |

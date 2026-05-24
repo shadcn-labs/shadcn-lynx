@@ -11,10 +11,12 @@
     "preview": "rspress preview"
   },
   "dependencies": {
+    "@lynx-js/go-web": "^0.5.1",
     "@rspress/core": "^2.0.11"
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.14",
+    "@rsbuild/plugin-sass": "^1.5.2",
     "@types/node": "^22.8.1",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",

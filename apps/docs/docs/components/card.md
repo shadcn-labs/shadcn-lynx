@@ -1,48 +1,50 @@
 ---
 title: Card
-description: Displays a card with header, content, and footer.
+description: A card container with header, content, and footer sections.
 ---
+
+import { ComponentPreview } from '@theme';
 
 # Card
 
-Displays a card with header, content, and footer.
+A card container with header, content, and footer sections.
 
 ```bash
 npx shadcn-lynx add card
 ```
 
+## Examples
+
+<ComponentPreview component="card" variant="default" />
+
+<ComponentPreview component="card" variant="with-header-footer" />
+
 ## Usage
 
 ```tsx
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 
 export function Example() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Project</CardTitle>
-        <CardDescription>ReactLynx component set</CardDescription>
+        <CardTitle>Title</CardTitle>
       </CardHeader>
       <CardContent>
-        <text>Ready to install.</text>
+        <text>Content</text>
       </CardContent>
-      <CardFooter>
-        <text>Updated today</text>
-      </CardFooter>
     </Card>
   );
 }
 ```
 
-## Exports
+## API
 
-`Card`, `CardHeader`, `CardFooter`, `CardTitle`, `CardDescription`, and `CardContent`.
-
-Card is built from native Lynx `view` and `text` elements.
+| Component | Props |
+| --- | --- |
+| `Card` | `ViewProps` |
+| `CardHeader` | `ViewProps` |
+| `CardTitle` | `TextProps` |
+| `CardDescription` | `TextProps` |
+| `CardContent` | `ViewProps` |
+| `CardFooter` | `ViewProps` |

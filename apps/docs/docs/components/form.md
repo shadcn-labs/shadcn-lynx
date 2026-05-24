@@ -1,50 +1,40 @@
 ---
 title: Form
-description: Build accessible and validated forms.
+description: A form component with validation.
 ---
+
+import { ComponentPreview } from '@theme';
 
 # Form
 
-Build structured forms around `@lynx-js/lynx-ui` form primitives.
+A form component with validation.
 
 ```bash
 npx shadcn-lynx add form
 ```
 
+## Examples
+
+<ComponentPreview component="form" variant="default" />
+
 ## Usage
 
 ```tsx
 import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-  FormRoot,
-  FormSubmitButton,
+  FormRoot, FormField, FormItem,
+  FormLabel, FormControl, FormMessage, FormSubmitButton,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-
-export function Example() {
-  return (
-    <FormRoot initialValues={{ email: '' }} onSubmit={(values) => console.log(values)}>
-      <FormField name="email">
-        <FormItem>
-          <FormLabel>Email</FormLabel>
-          <FormControl>
-            <Input placeholder="you@example.com" />
-          </FormControl>
-          <FormMessage />
-        </FormItem>
-      </FormField>
-      <FormSubmitButton>Save</FormSubmitButton>
-    </FormRoot>
-  );
-}
 ```
 
-## Exports
+## API
 
-`FormRoot`, `FormField`, `FormSubmitButton`, `FormItem`, `FormLabel`, `FormControl`, and `FormMessage`.
-
-The registry entry depends on `types` and `label`.
+| Component | Props |
+| --- | --- |
+| `FormRoot` | `{ initialValues?, onSubmit?, onChanged?, className?, children? }` |
+| `FormField` | `FormFieldProps` (re-exported from `@lynx-js/lynx-ui`) |
+| `FormItem` | `ViewProps` |
+| `FormLabel` | `TextProps` |
+| `FormControl` | `ViewProps` |
+| `FormMessage` | `TextProps` |
+| `FormSubmitButton` | `{ className?, children?, onSubmit? }` |
