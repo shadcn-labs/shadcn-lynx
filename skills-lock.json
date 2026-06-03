@@ -13,6 +13,12 @@
       "skillPath": "skills/lynx-typescript/SKILL.md",
       "computedHash": "15576a4f45dc2a117b54fd34e50649133ae5508a8d3544ca0d700d836ae5b3c8"
     },
+    "lynx-ui": {
+      "source": "lynx-community/skills",
+      "sourceType": "github",
+      "skillPath": "skills/lynx-ui/SKILL.md",
+      "computedHash": "eb9930424184e5b05c632ec1ecc7808d9b6f3589f53d15d2af35e055cae55c6a"
+    },
     "reactlynx-best-practices": {
       "source": "lynx-community/skills",
       "sourceType": "github",
