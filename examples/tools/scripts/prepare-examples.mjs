@@ -1,11 +1,13 @@
 import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const currentDir = process.cwd();
-const examplesDir = currentDir;
-const linkPath = path.join(
-  currentDir,
+// Resolve paths relative to this script so it works regardless of cwd.
+const scriptDir = path.dirname(fileURLToPath(import.meta.url));
+const examplesDir = path.resolve(scriptDir, '../..');
+const linkPath = path.resolve(
+  examplesDir,
   '../apps/docs/docs/public/lynx-examples',
 );
 const ignoreDirs = ['node_modules', '.git', '.turbo', 'dist', 'tools'];
@@ -42,19 +44,43 @@ function copyExampleFiles(exampleDir, targetDir) {
   });
 }
 
-function getTemplateFiles(allFiles) {
-  return allFiles
+// Copy the built `dist` bundles into the target and return the templateFiles
+// metadata the go-web preview uses to render the live web/Lynx bundles. The
+// bundles live in `dist/` (which is excluded from the source file browser), so
+// they are handled here separately from copyExampleFiles().
+function copyBundlesAndGetTemplateFiles(exampleDir, targetDir) {
+  const distDir = path.join(exampleDir, 'dist');
+  if (!fs.existsSync(distDir)) return [];
+
+  const distFiles = fs.readdirSync(distDir);
+  const lynxBundles = distFiles
     .filter((f) => f.endsWith('.lynx.bundle'))
-    .map((file) => {
-      const dir = file.split('/');
-      const name = dir[dir.length - 1].replace('.lynx.bundle', '');
-      const webFile = file.replace('.lynx.bundle', '.web.bundle');
-      return {
-        name: name || dir[dir.length - 2],
-        file,
-        ...(allFiles.includes(webFile) ? { webFile } : {}),
-      };
-    });
+    .sort();
+  if (lynxBundles.length === 0) return [];
+
+  const targetDist = path.join(targetDir, 'dist');
+  fs.mkdirSync(targetDist, { recursive: true });
+
+  return lynxBundles.map((lynxBundle) => {
+    const name = lynxBundle.replace('.lynx.bundle', '');
+    const webBundle = `${name}.web.bundle`;
+    const hasWeb = distFiles.includes(webBundle);
+
+    execSync(
+      `cp -Lfp "${path.join(distDir, lynxBundle)}" "${path.join(targetDist, lynxBundle)}"`,
+    );
+    if (hasWeb) {
+      execSync(
+        `cp -Lfp "${path.join(distDir, webBundle)}" "${path.join(targetDist, webBundle)}"`,
+      );
+    }
+
+    return {
+      name,
+      file: `dist/${lynxBundle}`,
+      ...(hasWeb ? { webFile: `dist/${webBundle}` } : {}),
+    };
+  });
 }
 
 function sortFilesByDirectoryFirst(files) {
@@ -80,6 +106,7 @@ function parseExampleData() {
     const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
     const targetDir = path.join(linkPath, entry);
     copyExampleFiles(exampleDir, targetDir);
+    const templateFiles = copyBundlesAndGetTemplateFiles(exampleDir, targetDir);
 
     const allFiles = getAllFiles(exampleDir, []);
     const files = allFiles.map((f) => path.relative(exampleDir, f));
@@ -95,7 +122,7 @@ function parseExampleData() {
           name: pkg.name || entry,
           files: sortFilesByDirectoryFirst(filtered),
           previewImage: files.find((f) => previewReg.test(f)) || null,
-          templateFiles: getTemplateFiles(filtered),
+          templateFiles,
           exampleGitBaseUrl:
             'https://github.com/Aniket-508/shadcn-lynx/tree/main/examples',
         },
@@ -104,7 +131,7 @@ function parseExampleData() {
       ),
     );
   });
-  console.log('examples prepared → apps/docs/public/lynx-examples/');
+  console.log(`examples prepared → ${path.relative(process.cwd(), linkPath)}`);
 }
 
 parseExampleData();

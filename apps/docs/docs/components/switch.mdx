@@ -24,17 +24,12 @@ npx shadcn-lynx add switch
 ## Usage
 
 ```tsx
-import { Switch, SwitchTrack, SwitchThumb } from '@/components/ui/switch';
+import { Switch } from '@/components/ui/switch';
 import { useState } from '@lynx-js/react';
 
 export function Example() {
   const [checked, setChecked] = useState(false);
-  return (
-    <Switch checked={checked} onChange={setChecked}>
-      <SwitchTrack />
-      <SwitchThumb />
-    </Switch>
-  );
+  return <Switch checked={checked} onChange={setChecked} />;
 }
 ```
 

@@ -8,6 +8,9 @@ node_modules
 dist/
 doc_build/
 
+# Generated example previews (produced by `pnpm prepare:examples`)
+apps/docs/docs/public/lynx-examples/
+
 # Profile
 .rspack-profile-*/
 

@@ -11,12 +11,17 @@ export function ComponentPreview({
   variant = 'default',
   defaultFile,
 }: ComponentPreviewProps) {
-  const file = defaultFile || `${component}/${variant}/index.tsx`;
+  // `defaultFile` and `entry` are resolved relative to the example folder set
+  // by `example`, so they must NOT repeat the component name. `defaultEntryName`
+  // selects the matching web/lynx bundle from templateFiles[].name.
+  const file = defaultFile || `${variant}/index.tsx`;
   return (
     <Go
       example={component}
       defaultFile={file}
-      entry={`${component}/${variant}`}
+      defaultEntryName={variant}
+      entry={variant}
+      webPreviewMode="auto"
     />
   );
 }
