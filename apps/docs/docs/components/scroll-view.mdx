@@ -1,0 +1,40 @@
+---
+title: Scroll View
+description: A styled scroll container with cross-platform bounce behavior.
+---
+
+import { ComponentPreview } from '@theme';
+
+# Scroll View
+
+A bordered shadcn surface built on lynx-ui's cross-platform `ScrollView`.
+
+```bash
+npx shadcn-lynx add scroll-view
+```
+
+## Preview
+
+<ComponentPreview component="scroll-view" />
+
+## Usage
+
+```tsx
+import { ScrollView } from '@/components/ui/scroll-view';
+
+<ScrollView className="h-96 p-4">
+  {content}
+</ScrollView>;
+```
+
+Use `List` for large repeated collections. `ScrollView` is best for bounded, mixed content.
+
+## API highlights
+
+| Prop | Type | Default |
+| --- | --- | --- |
+| `scrollOrientation` | `'vertical' \| 'horizontal'` | `'vertical'` |
+| `enableScroll` | `boolean` | `true` |
+| `lazyOptions` | `LazyOptions` | - |
+| `bounceableOptions` | `boolean \| BounceableBasicProps` | - |
+| `scrollviewId` | `string` | `'scrollview'` |

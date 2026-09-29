@@ -1,3 +1,4 @@
+import { root } from '@lynx-js/react';
 import {
   DialogBackdrop,
   DialogClose,
@@ -9,7 +10,7 @@ import {
   DialogTrigger,
 } from '@shadcn-lynx/ui/dialog';
 
-export default (
+const example = (
   <view style={{ padding: 24 }}>
     <DialogRoot>
       <DialogTrigger>
@@ -43,3 +44,7 @@ export default (
     </DialogRoot>
   </view>
 );
+
+root.render(example);
+
+export default example;

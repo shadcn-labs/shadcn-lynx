@@ -115,6 +115,68 @@ export function cn(...inputs: ClassValue[]) {
     console.log(`✔ Created ${config.tailwind?.css ?? 'src/global.css'}`);
   }
 
+  const tailwindConfigPath = resolve(
+    cwd,
+    config.tailwind?.config ?? 'tailwind.config.ts',
+  );
+  if (!existsSync(tailwindConfigPath)) {
+    const tailwindConfigContent = `import lynxPreset from '@lynx-js/tailwind-preset'
+import type { Config } from 'tailwindcss'
+
+export default {
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
+  darkMode: 'class',
+  presets: [lynxPreset],
+  theme: {
+    extend: {
+      colors: {
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
+        },
+        secondary: {
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))',
+        },
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
+        },
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))',
+        },
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))',
+        },
+        popover: {
+          DEFAULT: 'hsl(var(--popover))',
+          foreground: 'hsl(var(--popover-foreground))',
+        },
+        card: {
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))',
+        },
+      },
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
+      },
+    },
+  },
+} satisfies Config
+`;
+    writeFileSync(tailwindConfigPath, tailwindConfigContent, 'utf-8');
+    console.log(`✔ Created ${config.tailwind?.config ?? 'tailwind.config.ts'}`);
+  }
+
   // Create the UI directory
   const uiPath = resolve(cwd, 'src/components/ui');
   if (!existsSync(uiPath)) {
@@ -124,6 +186,16 @@ export function cn(...inputs: ClassValue[]) {
 
   console.log('');
   console.log('Success! Project initialization complete.');
+  console.log('');
+  console.log(
+    'Install styling: pnpm add -D tailwindcss@3.4.17 @lynx-js/tailwind-preset@0.5.0 rsbuild-plugin-tailwindcss@0.1.1',
+  );
+  console.log(
+    'Add pluginTailwindCSS() from `rsbuild-plugin-tailwindcss` to `plugins` in lynx.config.ts.',
+  );
+  console.log(
+    `Import the configured CSS file (${config.tailwind?.css ?? 'src/global.css'}) from your application entry.`,
+  );
   console.log('');
   console.log('Run `npx shadcn-lynx add button` to add your first component.');
 }

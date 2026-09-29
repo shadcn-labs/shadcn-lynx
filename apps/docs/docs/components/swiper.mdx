@@ -1,0 +1,45 @@
+---
+title: Swiper
+description: A swipeable carousel with looping and autoplay support.
+---
+
+import { ComponentPreview } from '@theme';
+
+# Swiper
+
+A shadcn card viewport around lynx-ui's high-performance carousel.
+
+```bash
+npx shadcn-lynx add swiper
+```
+
+## Preview
+
+<ComponentPreview component="swiper" />
+
+## Usage
+
+```tsx
+import { Swiper, SwiperItem } from '@/components/ui/swiper';
+
+<Swiper data={cards} itemWidth={280} itemHeight={180}>
+  {({ item }) => (
+    <SwiperItem>
+      <Card item={item} />
+    </SwiperItem>
+  )}
+</Swiper>;
+```
+
+The render function must return one `SwiperItem`. Set `containerWidth` explicitly when the host width differs from `lynx.__globalProps.screenWidth`.
+
+## API highlights
+
+| Prop | Type | Default |
+| --- | --- | --- |
+| `data` | `T[]` | required |
+| `itemWidth` | `number` | required |
+| `itemHeight` | `number \| 'auto'` | - |
+| `loop` | `boolean` | `false` |
+| `autoPlay` | `boolean` | `false` |
+| `modeConfig` | alignment and spacing options | - |

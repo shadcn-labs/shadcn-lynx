@@ -1,0 +1,44 @@
+---
+title: Sortable
+description: A drag-to-reorder collection with styled items and handles.
+---
+
+import { ComponentPreview } from '@theme';
+
+# Sortable
+
+A shadcn card treatment for lynx-ui's drag-to-reorder primitives.
+
+```bash
+npx shadcn-lynx add sortable
+```
+
+## Preview
+
+<ComponentPreview component="sortable" />
+
+## Usage
+
+```tsx
+import { SortableItem, SortableRoot } from '@/components/ui/sortable';
+
+<SortableRoot data={items} onSortEnd={setItems}>
+  {(item) => (
+    <SortableItem sortingKey={item.getSortingKey()}>
+      <text>{item.dataItem.label}</text>
+    </SortableItem>
+  )}
+</SortableRoot>;
+```
+
+Set `as="DraggableRoot"` and render `SortableItemArea` inside an item when only a handle should reorder it.
+
+## API highlights
+
+| Prop | Type | Default |
+| --- | --- | --- |
+| `data` | `SortableData<T>[]` | required |
+| `onSortEnd` | `(items) => void` | required |
+| `enableSorting` | `boolean` | `true` |
+| `boundaryId` | `string` | - |
+| `sortingKey` | `string` | required on `SortableItem` |

@@ -36,7 +36,7 @@ export function Switch({
   return (
     <BaseSwitch
       className={cn(
-        'inline-flex h-[24px] w-[44px] shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input',
+        'inline-flex h-[24px] w-[44px] shrink-0 items-center rounded-full border-2 border-transparent transition-colors ring-offset-background ui-active:opacity-80 ui-disabled:pointer-events-none ui-disabled:opacity-50',
         className,
       )}
       checked={checked}
@@ -48,14 +48,14 @@ export function Switch({
     >
       <BaseSwitchTrack
         className={cn(
-          'flex h-full w-full items-center rounded-full transition-colors',
-          'ui-checked:bg-primary ui-unchecked:bg-input',
+          'flex h-full w-full items-center rounded-full bg-input transition-colors',
+          'ui-checked:bg-primary',
         )}
       >
         <BaseSwitchThumb
           className={cn(
-            'pointer-events-none block h-5 w-5 rounded-full bg-background shadow-lg ring-0 transition-transform',
-            'ui-checked:translate-x-5 ui-unchecked:translate-x-0',
+            'pointer-events-none block h-5 w-5 translate-x-0 rounded-full bg-background shadow-lg ring-0 transition-transform',
+            'ui-checked:translate-x-5',
           )}
         />
       </BaseSwitchTrack>

@@ -1,3 +1,4 @@
+import { root } from '@lynx-js/react';
 import {
   SheetBackdrop,
   SheetContent,
@@ -8,7 +9,7 @@ import {
   SheetTrigger,
 } from '@shadcn-lynx/ui/sheet';
 
-export default (
+const example = (
   <view style={{ padding: 24 }}>
     <SheetRoot>
       <SheetTrigger>
@@ -28,3 +29,7 @@ export default (
     </SheetRoot>
   </view>
 );
+
+root.render(example);
+
+export default example;

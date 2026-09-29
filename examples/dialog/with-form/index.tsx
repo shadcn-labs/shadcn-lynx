@@ -1,4 +1,4 @@
-import { useState } from '@lynx-js/react';
+import { root, useState } from '@lynx-js/react';
 import {
   DialogBackdrop,
   DialogClose,
@@ -11,7 +11,7 @@ import {
 } from '@shadcn-lynx/ui/dialog';
 import { Input } from '@shadcn-lynx/ui/input';
 
-export default () => {
+function Example() {
   const [email, setEmail] = useState('');
   return (
     <view style={{ padding: 24 }}>
@@ -49,4 +49,8 @@ export default () => {
       </DialogRoot>
     </view>
   );
-};
+}
+
+root.render(<Example />);
+
+export default Example;

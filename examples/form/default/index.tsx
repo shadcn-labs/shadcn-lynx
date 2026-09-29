@@ -1,3 +1,4 @@
+import { root } from '@lynx-js/react';
 import {
   FormControl,
   FormField,
@@ -9,7 +10,7 @@ import {
 } from '@shadcn-lynx/ui/form';
 import { Input } from '@shadcn-lynx/ui/input';
 
-export default (
+const example = (
   <view style={{ padding: 24 }}>
     <FormRoot
       initialValues={{ email: '' }}
@@ -39,3 +40,7 @@ export default (
     </FormRoot>
   </view>
 );
+
+root.render(example);
+
+export default example;

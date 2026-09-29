@@ -1,7 +1,7 @@
-import { useState } from '@lynx-js/react';
+import { root, useState } from '@lynx-js/react';
 import { Input } from '@shadcn-lynx/ui/input';
 
-export default () => {
+function Example() {
   const [value, setValue] = useState('');
   return (
     <view style={{ padding: 24 }}>
@@ -13,4 +13,8 @@ export default () => {
       />
     </view>
   );
-};
+}
+
+root.render(<Example />);
+
+export default Example;

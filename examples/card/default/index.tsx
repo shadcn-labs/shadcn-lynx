@@ -1,6 +1,7 @@
+import { root } from '@lynx-js/react';
 import { Card, CardContent } from '@shadcn-lynx/ui/card';
 
-export default (
+const example = (
   <view style={{ padding: 24 }}>
     <Card style={{ padding: 24 }}>
       <CardContent>
@@ -9,3 +10,7 @@ export default (
     </Card>
   </view>
 );
+
+root.render(example);
+
+export default example;

@@ -1,3 +1,4 @@
+import { root } from '@lynx-js/react';
 import {
   PopoverBackdrop,
   PopoverContent,
@@ -6,7 +7,7 @@ import {
   PopoverTrigger,
 } from '@shadcn-lynx/ui/popover';
 
-export default (
+const example = (
   <view style={{ padding: 24 }}>
     <PopoverRoot>
       <PopoverTrigger>
@@ -25,3 +26,7 @@ export default (
     </PopoverRoot>
   </view>
 );
+
+root.render(example);
+
+export default example;

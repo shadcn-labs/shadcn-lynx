@@ -13,10 +13,5 @@
     "text": "Registry",
     "link": "/registry/",
     "activeMatch": "/registry/"
-  },
-  {
-    "text": "Forms",
-    "link": "/forms/",
-    "activeMatch": "/forms/"
   }
 ]

@@ -175,6 +175,78 @@
       "dependencies": ["clsx", "tailwind-merge", "@lynx-js/lynx-ui"],
       "registryDependencies": ["types", "label"],
       "files": [{ "path": "form.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "draggable",
+      "type": "registry:ui",
+      "title": "Draggable",
+      "description": "A draggable surface with optional drag-handle composition.",
+      "dependencies": ["clsx", "tailwind-merge", "@lynx-js/lynx-ui"],
+      "registryDependencies": ["types"],
+      "files": [{ "path": "draggable.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "feed-list",
+      "type": "registry:ui",
+      "title": "Feed List",
+      "description": "A virtualized feed with refresh and load-more behavior.",
+      "dependencies": ["clsx", "tailwind-merge", "@lynx-js/lynx-ui"],
+      "registryDependencies": ["types"],
+      "files": [{ "path": "feed-list.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "lazy-component",
+      "type": "registry:ui",
+      "title": "Lazy Component",
+      "description": "Defers rendering expensive content until it approaches the viewport.",
+      "dependencies": ["clsx", "tailwind-merge", "@lynx-js/lynx-ui"],
+      "registryDependencies": ["types"],
+      "files": [{ "path": "lazy-component.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "list",
+      "type": "registry:ui",
+      "title": "List",
+      "description": "A styled virtualized list for long collections.",
+      "dependencies": ["clsx", "tailwind-merge", "@lynx-js/lynx-ui"],
+      "registryDependencies": ["types"],
+      "files": [{ "path": "list.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "scroll-view",
+      "type": "registry:ui",
+      "title": "Scroll View",
+      "description": "A styled scroll container with cross-platform bounce behavior.",
+      "dependencies": ["clsx", "tailwind-merge", "@lynx-js/lynx-ui"],
+      "registryDependencies": ["types"],
+      "files": [{ "path": "scroll-view.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "sortable",
+      "type": "registry:ui",
+      "title": "Sortable",
+      "description": "A drag-to-reorder collection with styled items and handles.",
+      "dependencies": ["clsx", "tailwind-merge", "@lynx-js/lynx-ui"],
+      "registryDependencies": ["types"],
+      "files": [{ "path": "sortable.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "swipe-action",
+      "type": "registry:ui",
+      "title": "Swipe Action",
+      "description": "Reveals a contextual action by swiping a content row.",
+      "dependencies": ["clsx", "tailwind-merge", "@lynx-js/lynx-ui"],
+      "registryDependencies": ["types"],
+      "files": [{ "path": "swipe-action.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "swiper",
+      "type": "registry:ui",
+      "title": "Swiper",
+      "description": "A swipeable carousel with looping and autoplay support.",
+      "dependencies": ["clsx", "tailwind-merge", "@lynx-js/lynx-ui"],
+      "registryDependencies": ["types"],
+      "files": [{ "path": "swiper.tsx", "type": "registry:ui" }]
     }
   ]
 }

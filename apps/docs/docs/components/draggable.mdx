@@ -1,0 +1,40 @@
+---
+title: Draggable
+description: A draggable surface with optional drag-handle composition.
+---
+
+import { ComponentPreview } from '@theme';
+
+# Draggable
+
+A shadcn-styled draggable surface powered by the headless `Draggable` primitives from `@lynx-js/lynx-ui`.
+
+```bash
+npx shadcn-lynx add draggable
+```
+
+## Preview
+
+<ComponentPreview component="draggable" />
+
+## Usage
+
+```tsx
+import { Draggable } from '@/components/ui/draggable';
+
+<Draggable resetOnEnd>
+  <text>Drag this card</text>
+</Draggable>;
+```
+
+Use `DraggableRoot` with `DraggableArea` when only a handle should initiate dragging. Use `MTSRef` for imperative main-thread transforms.
+
+## API
+
+| Prop | Type | Default |
+| --- | --- | --- |
+| `enableDragging` | `boolean` | `true` |
+| `allowedDirection` | direction or direction array | `'all'` |
+| `trigger` | `'longpress' \| 'immediate'` | `'longpress'` |
+| `resetOnEnd` | `boolean` | `false` |
+| `draggableProps` | Lynx `ViewProps` | - |
