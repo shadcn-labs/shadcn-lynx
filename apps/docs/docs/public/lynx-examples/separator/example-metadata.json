@@ -1,0 +1,27 @@
+{
+  "name": "@shadcn-lynx-example/separator",
+  "files": [
+    "dist/horizontal.lynx.bundle",
+    "dist/horizontal.web.bundle",
+    "dist/vertical.lynx.bundle",
+    "dist/vertical.web.bundle",
+    "horizontal/index.tsx",
+    "vertical/index.tsx",
+    "lynx.config.mjs",
+    "package.json"
+  ],
+  "previewImage": null,
+  "templateFiles": [
+    {
+      "name": "horizontal",
+      "file": "dist/horizontal.lynx.bundle",
+      "webFile": "dist/horizontal.web.bundle"
+    },
+    {
+      "name": "vertical",
+      "file": "dist/vertical.lynx.bundle",
+      "webFile": "dist/vertical.web.bundle"
+    }
+  ],
+  "exampleGitBaseUrl": "https://github.com/Aniket-508/shadcn-lynx/tree/main/examples"
+}

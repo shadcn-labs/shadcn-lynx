@@ -6,10 +6,6 @@
   "04.theming",
   "05.dark-mode",
   "06.cli",
-  "07.javascript",
-  "09.figma",
-  "10.changelog",
-  "11.legacy",
   "12.monorepo",
   "rtl",
   {
@@ -19,14 +15,7 @@
   },
   {
     "type": "dir-section-header",
-    "name": "forms",
-    "label": "Forms"
-  },
-  {
-    "type": "dir-section-header",
     "name": "registry",
     "label": "Registry"
-  },
-  "mcp",
-  "skills"
+  }
 ]

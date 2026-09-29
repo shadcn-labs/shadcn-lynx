@@ -1,0 +1,44 @@
+---
+title: List
+description: A styled virtualized list for large collections.
+---
+
+import { ComponentPreview } from '@theme';
+
+# List
+
+A shadcn-themed wrapper around lynx-ui's high-performance virtualized `List`.
+
+```bash
+npx shadcn-lynx add list
+```
+
+## Preview
+
+<ComponentPreview component="list" />
+
+## Usage
+
+```tsx
+import { List } from '@/components/ui/list';
+
+<List listId="settings">
+  {items.map((item) => (
+    <list-item item-key={item.id} key={item.id}>
+      <SettingsRow item={item} />
+    </list-item>
+  ))}
+</List>;
+```
+
+Use `list-item` as the direct child and provide stable `item-key` values. Prefer `FeedList` only when refresh or load-more behavior is required.
+
+## API highlights
+
+| Prop | Type | Default |
+| --- | --- | --- |
+| `listId` | `string` | required |
+| `listType` | `'single' \| 'flow' \| 'waterfall'` | `'single'` |
+| `scrollOrientation` | `'vertical' \| 'horizontal'` | `'vertical'` |
+| `spanCount` | `number` | `1` |
+| `enableScrollBar` | `boolean` | `false` |

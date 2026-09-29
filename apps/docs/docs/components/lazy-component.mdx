@@ -1,0 +1,44 @@
+---
+title: Lazy Component
+description: Defers expensive content until it approaches the viewport.
+---
+
+import { ComponentPreview } from '@theme';
+
+# Lazy Component
+
+Defers mounting expensive content and wraps the revealed content in a shadcn card surface.
+
+```bash
+npx shadcn-lynx add lazy-component
+```
+
+## Preview
+
+<ComponentPreview component="lazy-component" />
+
+## Usage
+
+```tsx
+import { LazyComponent } from '@/components/ui/lazy-component';
+
+<LazyComponent
+  pid="recommendations"
+  scene="product-detail"
+  estimatedStyle={{ width: '100%', height: '180px' }}
+>
+  <Recommendations />
+</LazyComponent>;
+```
+
+`pid` must be unique on the page. Keep `estimatedStyle` close to the final size to avoid layout shifts.
+
+## API
+
+| Prop | Type | Default |
+| --- | --- | --- |
+| `pid` | `string` | required |
+| `scene` | `string` | required |
+| `estimatedStyle` | `CSSProperties` | required |
+| `unmountOnExit` | `boolean` | `false` |
+| `className` | `string` | - |

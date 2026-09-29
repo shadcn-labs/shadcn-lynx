@@ -1,14 +1,14 @@
-import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const currentDir = process.cwd();
-const examplesDir = currentDir;
-const linkPath = path.join(
-  currentDir,
+const scriptDir = path.dirname(fileURLToPath(import.meta.url));
+const examplesDir = path.resolve(scriptDir, '../..');
+const linkPath = path.resolve(
+  examplesDir,
   '../apps/docs/docs/public/lynx-examples',
 );
-const ignoreDirs = ['node_modules', '.git', '.turbo', 'dist', 'tools'];
+const ignoreDirs = ['node_modules', '.git', '.turbo', 'tools'];
 const ignoreFiles = [
   '.DS_Store',
   'LICENSE',
@@ -38,7 +38,7 @@ function copyExampleFiles(exampleDir, targetDir) {
     const src = path.join(exampleDir, file);
     const dest = path.join(targetDir, file);
     if (ignoreDirs.includes(file) || ignoreFiles.includes(file)) return;
-    execSync(`cp -Lrfp "${src}" "${dest}"`);
+    fs.cpSync(src, dest, { dereference: true, recursive: true });
   });
 }
 
@@ -104,7 +104,7 @@ function parseExampleData() {
       ),
     );
   });
-  console.log('examples prepared → apps/docs/public/lynx-examples/');
+  console.log('examples prepared → apps/docs/docs/public/lynx-examples/');
 }
 
 parseExampleData();

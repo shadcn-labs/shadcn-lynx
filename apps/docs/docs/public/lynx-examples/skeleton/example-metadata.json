@@ -1,0 +1,27 @@
+{
+  "name": "@shadcn-lynx-example/skeleton",
+  "files": [
+    "card/index.tsx",
+    "default/index.tsx",
+    "dist/card.lynx.bundle",
+    "dist/card.web.bundle",
+    "dist/default.lynx.bundle",
+    "dist/default.web.bundle",
+    "lynx.config.mjs",
+    "package.json"
+  ],
+  "previewImage": null,
+  "templateFiles": [
+    {
+      "name": "card",
+      "file": "dist/card.lynx.bundle",
+      "webFile": "dist/card.web.bundle"
+    },
+    {
+      "name": "default",
+      "file": "dist/default.lynx.bundle",
+      "webFile": "dist/default.web.bundle"
+    }
+  ],
+  "exampleGitBaseUrl": "https://github.com/Aniket-508/shadcn-lynx/tree/main/examples"
+}

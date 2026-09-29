@@ -1,6 +1,7 @@
+import { root } from '@lynx-js/react';
 import { Separator } from '@shadcn-lynx/ui/separator';
 
-export default (
+const example = (
   <view
     style={{ padding: 24, display: 'flex', flexDirection: 'row', height: 60 }}
   >
@@ -9,3 +10,7 @@ export default (
     <text>Right</text>
   </view>
 );
+
+root.render(example);
+
+export default example;

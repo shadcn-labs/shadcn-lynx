@@ -1,0 +1,43 @@
+{
+  "name": "@shadcn-lynx-example/badge",
+  "files": [
+    "default/index.tsx",
+    "destructive/index.tsx",
+    "dist/default.lynx.bundle",
+    "dist/default.web.bundle",
+    "dist/destructive.lynx.bundle",
+    "dist/destructive.web.bundle",
+    "dist/outline.lynx.bundle",
+    "dist/outline.web.bundle",
+    "dist/secondary.lynx.bundle",
+    "dist/secondary.web.bundle",
+    "outline/index.tsx",
+    "secondary/index.tsx",
+    "lynx.config.mjs",
+    "package.json"
+  ],
+  "previewImage": null,
+  "templateFiles": [
+    {
+      "name": "default",
+      "file": "dist/default.lynx.bundle",
+      "webFile": "dist/default.web.bundle"
+    },
+    {
+      "name": "destructive",
+      "file": "dist/destructive.lynx.bundle",
+      "webFile": "dist/destructive.web.bundle"
+    },
+    {
+      "name": "outline",
+      "file": "dist/outline.lynx.bundle",
+      "webFile": "dist/outline.web.bundle"
+    },
+    {
+      "name": "secondary",
+      "file": "dist/secondary.lynx.bundle",
+      "webFile": "dist/secondary.web.bundle"
+    }
+  ],
+  "exampleGitBaseUrl": "https://github.com/Aniket-508/shadcn-lynx/tree/main/examples"
+}

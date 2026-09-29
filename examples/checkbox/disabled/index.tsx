@@ -1,7 +1,12 @@
+import { root } from '@lynx-js/react';
 import { Checkbox } from '@shadcn-lynx/ui/checkbox';
 
-export default (
+const example = (
   <view style={{ padding: 24 }}>
     <Checkbox disabled />
   </view>
 );
+
+root.render(example);
+
+export default example;

@@ -1,6 +1,7 @@
+import { root } from '@lynx-js/react';
 import { Button } from '@shadcn-lynx/ui/button';
 
-export default (
+const example = (
   <view
     style={{ padding: 24, display: 'flex', flexDirection: 'column', gap: 12 }}
   >
@@ -9,3 +10,7 @@ export default (
     </Button>
   </view>
 );
+
+root.render(example);
+
+export default example;

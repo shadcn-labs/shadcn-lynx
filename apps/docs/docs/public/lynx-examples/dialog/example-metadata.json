@@ -1,0 +1,27 @@
+{
+  "name": "@shadcn-lynx-example/dialog",
+  "files": [
+    "default/index.tsx",
+    "dist/default.lynx.bundle",
+    "dist/default.web.bundle",
+    "dist/with-form.lynx.bundle",
+    "dist/with-form.web.bundle",
+    "with-form/index.tsx",
+    "lynx.config.mjs",
+    "package.json"
+  ],
+  "previewImage": null,
+  "templateFiles": [
+    {
+      "name": "default",
+      "file": "dist/default.lynx.bundle",
+      "webFile": "dist/default.web.bundle"
+    },
+    {
+      "name": "with-form",
+      "file": "dist/with-form.lynx.bundle",
+      "webFile": "dist/with-form.web.bundle"
+    }
+  ],
+  "exampleGitBaseUrl": "https://github.com/Aniket-508/shadcn-lynx/tree/main/examples"
+}

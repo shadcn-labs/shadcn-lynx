@@ -1,10 +1,12 @@
-import { Switch, SwitchThumb, SwitchTrack } from '@shadcn-lynx/ui/switch';
+import { root } from '@lynx-js/react';
+import { Switch } from '@shadcn-lynx/ui/switch';
 
-export default (
+const example = (
   <view style={{ padding: 24 }}>
-    <Switch disabled>
-      <SwitchTrack />
-      <SwitchThumb />
-    </Switch>
+    <Switch disabled />
   </view>
 );
+
+root.render(example);
+
+export default example;

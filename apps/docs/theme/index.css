@@ -1,31 +1,47 @@
 :root {
-  --rp-c-brand: #111827;
-  --rp-c-brand-dark: #030712;
-  --rp-c-brand-light: #374151;
-  --rp-c-brand-lighter: #4b5563;
-  --rp-c-brand-tint: rgba(17, 24, 39, 0.12);
-  --rp-home-hero-name-background: linear-gradient(
-    120deg,
-    #111827,
-    #0891b2 42%,
-    #65a30d
-  );
+  --rp-c-brand: #18181b;
+  --rp-c-brand-dark: #09090b;
+  --rp-c-brand-light: #3f3f46;
+  --rp-c-brand-lighter: #52525b;
+  --rp-c-brand-tint: rgba(24, 24, 27, 0.08);
+  --rp-c-divider: #e4e4e7;
+  --rp-c-bg-soft: #fafafa;
+  --rp-radius: 0.5rem;
+  --rp-home-hero-name-background: linear-gradient(120deg, #09090b, #52525b);
   --rp-home-mask-background-image: none;
 }
 
 .dark {
-  --rp-c-brand: #f8fafc;
-  --rp-c-brand-dark: #e5e7eb;
-  --rp-c-brand-light: #cbd5e1;
-  --rp-c-brand-tint: rgba(248, 250, 252, 0.14);
+  --rp-c-brand: #fafafa;
+  --rp-c-brand-dark: #e4e4e7;
+  --rp-c-brand-light: #d4d4d8;
+  --rp-c-brand-lighter: #a1a1aa;
+  --rp-c-brand-tint: rgba(250, 250, 250, 0.1);
+  --rp-c-divider: #27272a;
+  --rp-c-bg-soft: #18181b;
 }
 
 .rspress-doc h2 {
   margin-top: 2rem;
 }
 
+.rspress-doc table {
+  overflow: hidden;
+  border: 1px solid var(--rp-c-divider);
+  border-radius: var(--rp-radius);
+}
+
 .rspress-doc table code,
 .rspress-doc li code,
 .rspress-doc p code {
   white-space: nowrap;
+}
+
+.rspress-doc pre,
+.rspress-doc div[class*="language-"] {
+  border-radius: var(--rp-radius);
+}
+
+.rspress-doc a:not([class]) {
+  text-underline-offset: 4px;
 }

@@ -1,0 +1,44 @@
+---
+title: Feed List
+description: A virtualized feed with refresh and load-more behavior.
+---
+
+import { ComponentPreview } from '@theme';
+
+# Feed List
+
+A styled `FeedList` for timelines and paginated feeds. It preserves lynx-ui virtualization, pull-to-refresh, and load-more semantics.
+
+```bash
+npx shadcn-lynx add feed-list
+```
+
+## Preview
+
+<ComponentPreview component="feed-list" />
+
+## Usage
+
+```tsx
+import { FeedList } from '@/components/ui/feed-list';
+
+<FeedList listId="feed" refreshOptions={{ onRefresh }}>
+  {items.map((item) => (
+    <list-item item-key={item.id} key={item.id}>
+      <FeedCard item={item} />
+    </list-item>
+  ))}
+</FeedList>;
+```
+
+`list-item` must be the direct child. Call `ref.current.finishRefresh()` after refreshing and `ref.current.changeHasMoreStatus(false)` when pagination ends.
+
+## API highlights
+
+| Prop | Type | Default |
+| --- | --- | --- |
+| `listId` | `string` | required |
+| `listType` | `'single' \| 'flow' \| 'waterfall'` | `'single'` |
+| `refreshOptions` | `boolean \| RefreshProps` | `false` |
+| `loadMoreFooter` | `ReactElement` | - |
+| `noMoreDataFooter` | `ReactElement` | - |

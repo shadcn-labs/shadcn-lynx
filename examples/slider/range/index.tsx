@@ -1,7 +1,7 @@
-import { useState } from '@lynx-js/react';
+import { root, useState } from '@lynx-js/react';
 import { Slider } from '@shadcn-lynx/ui/slider';
 
-export default () => {
+function Example() {
   const [value, setValue] = useState([20, 60]);
   return (
     <view style={{ padding: 24, gap: 12 }}>
@@ -11,4 +11,8 @@ export default () => {
       <Slider value={value} onValueChange={setValue} />
     </view>
   );
-};
+}
+
+root.render(<Example />);
+
+export default Example;

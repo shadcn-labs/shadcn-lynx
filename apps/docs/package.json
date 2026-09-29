@@ -8,6 +8,9 @@
     "check": "biome check --write",
     "dev": "rspress dev",
     "format": "biome format --write",
+    "prebuild": "pnpm run prepare:examples",
+    "predev": "pnpm run prepare:examples",
+    "prepare:examples": "pnpm --workspace-root build:examples && pnpm --workspace-root prepare:examples",
     "preview": "rspress preview"
   },
   "dependencies": {
@@ -18,9 +21,9 @@
     "@biomejs/biome": "2.4.14",
     "@rsbuild/plugin-sass": "^1.5.2",
     "@types/node": "^22.8.1",
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6"
+    "@types/react": "^18.3.27",
+    "@types/react-dom": "^18.3.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }

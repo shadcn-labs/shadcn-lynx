@@ -1,0 +1,43 @@
+{
+  "name": "@shadcn-lynx-example/checkbox",
+  "files": [
+    "checked/index.tsx",
+    "default/index.tsx",
+    "disabled/index.tsx",
+    "dist/checked.lynx.bundle",
+    "dist/checked.web.bundle",
+    "dist/default.lynx.bundle",
+    "dist/default.web.bundle",
+    "dist/disabled.lynx.bundle",
+    "dist/disabled.web.bundle",
+    "dist/with-label.lynx.bundle",
+    "dist/with-label.web.bundle",
+    "with-label/index.tsx",
+    "lynx.config.mjs",
+    "package.json"
+  ],
+  "previewImage": null,
+  "templateFiles": [
+    {
+      "name": "checked",
+      "file": "dist/checked.lynx.bundle",
+      "webFile": "dist/checked.web.bundle"
+    },
+    {
+      "name": "default",
+      "file": "dist/default.lynx.bundle",
+      "webFile": "dist/default.web.bundle"
+    },
+    {
+      "name": "disabled",
+      "file": "dist/disabled.lynx.bundle",
+      "webFile": "dist/disabled.web.bundle"
+    },
+    {
+      "name": "with-label",
+      "file": "dist/with-label.lynx.bundle",
+      "webFile": "dist/with-label.web.bundle"
+    }
+  ],
+  "exampleGitBaseUrl": "https://github.com/Aniket-508/shadcn-lynx/tree/main/examples"
+}

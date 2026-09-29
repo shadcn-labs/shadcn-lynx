@@ -1,3 +1,4 @@
+import { root } from '@lynx-js/react';
 import {
   Card,
   CardContent,
@@ -7,7 +8,7 @@ import {
   CardTitle,
 } from '@shadcn-lynx/ui/card';
 
-export default (
+const example = (
   <view style={{ padding: 24 }}>
     <Card>
       <CardHeader>
@@ -23,3 +24,7 @@ export default (
     </Card>
   </view>
 );
+
+root.render(example);
+
+export default example;

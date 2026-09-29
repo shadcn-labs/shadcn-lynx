@@ -5,6 +5,19 @@ import { defineConfig } from '@rspress/core';
 export default defineConfig({
   root: path.join(__dirname, 'docs'),
   base: '/docs',
+  route: {
+    exclude: [
+      'components/*.md',
+      'forms.md',
+      'forms/**',
+      '07.javascript.md',
+      '09.figma.md',
+      '11.legacy.md',
+      'mcp.md',
+      'skills.md',
+      'registry/{authentication,mcp-server,open-in-v0}.md',
+    ],
+  },
   builderConfig: {
     plugins: [pluginSass()],
     tools: {

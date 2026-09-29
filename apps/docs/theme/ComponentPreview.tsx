@@ -11,12 +11,15 @@ export function ComponentPreview({
   variant = 'default',
   defaultFile,
 }: ComponentPreviewProps) {
-  const file = defaultFile || `${component}/${variant}/index.tsx`;
+  const file = defaultFile || `${variant}/index.tsx`;
   return (
     <Go
       example={component}
       defaultFile={file}
-      entry={`${component}/${variant}`}
+      defaultEntryName={variant}
+      defaultTab="qrcode"
+      entry={variant}
+      webPreview={false}
     />
   );
 }

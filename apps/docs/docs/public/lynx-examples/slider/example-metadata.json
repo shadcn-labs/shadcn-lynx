@@ -1,0 +1,35 @@
+{
+  "name": "@shadcn-lynx-example/slider",
+  "files": [
+    "default/index.tsx",
+    "disabled/index.tsx",
+    "dist/default.lynx.bundle",
+    "dist/default.web.bundle",
+    "dist/disabled.lynx.bundle",
+    "dist/disabled.web.bundle",
+    "dist/range.lynx.bundle",
+    "dist/range.web.bundle",
+    "range/index.tsx",
+    "lynx.config.mjs",
+    "package.json"
+  ],
+  "previewImage": null,
+  "templateFiles": [
+    {
+      "name": "default",
+      "file": "dist/default.lynx.bundle",
+      "webFile": "dist/default.web.bundle"
+    },
+    {
+      "name": "disabled",
+      "file": "dist/disabled.lynx.bundle",
+      "webFile": "dist/disabled.web.bundle"
+    },
+    {
+      "name": "range",
+      "file": "dist/range.lynx.bundle",
+      "webFile": "dist/range.web.bundle"
+    }
+  ],
+  "exampleGitBaseUrl": "https://github.com/Aniket-508/shadcn-lynx/tree/main/examples"
+}

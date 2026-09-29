@@ -1,6 +1,7 @@
+import { root } from '@lynx-js/react';
 import { RadioGroupRoot, RadioItem } from '@shadcn-lynx/ui/radio-group';
 
-export default (
+const example = (
   <view style={{ padding: 24 }}>
     <RadioGroupRoot>
       <RadioItem value="option-1" label="Option 1" />
@@ -9,3 +10,7 @@ export default (
     </RadioGroupRoot>
   </view>
 );
+
+root.render(example);
+
+export default example;

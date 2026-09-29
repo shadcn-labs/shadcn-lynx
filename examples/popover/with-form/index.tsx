@@ -1,4 +1,4 @@
-import { useState } from '@lynx-js/react';
+import { root, useState } from '@lynx-js/react';
 import { Input } from '@shadcn-lynx/ui/input';
 import {
   PopoverBackdrop,
@@ -8,7 +8,7 @@ import {
   PopoverTrigger,
 } from '@shadcn-lynx/ui/popover';
 
-export default () => {
+function Example() {
   const [name, setName] = useState('');
   return (
     <view style={{ padding: 24 }}>
@@ -32,4 +32,8 @@ export default () => {
       </PopoverRoot>
     </view>
   );
-};
+}
+
+root.render(<Example />);
+
+export default Example;

@@ -21,6 +21,6 @@ features:
   - title: Registry-first
     details: Each page maps back to packages/registry so the docs describe the code users actually install.
     link: /registry
-  - title: Web preview ready
-    details: Guidance includes how to inspect Lynx bundles in the browser with @lynx-js/go-web while still targeting native hosts.
+  - title: Device preview ready
+    details: Every example includes a Lynx bundle QR code and copyable source so behavior can be checked in a native host.
 ---

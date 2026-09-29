@@ -1,6 +1,7 @@
+import { root } from '@lynx-js/react';
 import { Alert, AlertDescription, AlertTitle } from '@shadcn-lynx/ui/alert';
 
-export default (
+const example = (
   <view style={{ padding: 24 }}>
     <Alert variant="destructive">
       <AlertTitle>Error</AlertTitle>
@@ -10,3 +11,7 @@ export default (
     </Alert>
   </view>
 );
+
+root.render(example);
+
+export default example;

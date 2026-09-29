@@ -1,0 +1,43 @@
+{
+  "name": "@shadcn-lynx-example/sheet",
+  "files": [
+    "default/index.tsx",
+    "dist/default.lynx.bundle",
+    "dist/default.web.bundle",
+    "dist/left.lynx.bundle",
+    "dist/left.web.bundle",
+    "dist/right.lynx.bundle",
+    "dist/right.web.bundle",
+    "dist/top.lynx.bundle",
+    "dist/top.web.bundle",
+    "left/index.tsx",
+    "right/index.tsx",
+    "top/index.tsx",
+    "lynx.config.mjs",
+    "package.json"
+  ],
+  "previewImage": null,
+  "templateFiles": [
+    {
+      "name": "default",
+      "file": "dist/default.lynx.bundle",
+      "webFile": "dist/default.web.bundle"
+    },
+    {
+      "name": "left",
+      "file": "dist/left.lynx.bundle",
+      "webFile": "dist/left.web.bundle"
+    },
+    {
+      "name": "right",
+      "file": "dist/right.lynx.bundle",
+      "webFile": "dist/right.web.bundle"
+    },
+    {
+      "name": "top",
+      "file": "dist/top.lynx.bundle",
+      "webFile": "dist/top.web.bundle"
+    }
+  ],
+  "exampleGitBaseUrl": "https://github.com/Aniket-508/shadcn-lynx/tree/main/examples"
+}

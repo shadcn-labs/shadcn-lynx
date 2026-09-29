@@ -1,0 +1,43 @@
+---
+title: Swipe Action
+description: Reveals a contextual action by swiping a content row.
+---
+
+import { ComponentPreview } from '@theme';
+
+# Swipe Action
+
+A card-like row that reveals a shadcn destructive action surface on swipe.
+
+```bash
+npx shadcn-lynx add swipe-action
+```
+
+## Preview
+
+<ComponentPreview component="swipe-action" />
+
+## Usage
+
+```tsx
+import { SwipeAction } from '@/components/ui/swipe-action';
+
+<SwipeAction
+  swipeActionId="message-42"
+  enableSwipe
+  displayArea={<MessageRow />}
+  actionArea={<text>Delete</text>}
+  onAction={deleteMessage}
+/>;
+```
+
+## API
+
+| Prop | Type | Default |
+| --- | --- | --- |
+| `swipeActionId` | `string` | required |
+| `enableSwipe` | `boolean` | required |
+| `displayArea` | `ReactElement` | required |
+| `actionArea` | `ReactElement` | required |
+| `estimatedActionAreaSize` | `number` | `0` |
+| `onAction` | `(id: string) => void` | - |
